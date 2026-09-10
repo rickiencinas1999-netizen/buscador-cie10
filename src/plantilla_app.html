@@ -1,5 +1,5 @@
 <title>Buscador CIE-10</title>
-<meta name="theme-color" content="#0E6E64">
+<meta name="theme-color" content="#008375">
 <meta name="description" content="Buscador de diagnósticos CIE-10 por código, nombre o palabra clave, organizado por especialidad médica.">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon-192.png">
@@ -9,17 +9,17 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#0E2325;
-  --ink-soft:#3C5457;
+  --ink:#22303A;
+  --ink-soft:#55666E;
   --paper:#EFF4F3;
   --surface:#FFFFFF;
   --surface-2:#E4ECEA;
   --line:#CBD8D5;
-  --accent:#0E6E64;
+  --accent:#008375;
   --accent-ink:#FFFFFF;
   --accent-2:#B5680E;
   --accent-2-soft:#F3E2C8;
-  --focus:#0E6E64;
+  --focus:#008375;
   --shadow: 0 1px 2px rgba(14,35,37,.06), 0 6px 18px rgba(14,35,37,.07);
   --radius: 10px;
   color-scheme: light;
@@ -74,48 +74,70 @@ code, .mono{font-family:'IBM Plex Mono','SFMono-Regular',Consolas,monospace;}
 header.top{
   position:sticky; top:0; z-index:20;
   background:var(--paper);
-  padding-top:22px; padding-bottom:14px;
+  padding-top:14px; padding-bottom:14px;
   border-bottom:1px solid var(--line);
 }
 .brand{
-  display:flex; align-items:baseline; gap:10px; margin-bottom:14px;
+  display:flex; align-items:center; gap:9px; margin-bottom:9px;
+}
+.brand .hospital-logo{
+  height:24px; width:auto; border-radius:4px; flex:0 0 auto;
+  background:#fff; padding:3px 6px; border:1px solid var(--line);
 }
 .brand .mark{
-  font-family:'IBM Plex Mono'; font-weight:700; font-size:13px;
+  font-family:'IBM Plex Mono'; font-weight:700; font-size:12px;
   background:var(--accent); color:var(--accent-ink);
   padding:3px 7px; border-radius:5px; letter-spacing:.5px;
 }
 .brand h1{
-  font-size:20px; margin:0; font-weight:700; letter-spacing:-.01em;
+  font-size:17px; margin:0; font-weight:700; letter-spacing:-.01em;
 }
+.theme-switch{
+  flex:0 0 auto; display:flex; gap:1px; background:var(--surface-2); border:1px solid var(--line);
+  border-radius:20px; padding:2px;
+}
+.theme-switch button{
+  border:0; background:transparent; color:var(--ink-soft);
+  width:25px; height:25px; border-radius:50%; cursor:pointer; font-size:12.5px; line-height:1;
+  display:flex; align-items:center; justify-content:center;
+}
+.theme-switch button.active{background:var(--accent); box-shadow:var(--shadow);}
+.theme-switch button:focus-visible{outline:2px solid var(--focus); outline-offset:1px;}
 .brand .tag{
-  font-size:12.5px; color:var(--ink-soft); margin-left:auto; text-align:right; line-height:1.35;
+  font-size:11.5px; color:var(--ink-soft); margin-left:auto; text-align:right; line-height:1.3;
 }
 
 .searchbar{
-  display:flex; align-items:center; gap:10px;
-  background:var(--surface); border:1.5px solid var(--line); border-radius:12px;
-  padding:11px 14px; box-shadow:var(--shadow);
+  display:flex; align-items:center; gap:12px;
+  background:var(--surface); border:2px solid var(--line); border-radius:15px;
+  padding:15px 18px; box-shadow:var(--shadow);
+  transition:border-color .12s;
 }
-.searchbar svg{flex:0 0 auto; color:var(--ink-soft);}
+.searchbar:focus-within{border-color:var(--accent);}
+.searchbar svg{flex:0 0 auto; color:var(--ink-soft); width:22px; height:22px;}
 .searchbar input{
   flex:1 1 auto; border:0; outline:0; background:transparent; color:var(--ink);
-  font-family:'IBM Plex Sans'; font-size:16px; min-width:0;
+  font-family:'IBM Plex Sans'; font-size:17px; font-weight:500; min-width:0;
 }
-.searchbar input::placeholder{color:var(--ink-soft);}
+.searchbar input::placeholder{color:var(--ink-soft); font-weight:400;}
 .searchbar .clear{
   flex:0 0 auto; border:0; background:var(--surface-2); color:var(--ink-soft);
-  width:24px;height:24px;border-radius:50%; cursor:pointer; font-size:14px; line-height:1;
+  width:26px;height:26px;border-radius:50%; cursor:pointer; font-size:16px; line-height:1;
   display:none; align-items:center; justify-content:center;
 }
 .searchbar .clear.show{display:flex;}
 
+.chips-section{padding:10px 0 2px;}
+.chips-section .lbl{
+  display:block; font-size:11px; font-weight:700; letter-spacing:.4px; text-transform:uppercase;
+  color:var(--ink-soft); margin-bottom:7px;
+}
 .chips{
-  display:flex; gap:7px; flex-wrap:wrap; margin-top:12px;
+  display:flex; gap:6px; flex-wrap:wrap;
 }
 .chip{
-  font-family:'IBM Plex Sans'; font-size:12.5px; font-weight:600;
-  padding:6px 11px; border-radius:20px; cursor:pointer; user-select:none;
+  font-family:'IBM Plex Sans'; font-size:12px; font-weight:600;
+  padding:5px 10px; border-radius:20px; cursor:pointer; user-select:none;
   border:1.5px solid var(--chip-c, var(--line)); color:var(--chip-c, var(--ink-soft));
   background:transparent; transition:background .12s, color .12s;
   white-space:nowrap;
@@ -124,70 +146,75 @@ header.top{
 .chip.active{background:var(--chip-c, var(--accent)); color:#fff; border-color:var(--chip-c, var(--accent));}
 .chip:focus-visible{outline:2px solid var(--focus); outline-offset:2px;}
 .chip-clear{
-  font-size:12.5px; font-weight:600; color:var(--ink-soft); background:none; border:1.5px dashed var(--line);
-  padding:6px 11px; border-radius:20px; cursor:pointer;
+  font-size:12px; font-weight:600; color:var(--ink-soft); background:none; border:1.5px dashed var(--line);
+  padding:5px 10px; border-radius:20px; cursor:pointer;
 }
 
 /* ---------- Main ---------- */
-main{padding:20px 0 60px;}
+main{padding:14px 0 44px;}
 
 .status-row{
   display:flex; align-items:baseline; justify-content:space-between; gap:12px;
-  margin-bottom:12px; flex-wrap:wrap;
+  margin-bottom:8px; flex-wrap:wrap;
 }
-.status-row h2{font-size:15px; margin:0; font-weight:700;}
-.status-row .count{font-size:12.5px; color:var(--ink-soft);}
+.status-row h2{font-size:14px; margin:0; font-weight:700;}
+.status-row .count{font-size:12px; color:var(--ink-soft);}
 
 /* overview grid (default state) */
+.intro-toggle{
+  display:block; font-family:'IBM Plex Sans'; font-size:12px; font-weight:600;
+  color:var(--ink-soft); background:none; border:0; padding:2px 0 8px; cursor:pointer;
+}
+.intro-toggle:focus-visible{outline:2px solid var(--focus); outline-offset:2px;}
 .intro{
   background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
-  padding:18px 20px; margin-bottom:22px; box-shadow:var(--shadow);
+  padding:10px 12px; margin-bottom:10px; box-shadow:var(--shadow);
 }
-.intro p{margin:0 0 8px; font-size:14px; line-height:1.55; color:var(--ink-soft);}
+.intro p{margin:0 0 6px; font-size:12.5px; line-height:1.45; color:var(--ink-soft);}
 .intro p:last-child{margin-bottom:0;}
 .intro b{color:var(--ink);}
 
 .overview-grid{
-  display:grid; grid-template-columns:repeat(auto-fill, minmax(220px,1fr)); gap:10px;
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(200px,1fr)); gap:8px;
 }
 .spec-card{
   background:var(--surface); border:1px solid var(--line); border-left:5px solid var(--sc);
-  border-radius:8px; padding:12px 14px; cursor:pointer; text-align:left;
+  border-radius:8px; padding:9px 11px; cursor:pointer; text-align:left;
   font-family:'IBM Plex Sans'; box-shadow:var(--shadow);
 }
-.spec-card .name{font-weight:700; font-size:13.5px; color:var(--ink); margin-bottom:2px;}
-.spec-card .meta{font-size:11.5px; color:var(--ink-soft);}
+.spec-card .name{font-weight:700; font-size:13px; color:var(--ink); margin-bottom:1px;}
+.spec-card .meta{font-size:11px; color:var(--ink-soft);}
 .spec-card:hover{border-left-width:8px;}
 .spec-card:focus-visible{outline:2px solid var(--focus); outline-offset:2px;}
 
 /* grouped category view */
-.group{margin-bottom:22px;}
+.group{margin-bottom:16px;}
 .group-head{
-  display:flex; align-items:center; gap:10px; margin-bottom:8px;
+  display:flex; align-items:center; gap:8px; margin-bottom:6px;
 }
-.group-head .dot{width:10px;height:10px;border-radius:50%; background:var(--sc); flex:0 0 auto;}
-.group-head h3{font-size:13px; margin:0; font-weight:700; color:var(--sc);}
-.group-head .sub{font-size:12px; color:var(--ink-soft);}
+.group-head .dot{width:9px;height:9px;border-radius:50%; background:var(--sc); flex:0 0 auto;}
+.group-head h3{font-size:12.5px; margin:0; font-weight:700; color:var(--sc);}
+.group-head .sub{font-size:11.5px; color:var(--ink-soft);}
 
-.cat-block{margin-bottom:14px;}
+.cat-block{margin-bottom:10px;}
 .cat-label{
-  display:inline-block; font-size:11px; font-weight:700; letter-spacing:.5px; text-transform:uppercase;
-  color:#fff; background:var(--sc); padding:3px 9px; border-radius:4px; margin-bottom:6px;
+  display:inline-block; font-size:10.5px; font-weight:700; letter-spacing:.5px; text-transform:uppercase;
+  color:#fff; background:var(--sc); padding:2px 8px; border-radius:4px; margin-bottom:4px;
 }
 .rows{border-top:1px solid var(--line);}
 
 .dx-row{
-  display:flex; align-items:flex-start; gap:12px; padding:8px 4px;
+  display:flex; align-items:flex-start; gap:10px; padding:6px 4px;
   border-bottom:1px solid var(--line);
 }
 .dx-row .code{
-  flex:0 0 auto; min-width:52px; text-align:center;
-  font-family:'IBM Plex Mono'; font-weight:700; font-size:12.5px;
+  flex:0 0 auto; min-width:48px; text-align:center;
+  font-family:'IBM Plex Mono'; font-weight:700; font-size:12px;
   color:var(--sc, var(--accent)); background:color-mix(in srgb, var(--sc, var(--accent)) 12%, var(--surface));
   border:1.2px solid var(--sc, var(--accent)); border-radius:5px; padding:2px 6px;
 }
-.dx-row .nm{flex:1 1 auto; font-size:13.5px; line-height:1.35; padding-top:2px;}
-.dx-row .nm .kw-hit{display:block; font-size:11px; font-weight:600; color:var(--accent); margin-top:2px;}
+.dx-row .nm{flex:1 1 auto; font-size:13px; line-height:1.3; padding-top:1px;}
+.dx-row .nm .kw-hit{display:block; font-size:10.5px; font-weight:600; color:var(--accent); margin-top:1px;}
 .dx-row .pills{flex:0 0 auto; display:flex; gap:4px; flex-wrap:wrap; max-width:220px; justify-content:flex-end;}
 .pill{
   font-size:10px; font-weight:600; padding:2px 7px; border-radius:20px; color:#fff; white-space:nowrap;
@@ -223,17 +250,27 @@ footer{
 <div class="wrap">
   <header class="top">
     <div class="brand">
+      <img class="hospital-logo" id="hospitalLogo" src="hospital-logo.png" alt="" onerror="this.remove()">
       <span class="mark">CIE-10</span>
       <h1>Buscador de Diagnósticos</h1>
-      <span class="tag">Catálogo institucional CIE-ABRIL-2024<br>__TOTAL_CODES__ códigos &middot; __TOTAL_TAGGED__ etiquetados &middot; búsqueda por síntomas y abreviaturas</span>
+      <div class="theme-switch" id="themeSwitch" role="group" aria-label="Tema de la app">
+        <button type="button" data-mode="light" aria-label="Fondo blanco">&#9728;&#65039;</button>
+        <button type="button" data-mode="dark" aria-label="Fondo negro">&#127769;</button>
+        <button type="button" data-mode="auto" aria-label="Automático">&#9210;</button>
+      </div>
+      <span class="tag">__TOTAL_CODES__ códigos &middot; __TOTAL_TAGGED__ etiquetados</span>
     </div>
     <div class="searchbar">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
       <input id="q" type="text" autocomplete="off" spellcheck="false" placeholder="Busca por código, nombre o palabra clave (p. ej. &ldquo;dolor de pecho&rdquo;, &ldquo;IAM&rdquo;, &ldquo;IVU&rdquo;)&hellip;">
       <button class="clear" id="clearBtn" aria-label="Limpiar búsqueda">&times;</button>
     </div>
-    <div class="chips" id="chips"></div>
   </header>
+
+  <div class="chips-section">
+    <span class="lbl">Filtrar por especialidad</span>
+    <div class="chips" id="chips"></div>
+  </div>
 
   <main id="main"></main>
 
@@ -269,11 +306,43 @@ const DATA = __DATA_JSON__;
   // selected specialty indices
   const selected = new Set();
   let query = "";
+  let introOpen = false;
 
   const chipsEl = document.getElementById('chips');
   const mainEl = document.getElementById('main');
   const qEl = document.getElementById('q');
   const clearBtn = document.getElementById('clearBtn');
+  const themeSwitch = document.getElementById('themeSwitch');
+  const themeButtons = Array.from(themeSwitch.querySelectorAll('button'));
+
+  // ---------- Tema: fondo blanco / negro / automático, con memoria por navegador ----------
+  const THEME_KEY = 'cie10-theme';
+  const THEME_LABELS = {auto:'Automático (según tu dispositivo)', light:'Fondo blanco', dark:'Fondo negro'};
+
+  function loadTheme(){
+    try{ return localStorage.getItem(THEME_KEY) || 'auto'; }catch(e){ return 'auto'; }
+  }
+  function saveTheme(mode){
+    try{ localStorage.setItem(THEME_KEY, mode); }catch(e){}
+  }
+  function applyTheme(mode){
+    if(mode === 'auto') delete document.documentElement.dataset.theme;
+    else document.documentElement.dataset.theme = mode;
+    themeButtons.forEach(btn=>{
+      const on = btn.dataset.mode === mode;
+      btn.classList.toggle('active', on);
+      btn.title = THEME_LABELS[btn.dataset.mode] + (on ? ' (activo)' : '');
+    });
+  }
+  let themeMode = loadTheme();
+  applyTheme(themeMode);
+  themeButtons.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      themeMode = btn.dataset.mode;
+      applyTheme(themeMode);
+      saveTheme(themeMode);
+    });
+  });
 
   function renderChips(){
     let html = '';
@@ -335,10 +404,13 @@ const DATA = __DATA_JSON__;
   }
 
   function renderOverview(){
-    const parts = [`<div class="intro">
-      <p><b>Cómo usarlo:</b> escribe un código, un nombre de diagnóstico o una palabra clave (síntoma o abreviatura, p. ej. &ldquo;dolor de pecho&rdquo;, &ldquo;IAM&rdquo;, &ldquo;IVU&rdquo;) para buscar en las __TOTAL_CODES__ claves del catálogo CIE-10, o elige una especialidad para ver su lista curada de diagnósticos frecuentes y relacionados, agrupada por categoría clínica.</p>
-      <p>Los diagnósticos marcados con una etiqueta de color ya están revisados y clasificados por especialidad; el resto del catálogo también es buscable por código, nombre o palabra clave.</p>
-    </div>`];
+    const parts = [`<button type="button" class="intro-toggle" id="introToggle">${introOpen?'&#9662;':'&#9656;'} Cómo usar el buscador</button>`];
+    if(introOpen){
+      parts.push(`<div class="intro">
+        <p><b>Cómo usarlo:</b> escribe un código, un nombre de diagnóstico o una palabra clave (síntoma o abreviatura, p. ej. &ldquo;dolor de pecho&rdquo;, &ldquo;IAM&rdquo;, &ldquo;IVU&rdquo;) para buscar en las __TOTAL_CODES__ claves del catálogo CIE-10, o elige una especialidad para ver su lista curada de diagnósticos frecuentes y relacionados, agrupada por categoría clínica.</p>
+        <p>Los diagnósticos marcados con una etiqueta de color ya están revisados y clasificados por especialidad; el resto del catálogo también es buscable por código, nombre o palabra clave. Catálogo institucional CIE-ABRIL-2024.</p>
+      </div>`);
+    }
     parts.push(`<div class="status-row"><h2>Especialidades</h2><span class="count">${specs.length} áreas &middot; toca una para ver su lista</span></div>`);
     parts.push('<div class="overview-grid">');
     specs.forEach((s,i)=>{
@@ -351,6 +423,8 @@ const DATA = __DATA_JSON__;
     });
     parts.push('</div>');
     mainEl.innerHTML = parts.join('');
+    const introBtn = document.getElementById('introToggle');
+    if(introBtn) introBtn.addEventListener('click', ()=>{ introOpen = !introOpen; render(); });
     mainEl.querySelectorAll('.spec-card').forEach(btn=>{
       btn.addEventListener('click', ()=>{
         selected.clear(); selected.add(+btn.dataset.i);
@@ -486,6 +560,21 @@ const DATA = __DATA_JSON__;
   clearBtn.addEventListener('click', ()=>{
     qEl.value=''; query=''; clearBtn.classList.remove('show'); render(); qEl.focus();
   });
+
+  // atajo práctico: presionar "/" desde cualquier parte enfoca la búsqueda,
+  // sin interferir si ya se está escribiendo en algún campo
+  document.addEventListener('keydown', (e)=>{
+    if(e.key !== '/') return;
+    const t = document.activeElement;
+    const typing = t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable);
+    if(typing) return;
+    e.preventDefault();
+    qEl.focus();
+  });
+
+  // en pantallas con teclado físico (computadora/tablet con teclado), deja
+  // el cursor listo en la búsqueda desde que abre la app
+  if(matchMedia('(pointer: fine)').matches){ qEl.focus(); }
 
   renderChips();
   render();

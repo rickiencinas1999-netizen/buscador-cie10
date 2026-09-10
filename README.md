@@ -50,7 +50,16 @@ webapp/
   manifest.json            Metadatos de instalación (PWA).
   sw.js                     Service worker: cachea la app para uso sin
                           conexión y habilita "instalarla" como app.
-  icon-192.png, icon-512.png   Íconos de la app.
+  icon-192.png, icon-512.png   Íconos de la app (PWA).
+  hospital-logo.png         Logo institucional (CIMA), se muestra junto
+                          al nombre de la app. Para cambiarlo, reemplaza
+                          este archivo (y su copia en docs/) por otro PNG
+                          y corre construir_app.py.
+docs/
+  (espejo exacto de webapp/, mismos archivos) — existe solo porque
+  GitHub Pages en modo "Deploy from a branch" únicamente puede publicar
+  la raíz del repo o una carpeta llamada "docs". Se regenera solo al
+  correr construir_app.py.
 dist/
   app_data.json           Datos generados (intermedio).
   poster.html              Póster generado (intermedio).
@@ -137,13 +146,27 @@ está generada en `webapp/`.
 
 1. Sube este repositorio a GitHub (ver instrucciones al final de este
    documento si no sabes cómo).
-2. En el repo, entra a **Settings -> Pages** y en "Source" elige
-   **"GitHub Actions"**.
-3. Con cada `git push` a la rama `main`, el workflow
-   `.github/workflows/deploy-pages.yml` publica automáticamente el
-   contenido de `webapp/`. La primera vez tarda 1-2 minutos; la URL final
-   aparece en **Settings -> Pages** (con este formato:
+2. En el repo, entra a **Settings -> Pages** y en **"Source"** elige
+   **"Deploy from a branch"**. Justo abajo aparecen dos menús: en el
+   primero elige la rama **`main`**, y en el segundo (que por default dice
+   `/ (root)`) elige **`/docs`**. Guarda con **Save**.
+3. Espera 1-2 minutos. La URL final aparece arriba en esa misma página de
+   **Settings -> Pages** (con este formato:
    `https://tu-usuario.github.io/buscador-cie10/`).
+
+Este método publica directamente el contenido de la carpeta `docs/` (que
+`construir_app.py` mantiene idéntico a `webapp/`) sin depender de GitHub
+Actions, así que no hace falta preocuparse por permisos de Actions ni por
+verificar el correo de la cuenta.
+
+Con cada actualización del catálogo, después de correr `construir_app.py`
+y hacer `git push`, GitHub Pages recoge el cambio de `docs/` automáticamente.
+
+*(Este repositorio también incluye `.github/workflows/deploy-pages.yml`,
+una forma alterna de publicar con GitHub Actions eligiendo "Source: GitHub
+Actions" en vez de "Deploy from a branch" — pero solo hace falta uno de
+los dos métodos; si "Deploy from a branch" con `/docs` ya te funciona, no
+hace falta tocar el de Actions.)
 
 ### Opción B — Render
 
