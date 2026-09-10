@@ -1,0 +1,194 @@
+# -*- coding: utf-8 -*-
+"""
+Diccionario de sinónimos / palabras clave para la búsqueda "inteligente" de
+la app web.
+
+La app ya busca por código y por nombre exacto del diagnóstico. Este
+archivo agrega una tercera vía de búsqueda: términos coloquiales,
+abreviaturas médicas y síntomas comunes que el personal usa en la práctica
+diaria pero que no coinciden textualmente con el nombre oficial del CIE-10.
+Por ejemplo, buscar "dolor de pecho" o "IAM" debe encontrar el código I21.9
+(infarto agudo del miocardio) aunque esas palabras no estén en su nombre
+oficial.
+
+Cada entrada es: "término de búsqueda" -> [lista de códigos CIE-10].
+Los códigos se validan contra data/catalogo.json al importar este módulo
+(igual que especialidades.py), así que un código mal escrito se reporta
+como error en vez de fallar en silencio.
+
+No hace falta que los términos estén acentuados de forma consistente ni en
+minúsculas: la búsqueda en la app normaliza (minúsculas, sin acentos) tanto
+la consulta del usuario como estas llaves antes de compararlas.
+"""
+import json
+from pathlib import Path
+
+CATALOGO_PATH = Path(__file__).resolve().parent.parent / "data" / "catalogo.json"
+
+with open(CATALOGO_PATH, encoding="utf-8") as f:
+    CAT = json.load(f)
+
+
+def chk(code):
+    c = CAT.get(code)
+    if not c:
+        return None
+    return c['nombre']
+
+
+# término coloquial / abreviatura -> [códigos CIE-10]
+SYNONYMS = {
+    # --- Abreviaturas y siglas médicas de uso diario ---
+    "iam": ["I219"],
+    "infarto": ["I219"],
+    "ataque al corazon": ["I219"],
+    "evc": ["I639"],
+    "acv": ["I639"],
+    "embolia cerebral": ["I639"],
+    "derrame cerebral": ["I639"],
+    "isquemia cerebral": ["I639"],
+    "hta": ["I10X"],
+    "presion alta": ["I10X"],
+    "tension alta": ["I10X"],
+    "dm2": ["E119"],
+    "dm": ["E119"],
+    "diabetes": ["E119"],
+    "azucar alta": ["E149"],
+    "glucosa alta": ["E149"],
+    "epoc": ["J449"],
+    "erc": ["N189"],
+    "irc": ["N189"],
+    "insuficiencia renal": ["N189"],
+    "ivu": ["N390"],
+    "itu": ["N390"],
+    "infeccion urinaria": ["N390"],
+    "infeccion de orina": ["N390"],
+    "tvp": ["I803"],
+    "trombosis": ["I803", "I269"],
+    "tep": ["I269"],
+    "embolia pulmonar": ["I269"],
+    "ic": ["I500"],
+    "icc": ["I500"],
+    "insuficiencia cardiaca": ["I500"],
+    "sica": ["I219"],
+    "tce": ["S069"],
+    "traumatismo craneoencefalico": ["S069"],
+    "golpe en la cabeza": ["S069"],
+    "fa": ["I489"],
+    "fibrilacion auricular": ["I489"],
+    "sdra": ["J80X"],
+    "ira": ["N170"],
+    "epi": ["N760"],
+
+    # --- Síntomas comunes en Urgencias ---
+    "dolor de pecho": ["I219", "I200", "R074"],
+    "dolor en el pecho": ["I219", "I200", "R074"],
+    "dolor toracico": ["I219", "I200", "R074"],
+    "dolor de cabeza": ["G439", "R51X"],
+    "cefalea": ["G439", "R51X"],
+    "falta de aire": ["R062", "J449"],
+    "dificultad para respirar": ["R062", "J449"],
+    "ahogo": ["R062", "J449"],
+    "fiebre": ["R509"],
+    "calentura": ["R509"],
+    "dolor de estomago": ["R104"],
+    "dolor de panza": ["R104"],
+    "dolor abdominal": ["R104"],
+    "vomito": ["R11X"],
+    "nauseas": ["R11X"],
+    "diarrea": ["A090", "K529"],
+    "mareo": ["R42X"],
+    "mareos": ["R42X"],
+    "convulsion": ["R568", "G409"],
+    "convulsiones": ["R568", "G409"],
+    "ataque epileptico": ["G409"],
+    "desmayo": ["R55X"],
+    "perdida del conocimiento": ["R55X"],
+    "se desmayo": ["R55X"],
+    "dolor de espalda": ["M545"],
+    "dolor lumbar": ["M545"],
+    "tos": ["R05X"],
+    "ronchas": ["L500", "L298"],
+    "comezon": ["L500", "L298"],
+    "picazon": ["L500", "L298"],
+    "quemadura": ["T300"],
+    "esguince": ["S936"],
+    "torcedura": ["S936"],
+    "gripa": ["J00X", "J111"],
+    "resfriado": ["J00X"],
+    "catarro": ["J00X"],
+    "anginas": ["J039"],
+    "dolor de garganta": ["J039"],
+    "colico renal": ["N200"],
+    "piedra en el rinon": ["N200"],
+    "piedras en la vesicula": ["K802"],
+    "calculos biliares": ["K802"],
+    "apendicitis": ["K359"],
+    "hernia": ["K409"],
+    "varices": ["I839"],
+    "anemia": ["D649"],
+    "deshidratacion": ["E86X"],
+    "intoxicacion": ["T509"],
+    "envenenamiento": ["T509"],
+
+    # --- Diagnósticos crónicos / frecuentes por especialidad ---
+    "asma": ["J459"],
+    "bronquitis": ["J209", "J40X"],
+    "neumonia": ["J189"],
+    "pulmonia": ["J189"],
+    "gastritis": ["K297"],
+    "colitis": ["K529"],
+    "estrenimiento": ["K590"],
+    "constipacion": ["K590"],
+    "hemorroides": ["K649"],
+    "almorranas": ["K649"],
+    "prostata inflamada": ["N40X"],
+    "obesidad": ["E668"],
+    "colesterol alto": ["E785"],
+    "otitis": ["H659"],
+    "dolor de oido": ["H659"],
+    "conjuntivitis": ["H108"],
+    "ojo rojo": ["H108"],
+    "vertigo": ["H810"],
+    "cataratas": ["H269"],
+    "glaucoma": ["H409"],
+    "varicela": ["B019"],
+    "sarampion": ["B059"],
+    "rubeola": ["B069"],
+    "tos ferina": ["A379"],
+
+    # --- Gineco-obstetricia ---
+    "embarazo": ["Z349"],
+    "parto": ["O800"],
+    "cesarea": ["O829"],
+    "quiste de ovario": ["N832"],
+    "quiste ovarico": ["N832"],
+    "sangrado vaginal": ["N939"],
+    "sangrado transvaginal": ["N939"],
+
+    # --- Urología ---
+    "dolor al orinar": ["N390"],
+    "ardor al orinar": ["N390"],
+    "sangre en la orina": ["R31X"],
+    "orina con sangre": ["R31X"],
+    "no puede orinar": ["R33X"],
+    "retencion urinaria": ["R33X"],
+
+    # --- Pediatría ---
+    "desnutricion": ["E440"],
+    "bajo peso": ["E440"],
+    "convulsion febril": ["R560"],
+    "convulsiones febriles": ["R560"],
+}
+
+
+missing = []
+for term, codes in SYNONYMS.items():
+    for code in codes:
+        if chk(code) is None:
+            missing.append((term, code))
+
+print("sinonimos:", len(SYNONYMS))
+print("MISSING:", len(missing))
+for m in missing:
+    print("MISS", m)

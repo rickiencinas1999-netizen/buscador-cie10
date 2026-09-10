@@ -25,6 +25,11 @@ bd = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(bd)
 SPECIALTIES = bd.SPECIALTIES
 
+spec2 = importlib.util.spec_from_file_location("sinonimos", HERE / "sinonimos.py")
+sy = importlib.util.module_from_spec(spec2)
+spec2.loader.exec_module(sy)
+SYNONYMS = sy.SYNONYMS
+
 ORDER = list(SPECIALTIES.keys())
 N = len(ORDER)
 COLORS = {}
@@ -68,11 +73,20 @@ for spec_idx, spec_name in enumerate(ORDER):
 
 specialties_meta = [{"name": s, "color": COLORS[s]} for s in ORDER]
 
+# valida que cada código de un sinónimo exista en el catálogo completo
+valid_codes = set(codes_sorted)
+synonyms_out = {}
+for term, codes in SYNONYMS.items():
+    good = [c for c in codes if c in valid_codes]
+    if good:
+        synonyms_out[term] = good
+
 out = {
     "codes": codes_sorted,
     "names": names_sorted,
     "tags": tags,
     "specialties": specialties_meta,
+    "synonyms": synonyms_out,
 }
 
 s = json.dumps(out, ensure_ascii=False, separators=(',', ':'))
@@ -81,5 +95,5 @@ with open(OUT_PATH, 'w', encoding='utf-8') as f:
     f.write(s)
 
 print("bytes:", len(s.encode('utf-8')))
-print("codes:", len(codes_sorted), "tagged:", len(tags))
+print("codes:", len(codes_sorted), "tagged:", len(tags), "sinonimos:", len(synonyms_out))
 print("escrito en:", OUT_PATH)

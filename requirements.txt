@@ -1,0 +1,5 @@
+# Solo necesario para src/generar_qr.py (generar el código QR de la app
+# publicada). El resto del pipeline (especialidades.py, generar_datos_app.py,
+# construir_app.py, generar_poster.py) usa solo la librería estándar de
+# Python y no requiere instalar nada.
+qrcode[pil]

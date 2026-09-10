@@ -7,6 +7,11 @@ localmente con doble clic).
 
 Requiere haber corrido antes generar_datos_app.py.
 
+Este script solo (re)genera webapp/index.html. Los demás archivos de
+webapp/ (manifest.json, sw.js, icon-192.png, icon-512.png) son estáticos,
+no se regeneran, y no hace falta tocarlos salvo que se quiera cambiar el
+ícono o el nombre de la app instalada.
+
 Uso:
     python3 generar_datos_app.py
     python3 construir_app.py

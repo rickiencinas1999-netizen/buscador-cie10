@@ -1,0 +1,15 @@
+# Blueprint de Render (https://render.com/docs/blueprint-spec) para
+# publicar la carpeta webapp/ como sitio estático.
+#
+# Uso: en el dashboard de Render, "New" -> "Blueprint", conecta este
+# repositorio de GitHub y Render detecta este archivo automáticamente.
+# También se puede omitir este archivo y crear el sitio a mano:
+# "New" -> "Static Site" -> conectar el repo -> Publish Directory: webapp
+# (sin build command, ya viene generado).
+services:
+  - type: web
+    name: buscador-cie10
+    runtime: static
+    buildCommand: "true"
+    staticPublishPath: ./webapp
+    pullRequestPreviewsEnabled: false
