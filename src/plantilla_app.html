@@ -1,0 +1,451 @@
+<title>Buscador CIE-10</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0E2325;
+  --ink-soft:#3C5457;
+  --paper:#EFF4F3;
+  --surface:#FFFFFF;
+  --surface-2:#E4ECEA;
+  --line:#CBD8D5;
+  --accent:#0E6E64;
+  --accent-ink:#FFFFFF;
+  --accent-2:#B5680E;
+  --accent-2-soft:#F3E2C8;
+  --focus:#0E6E64;
+  --shadow: 0 1px 2px rgba(14,35,37,.06), 0 6px 18px rgba(14,35,37,.07);
+  --radius: 10px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#E7F1EF;
+    --ink-soft:#9FB6B3;
+    --paper:#0A1717;
+    --surface:#0F2222;
+    --surface-2:#15302F;
+    --line:#22403E;
+    --accent:#3FC7B7;
+    --accent-ink:#062120;
+    --accent-2:#E0A254;
+    --accent-2-soft:#2C2415;
+    --focus:#3FC7B7;
+    --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 26px rgba(0,0,0,.35);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#E7F1EF;
+  --ink-soft:#9FB6B3;
+  --paper:#0A1717;
+  --surface:#0F2222;
+  --surface-2:#15302F;
+  --line:#22403E;
+  --accent:#3FC7B7;
+  --accent-ink:#062120;
+  --accent-2:#E0A254;
+  --accent-2-soft:#2C2415;
+  --focus:#3FC7B7;
+  --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 26px rgba(0,0,0,.35);
+  color-scheme: dark;
+}
+
+*{box-sizing:border-box;}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  padding:0 16px;
+  padding-block:0;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1040px;margin:0 auto;}
+
+code, .mono{font-family:'IBM Plex Mono','SFMono-Regular',Consolas,monospace;}
+
+/* ---------- Header ---------- */
+header.top{
+  position:sticky; top:0; z-index:20;
+  background:var(--paper);
+  padding-top:22px; padding-bottom:14px;
+  border-bottom:1px solid var(--line);
+}
+.brand{
+  display:flex; align-items:baseline; gap:10px; margin-bottom:14px;
+}
+.brand .mark{
+  font-family:'IBM Plex Mono'; font-weight:700; font-size:13px;
+  background:var(--accent); color:var(--accent-ink);
+  padding:3px 7px; border-radius:5px; letter-spacing:.5px;
+}
+.brand h1{
+  font-size:20px; margin:0; font-weight:700; letter-spacing:-.01em;
+}
+.brand .tag{
+  font-size:12.5px; color:var(--ink-soft); margin-left:auto; text-align:right; line-height:1.35;
+}
+
+.searchbar{
+  display:flex; align-items:center; gap:10px;
+  background:var(--surface); border:1.5px solid var(--line); border-radius:12px;
+  padding:11px 14px; box-shadow:var(--shadow);
+}
+.searchbar svg{flex:0 0 auto; color:var(--ink-soft);}
+.searchbar input{
+  flex:1 1 auto; border:0; outline:0; background:transparent; color:var(--ink);
+  font-family:'IBM Plex Sans'; font-size:16px; min-width:0;
+}
+.searchbar input::placeholder{color:var(--ink-soft);}
+.searchbar .clear{
+  flex:0 0 auto; border:0; background:var(--surface-2); color:var(--ink-soft);
+  width:24px;height:24px;border-radius:50%; cursor:pointer; font-size:14px; line-height:1;
+  display:none; align-items:center; justify-content:center;
+}
+.searchbar .clear.show{display:flex;}
+
+.chips{
+  display:flex; gap:7px; flex-wrap:wrap; margin-top:12px;
+}
+.chip{
+  font-family:'IBM Plex Sans'; font-size:12.5px; font-weight:600;
+  padding:6px 11px; border-radius:20px; cursor:pointer; user-select:none;
+  border:1.5px solid var(--chip-c, var(--line)); color:var(--chip-c, var(--ink-soft));
+  background:transparent; transition:background .12s, color .12s;
+  white-space:nowrap;
+}
+.chip .n{opacity:.7; font-weight:500;}
+.chip.active{background:var(--chip-c, var(--accent)); color:#fff; border-color:var(--chip-c, var(--accent));}
+.chip:focus-visible{outline:2px solid var(--focus); outline-offset:2px;}
+.chip-clear{
+  font-size:12.5px; font-weight:600; color:var(--ink-soft); background:none; border:1.5px dashed var(--line);
+  padding:6px 11px; border-radius:20px; cursor:pointer;
+}
+
+/* ---------- Main ---------- */
+main{padding:20px 0 60px;}
+
+.status-row{
+  display:flex; align-items:baseline; justify-content:space-between; gap:12px;
+  margin-bottom:12px; flex-wrap:wrap;
+}
+.status-row h2{font-size:15px; margin:0; font-weight:700;}
+.status-row .count{font-size:12.5px; color:var(--ink-soft);}
+
+/* overview grid (default state) */
+.intro{
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+  padding:18px 20px; margin-bottom:22px; box-shadow:var(--shadow);
+}
+.intro p{margin:0 0 8px; font-size:14px; line-height:1.55; color:var(--ink-soft);}
+.intro p:last-child{margin-bottom:0;}
+.intro b{color:var(--ink);}
+
+.overview-grid{
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(220px,1fr)); gap:10px;
+}
+.spec-card{
+  background:var(--surface); border:1px solid var(--line); border-left:5px solid var(--sc);
+  border-radius:8px; padding:12px 14px; cursor:pointer; text-align:left;
+  font-family:'IBM Plex Sans'; box-shadow:var(--shadow);
+}
+.spec-card .name{font-weight:700; font-size:13.5px; color:var(--ink); margin-bottom:2px;}
+.spec-card .meta{font-size:11.5px; color:var(--ink-soft);}
+.spec-card:hover{border-left-width:8px;}
+.spec-card:focus-visible{outline:2px solid var(--focus); outline-offset:2px;}
+
+/* grouped category view */
+.group{margin-bottom:22px;}
+.group-head{
+  display:flex; align-items:center; gap:10px; margin-bottom:8px;
+}
+.group-head .dot{width:10px;height:10px;border-radius:50%; background:var(--sc); flex:0 0 auto;}
+.group-head h3{font-size:13px; margin:0; font-weight:700; color:var(--sc);}
+.group-head .sub{font-size:12px; color:var(--ink-soft);}
+
+.cat-block{margin-bottom:14px;}
+.cat-label{
+  display:inline-block; font-size:11px; font-weight:700; letter-spacing:.5px; text-transform:uppercase;
+  color:#fff; background:var(--sc); padding:3px 9px; border-radius:4px; margin-bottom:6px;
+}
+.rows{border-top:1px solid var(--line);}
+
+.dx-row{
+  display:flex; align-items:flex-start; gap:12px; padding:8px 4px;
+  border-bottom:1px solid var(--line);
+}
+.dx-row .code{
+  flex:0 0 auto; min-width:52px; text-align:center;
+  font-family:'IBM Plex Mono'; font-weight:700; font-size:12.5px;
+  color:var(--sc, var(--accent)); background:color-mix(in srgb, var(--sc, var(--accent)) 12%, var(--surface));
+  border:1.2px solid var(--sc, var(--accent)); border-radius:5px; padding:2px 6px;
+}
+.dx-row .nm{flex:1 1 auto; font-size:13.5px; line-height:1.35; padding-top:2px;}
+.dx-row .pills{flex:0 0 auto; display:flex; gap:4px; flex-wrap:wrap; max-width:220px; justify-content:flex-end;}
+.pill{
+  font-size:10px; font-weight:600; padding:2px 7px; border-radius:20px; color:#fff; white-space:nowrap;
+}
+
+.more-note{
+  font-size:12.5px; color:var(--ink-soft); padding:12px 4px; text-align:center;
+  border:1px dashed var(--line); border-radius:8px; margin-top:6px;
+}
+
+.empty{
+  text-align:center; padding:50px 20px; color:var(--ink-soft);
+}
+.empty .big{font-size:34px; margin-bottom:8px;}
+.empty p{font-size:13.5px; margin:4px 0;}
+
+footer{
+  border-top:1px solid var(--line); padding:18px 0 30px; margin-top:10px;
+  font-size:11.5px; color:var(--ink-soft); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+}
+
+@media (max-width:640px){
+  .brand{flex-wrap:wrap;}
+  .brand .tag{margin-left:0; text-align:left;}
+  .dx-row .pills{display:none;}
+  .overview-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:420px){
+  .overview-grid{grid-template-columns:1fr;}
+}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <span class="mark">CIE-10</span>
+      <h1>Buscador de Diagnósticos</h1>
+      <span class="tag">Catálogo institucional CIE-ABRIL-2024<br>__TOTAL_CODES__ códigos &middot; __TOTAL_TAGGED__ etiquetados por especialidad</span>
+    </div>
+    <div class="searchbar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <input id="q" type="text" autocomplete="off" spellcheck="false" placeholder="Buscar por código (p. ej. J189) o por nombre (p. ej. neumonía)&hellip;">
+      <button class="clear" id="clearBtn" aria-label="Limpiar búsqueda">&times;</button>
+    </div>
+    <div class="chips" id="chips"></div>
+  </header>
+
+  <main id="main"></main>
+
+  <footer>
+    <span>Guía interna de codificación &middot; no sustituye el catálogo oficial completo</span>
+    <span id="themehint"></span>
+  </footer>
+</div>
+
+<script>
+const DATA = __DATA_JSON__;
+</script>
+<script>
+(function(){
+  "use strict";
+  const codes = DATA.codes, names = DATA.names, tags = DATA.tags, specs = DATA.specialties;
+  const codeIndex = new Map();
+  codes.forEach((c,i)=>codeIndex.set(c,i));
+
+  function stripAccents(s){
+    return s.normalize('NFD').replace(/[̀-ͯ]/g,'');
+  }
+  function norm(s){ return stripAccents(String(s).toLowerCase()).trim(); }
+
+  const nameNorm = names.map(norm);
+
+  // selected specialty indices
+  const selected = new Set();
+  let query = "";
+
+  const chipsEl = document.getElementById('chips');
+  const mainEl = document.getElementById('main');
+  const qEl = document.getElementById('q');
+  const clearBtn = document.getElementById('clearBtn');
+
+  function renderChips(){
+    let html = '';
+    specs.forEach((s,i)=>{
+      const n = Object.values(tags).filter(arr=>arr.some(t=>t[0]===i)).length;
+      html += `<button class="chip${selected.has(i)?' active':''}" style="--chip-c:${s.color}" data-i="${i}">${s.name} <span class="n">${n}</span></button>`;
+    });
+    chipsEl.innerHTML = html;
+    if(selected.size){
+      chipsEl.innerHTML += `<button class="chip-clear" id="clearSpec">Quitar filtro &times;</button>`;
+    }
+    chipsEl.querySelectorAll('.chip').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const i = +btn.dataset.i;
+        if(selected.has(i)) selected.delete(i); else selected.add(i);
+        renderChips(); render();
+      });
+    });
+    const cb = document.getElementById('clearSpec');
+    if(cb) cb.addEventListener('click', ()=>{ selected.clear(); renderChips(); render(); });
+  }
+
+  // build reverse map: specialty index -> ordered list of [code, category]
+  const bySpec = specs.map(()=>[]);
+  Object.keys(tags).forEach(code=>{
+    tags[code].forEach(([si, cat])=>{
+      bySpec[si].push([code, cat]);
+    });
+  });
+  // preserve category grouping order as first-seen
+  function groupBySpecCategory(specIdx){
+    const groups = new Map();
+    bySpec[specIdx].forEach(([code, cat])=>{
+      if(!groups.has(cat)) groups.set(cat, []);
+      groups.get(cat).push(code);
+    });
+    return groups;
+  }
+
+  function pillsFor(code, excludeSpec){
+    const t = tags[code];
+    if(!t) return '';
+    return t.filter(([si])=> si!==excludeSpec).map(([si])=>{
+      const s = specs[si];
+      return `<span class="pill" style="background:${s.color}">${s.name}</span>`;
+    }).join('');
+  }
+
+  function dxRow(code, sc, excludeSpec){
+    const idx = codeIndex.get(code);
+    const nm = idx!=null ? names[idx] : code;
+    const pills = pillsFor(code, excludeSpec);
+    return `<div class="dx-row">
+      <div class="code" style="--sc:${sc||'var(--accent)'}">${code}</div>
+      <div class="nm">${nm}</div>
+      <div class="pills">${pills}</div>
+    </div>`;
+  }
+
+  function renderOverview(){
+    const parts = [`<div class="intro">
+      <p><b>Cómo usarlo:</b> escribe un código o un nombre de diagnóstico arriba para buscar en las __TOTAL_CODES__ claves del catálogo CIE-10, o elige una especialidad para ver su lista curada de diagnósticos frecuentes y relacionados, agrupada por categoría clínica.</p>
+      <p>Los diagnósticos marcados con una etiqueta de color ya están revisados y clasificados por especialidad; el resto del catálogo también es buscable por código o nombre.</p>
+    </div>`];
+    parts.push(`<div class="status-row"><h2>Especialidades</h2><span class="count">${specs.length} áreas &middot; toca una para ver su lista</span></div>`);
+    parts.push('<div class="overview-grid">');
+    specs.forEach((s,i)=>{
+      const n = bySpec[i].length;
+      const cats = new Set(bySpec[i].map(([,c])=>c)).size;
+      parts.push(`<button class="spec-card" style="--sc:${s.color}" data-i="${i}">
+        <div class="name">${s.name}</div>
+        <div class="meta">${n} códigos &middot; ${cats} categorías</div>
+      </button>`);
+    });
+    parts.push('</div>');
+    mainEl.innerHTML = parts.join('');
+    mainEl.querySelectorAll('.spec-card').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        selected.clear(); selected.add(+btn.dataset.i);
+        renderChips(); render();
+        window.scrollTo({top:0, behavior:'smooth'});
+      });
+    });
+  }
+
+  function renderSpecialtyGrouped(){
+    const parts = [];
+    selected.forEach(si=>{
+      const s = specs[si];
+      const groups = groupBySpecCategory(si);
+      parts.push(`<div class="group">
+        <div class="group-head"><span class="dot" style="background:${s.color}"></span><h3>${s.name}</h3><span class="sub">${bySpec[si].length} códigos</span></div>`);
+      groups.forEach((codeList, cat)=>{
+        parts.push(`<div class="cat-block"><span class="cat-label" style="background:${s.color}">${cat}</span><div class="rows">`);
+        codeList.forEach(code=>{ parts.push(dxRow(code, s.color, si)); });
+        parts.push(`</div></div>`);
+      });
+      parts.push(`</div>`);
+    });
+    mainEl.innerHTML = parts.join('') || emptyHtml('Sin resultados para esta especialidad.');
+  }
+
+  function emptyHtml(msg){
+    return `<div class="empty"><div class="big">&#128269;</div><p>${msg}</p></div>`;
+  }
+
+  const MAX_RESULTS = 150;
+
+  function searchResults(){
+    const nq = norm(query);
+    let pool;
+    if(selected.size){
+      const set = new Set();
+      selected.forEach(si=> bySpec[si].forEach(([code])=> set.add(code)));
+      pool = Array.from(set);
+    } else {
+      pool = codes;
+    }
+    const nqUpper = query.trim().toUpperCase();
+    const scored = [];
+    for(const code of pool){
+      const idx = codeIndex.get(code);
+      if(idx==null) continue;
+      const nm = nameNorm[idx];
+      let score = -1;
+      if(code === nqUpper) score = 0;
+      else if(nqUpper.length>=2 && code.startsWith(nqUpper)) score = 1;
+      else if(nm.startsWith(nq)) score = 2;
+      else {
+        const wIdx = (' '+nm).indexOf(' '+nq);
+        if(nq.length>=3 && wIdx>=0) score = 3;
+        else if(nq.length>=3 && nm.includes(nq)) score = 4;
+      }
+      if(score>=0){
+        if(tags[code]) score -= 0.5; // surface curated/common codes first within the same match tier
+        scored.push([score, code]);
+      }
+    }
+    scored.sort((a,b)=> a[0]-b[0] || a[1].localeCompare(b[1]));
+    return scored.map(x=>x[1]);
+  }
+
+  function renderSearch(){
+    const results = searchResults();
+    const scopeLabel = selected.size ? Array.from(selected).map(i=>specs[i].name).join(' + ') : 'todo el catálogo';
+    const parts = [`<div class="status-row"><h2>Resultados</h2><span class="count">${results.length} en ${scopeLabel}</span></div>`];
+    if(!results.length){
+      parts.push(emptyHtml(`Sin coincidencias para &ldquo;${query}&rdquo;. Prueba con menos letras o solo el código.`));
+    } else {
+      parts.push('<div class="rows">');
+      results.slice(0, MAX_RESULTS).forEach(code=>{
+        const t = tags[code];
+        const sc = t && t.length ? specs[t[0][0]].color : null;
+        parts.push(dxRow(code, sc, null));
+      });
+      parts.push('</div>');
+      if(results.length > MAX_RESULTS){
+        parts.push(`<div class="more-note">Mostrando ${MAX_RESULTS} de ${results.length} resultados &mdash; afina tu búsqueda para ver el resto.</div>`);
+      }
+    }
+    mainEl.innerHTML = parts.join('');
+  }
+
+  function render(){
+    if(query.trim().length){
+      renderSearch();
+    } else if(selected.size){
+      renderSpecialtyGrouped();
+    } else {
+      renderOverview();
+    }
+  }
+
+  let debTimer;
+  qEl.addEventListener('input', ()=>{
+    clearTimeout(debTimer);
+    clearBtn.classList.toggle('show', qEl.value.length>0);
+    debTimer = setTimeout(()=>{ query = qEl.value; render(); }, 90);
+  });
+  clearBtn.addEventListener('click', ()=>{
+    qEl.value=''; query=''; clearBtn.classList.remove('show'); render(); qEl.focus();
+  });
+
+  renderChips();
+  render();
+})();
+</script>

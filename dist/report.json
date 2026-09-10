@@ -1,0 +1,2415 @@
+{
+ "Urgencias": [
+  [
+   "Cardiovascular",
+   "I219",
+   "INFARTO AGUDO DEL MIOCARDIO, SIN OTRA ESPECIFICACIÓN"
+  ],
+  [
+   "Cardiovascular",
+   "I500",
+   "INSUFICIENCIA CARDÍACA CONGESTIVA"
+  ],
+  [
+   "Cardiovascular",
+   "I10X",
+   "HIPERTENSIÓN ESENCIAL (PRIMARIA)"
+  ],
+  [
+   "Cardiovascular",
+   "I639",
+   "INFARTO CEREBRAL, NO ESPECIFICADO"
+  ],
+  [
+   "Cardiovascular",
+   "I469",
+   "PARO CARDÍACO, NO ESPECIFICADO"
+  ],
+  [
+   "Cardiovascular",
+   "I471",
+   "TAQUICARDIA SUPRAVENTRICULAR"
+  ],
+  [
+   "Cardiovascular",
+   "I802",
+   "FLEBITIS Y TROMBOFLEBITIS DE OTROS VASOS PROFUNDOS DE LOS MIEMBROS INFERIORES"
+  ],
+  [
+   "Cardiovascular",
+   "I209",
+   "ANGINA DE PECHO, NO ESPECIFICADA"
+  ],
+  [
+   "Cardiovascular",
+   "I429",
+   "CARDIOMIOPATÍA, NO ESPECIFICADA"
+  ],
+  [
+   "Cardiovascular",
+   "R074",
+   "DOLOR EN EL PECHO, NO ESPECIFICADO"
+  ],
+  [
+   "Respiratorio",
+   "J189",
+   "NEUMONÍA, NO ESPECIFICADA"
+  ],
+  [
+   "Respiratorio",
+   "J449",
+   "ENFERMEDAD PULMONAR OBSTRUCTIVA CRÓNICA, NO ESPECIFICADA"
+  ],
+  [
+   "Respiratorio",
+   "J459",
+   "ASMA, NO ESPECIFICADO"
+  ],
+  [
+   "Respiratorio",
+   "J969",
+   "INSUFICIENCIA RESPIRATORIA, NO ESPECIFICADA"
+  ],
+  [
+   "Respiratorio",
+   "J81X",
+   "EDEMA PULMONAR"
+  ],
+  [
+   "Respiratorio",
+   "J690",
+   "NEUMONITIS DEBIDA A ASPIRACIÓN DE ALIMENTO O VÓMITO"
+  ],
+  [
+   "Respiratorio",
+   "J939",
+   "NEUMOTÓRAX, NO ESPECIFICADO"
+  ],
+  [
+   "Respiratorio",
+   "J439",
+   "ENFISEMA, NO ESPECIFICADO"
+  ],
+  [
+   "Digestivo",
+   "K359",
+   "APENDICITIS AGUDA, NO ESPECIFICADA"
+  ],
+  [
+   "Digestivo",
+   "K802",
+   "CÁLCULO DE LA VESÍCULA BILIAR SIN COLECISTITIS"
+  ],
+  [
+   "Digestivo",
+   "K922",
+   "HEMORRAGIA GASTROINTESTINAL, NO ESPECIFICADA"
+  ],
+  [
+   "Digestivo",
+   "R104",
+   "OTROS DOLORES ABDOMINALES Y LOS NO ESPECIFICADOS"
+  ],
+  [
+   "Digestivo",
+   "K566",
+   "OTRAS OBSTRUCCIONES INTESTINALES Y LAS NO ESPECIFICADAS"
+  ],
+  [
+   "Digestivo",
+   "K659",
+   "PERITONITIS, NO ESPECIFICADA"
+  ],
+  [
+   "Digestivo",
+   "K921",
+   "MELENA"
+  ],
+  [
+   "Digestivo",
+   "K920",
+   "HEMATEMESIS"
+  ],
+  [
+   "Digestivo",
+   "T181",
+   "CUERPO EXTRAÑO EN EL ESÓFAGO"
+  ],
+  [
+   "Digestivo",
+   "R100",
+   "ABDOMEN AGUDO"
+  ],
+  [
+   "Neurológico",
+   "R568",
+   "OTRAS CONVULSIONES Y LAS NO ESPECIFICADAS"
+  ],
+  [
+   "Neurológico",
+   "G459",
+   "ISQUEMIA CEREBRAL TRANSITORIA, SIN OTRA ESPECIFICACIÓN"
+  ],
+  [
+   "Neurológico",
+   "S069",
+   "TRAUMATISMO INTRACRANEAL, NO ESPECIFICADO"
+  ],
+  [
+   "Neurológico",
+   "G039",
+   "MENINGITIS, NO ESPECIFICADA"
+  ],
+  [
+   "Neurológico",
+   "R55X",
+   "SÍNCOPE Y COLAPSO"
+  ],
+  [
+   "Neurológico",
+   "R402",
+   "COMA, NO ESPECIFICADO"
+  ],
+  [
+   "Neurológico",
+   "G935",
+   "COMPRESIÓN DEL ENCÉFALO"
+  ],
+  [
+   "Neurológico",
+   "G936",
+   "EDEMA CEREBRAL"
+  ],
+  [
+   "Trauma / Choque",
+   "S720",
+   "FRACTURA DEL CUELLO DE FÉMUR"
+  ],
+  [
+   "Trauma / Choque",
+   "T07X",
+   "TRAUMATISMOS MÚLTIPLES, NO ESPECIFICADOS"
+  ],
+  [
+   "Trauma / Choque",
+   "T782",
+   "CHOQUE ANAFILÁCTICO, NO ESPECIFICADO"
+  ],
+  [
+   "Trauma / Choque",
+   "T780",
+   "CHOQUE ANAFILÁCTICO DEBIDO A REACCIÓN ADVERSA A ALIMENTOS"
+  ],
+  [
+   "Trauma / Choque",
+   "T814",
+   "INFECCIÓN CONSECUTIVA A PROCEDIMIENTO, NO CLASIFICADA EN OTRA PARTE"
+  ],
+  [
+   "Trauma / Choque",
+   "T140",
+   "TRAUMATISMO SUPERFICIAL DE REGIÓN NO ESPECIFICADA DEL CUERPO"
+  ],
+  [
+   "Trauma / Choque",
+   "T202",
+   "QUEMADURA DE LA CABEZA Y DEL CUELLO, DE SEGUNDO GRADO"
+  ],
+  [
+   "Trauma / Choque",
+   "T783",
+   "EDEMA ANGIONEURÓTICO"
+  ],
+  [
+   "Trauma / Choque",
+   "T784",
+   "ALERGIA NO ESPECIFICADA"
+  ],
+  [
+   "Infeccioso / Sepsis",
+   "A419",
+   "SEPSIS, NO ESPECIFICADA"
+  ],
+  [
+   "Infeccioso / Sepsis",
+   "N390",
+   "INFECCIÓN DE VÍAS URINARIAS, SITIO NO ESPECIFICADO"
+  ],
+  [
+   "Infeccioso / Sepsis",
+   "B349",
+   "INFECCIÓN VIRAL, NO ESPECIFICADA"
+  ],
+  [
+   "Infeccioso / Sepsis",
+   "J039",
+   "AMIGDALITIS AGUDA, NO ESPECIFICADA"
+  ],
+  [
+   "Infeccioso / Sepsis",
+   "A099",
+   "GASTROENTERITIS Y COLITIS DE ORIGEN NO ESPECIFICADO"
+  ],
+  [
+   "Infeccioso / Sepsis",
+   "A46X",
+   "ERISIPELA"
+  ],
+  [
+   "Metabólico",
+   "E149",
+   "DIABETES MELLITUS NO ESPECIFICADA, SIN MENCIÓN DE COMPLICACIÓN"
+  ],
+  [
+   "Metabólico",
+   "E162",
+   "HIPOGLICEMIA, NO ESPECIFICADA"
+  ],
+  [
+   "Metabólico",
+   "E86X",
+   "DEPLECIÓN DEL VOLUMEN"
+  ],
+  [
+   "Metabólico",
+   "E870",
+   "HIPEROSMOLARIDAD E HIPERNATREMIA"
+  ],
+  [
+   "Metabólico",
+   "E871",
+   "HIPOSMOLARIDAD E HIPONATREMIA"
+  ],
+  [
+   "Metabólico",
+   "E876",
+   "HIPOPOTASMIA"
+  ],
+  [
+   "Intoxicación / Psiquiátrico",
+   "T509",
+   "ENVENENAMIENTO POR OTRAS DROGAS Y SUSTANCIAS BIOLÓGICAS, Y LAS NO ESPECIFICADAS"
+  ],
+  [
+   "Intoxicación / Psiquiátrico",
+   "F419",
+   "TRASTORNO DE ANSIEDAD, NO ESPECIFICADO"
+  ],
+  [
+   "Intoxicación / Psiquiátrico",
+   "T391",
+   "ENVENENAMIENTO POR DERIVADOS DEL PARAAMINOFENOL"
+  ],
+  [
+   "Intoxicación / Psiquiátrico",
+   "X499",
+   "ENVENENAMIENTO ACCIDENTAL POR, Y EXPOSICIÓN A OTROS PRODUCTOS QUÍMICOS Y SUSTANCIAS NOCIVAS, Y LOS NO ESPECIFICADOS, LUGAR NO ESPECIFICADO"
+  ],
+  [
+   "Ginecológico / Urológico agudo",
+   "O009",
+   "EMBARAZO ECTÓPICO, NO ESPECIFICADO"
+  ],
+  [
+   "Ginecológico / Urológico agudo",
+   "R102",
+   "DOLOR PÉLVICO Y PERINEAL"
+  ],
+  [
+   "Ginecológico / Urológico agudo",
+   "R33X",
+   "RETENCIÓN DE ORINA"
+  ],
+  [
+   "Ginecológico / Urológico agudo",
+   "N832",
+   "OTROS QUISTES OVÁRICOS Y LOS NO ESPECIFICADOS"
+  ],
+  [
+   "ORL / Oftalmológico",
+   "T159",
+   "CUERPO EXTRAÑO EN PARTE EXTERNA DEL OJO, SITIO NO ESPECIFICADO"
+  ],
+  [
+   "ORL / Oftalmológico",
+   "R040",
+   "EPISTAXIS"
+  ],
+  [
+   "ORL / Oftalmológico",
+   "R049",
+   "HEMORRAGIA DE LAS VÍAS RESPIRATORIAS, NO ESPECIFICADA"
+  ]
+ ],
+ "Medicina Interna": [
+  [
+   "Cardiovascular",
+   "I10X",
+   "HIPERTENSIÓN ESENCIAL (PRIMARIA)"
+  ],
+  [
+   "Cardiovascular",
+   "I500",
+   "INSUFICIENCIA CARDÍACA CONGESTIVA"
+  ],
+  [
+   "Cardiovascular",
+   "I259",
+   "ENFERMEDAD ISQUÉMICA CRÓNICA DEL CORAZÓN, NO ESPECIFICADA"
+  ],
+  [
+   "Cardiovascular",
+   "I489",
+   "FIBRILACIÓN Y ALETEO AURICULAR, NO ESPECIFICADO"
+  ],
+  [
+   "Cardiovascular",
+   "I739",
+   "ENFERMEDAD VASCULAR PERIFÉRICA, NO ESPECIFICADA"
+  ],
+  [
+   "Cardiovascular",
+   "I959",
+   "HIPOTENSIÓN, NO ESPECIFICADA"
+  ],
+  [
+   "Cardiovascular",
+   "I429",
+   "CARDIOMIOPATÍA, NO ESPECIFICADA"
+  ],
+  [
+   "Endocrino-metabólico",
+   "E119",
+   "DIABETES MELLITUS TIPO 2, SIN MENCIÓN DE COMPLICACIÓN"
+  ],
+  [
+   "Endocrino-metabólico",
+   "E039",
+   "HIPOTIROIDISMO, NO ESPECIFICADO"
+  ],
+  [
+   "Endocrino-metabólico",
+   "E785",
+   "HIPERLIPIDEMIA NO ESPECIFICADA"
+  ],
+  [
+   "Endocrino-metabólico",
+   "E669",
+   "OBESIDAD, NO ESPECIFICADA"
+  ],
+  [
+   "Endocrino-metabólico",
+   "E118",
+   "DIABETES MELLITUS TIPO 2, CON COMPLICACIONES NO ESPECIFICADAS"
+  ],
+  [
+   "Endocrino-metabólico",
+   "E271",
+   "INSUFICIENCIA CORTICOSUPRARRENAL PRIMARIA"
+  ],
+  [
+   "Endocrino-metabólico",
+   "E210",
+   "HIPERPARATIROIDISMO PRIMARIO"
+  ],
+  [
+   "Endocrino-metabólico",
+   "E232",
+   "DIABETES INSÍPIDA"
+  ],
+  [
+   "Respiratorio",
+   "J449",
+   "ENFERMEDAD PULMONAR OBSTRUCTIVA CRÓNICA, NO ESPECIFICADA"
+  ],
+  [
+   "Respiratorio",
+   "J459",
+   "ASMA, NO ESPECIFICADO"
+  ],
+  [
+   "Respiratorio",
+   "J189",
+   "NEUMONÍA, NO ESPECIFICADA"
+  ],
+  [
+   "Respiratorio",
+   "J47X",
+   "BRONQUIECTASIA"
+  ],
+  [
+   "Respiratorio",
+   "J961",
+   "INSUFICIENCIA RESPIRATORIA CRÓNICA"
+  ],
+  [
+   "Respiratorio",
+   "J90X",
+   "DERRAME PLEURAL NO CLASIFICADO EN OTRA PARTE"
+  ],
+  [
+   "Renal",
+   "N189",
+   "ENFERMEDAD RENAL CRÓNICA, NO ESPECIFICADA"
+  ],
+  [
+   "Renal",
+   "N179",
+   "INSUFICIENCIA RENAL AGUDA, NO ESPECIFICADA"
+  ],
+  [
+   "Renal",
+   "N390",
+   "INFECCIÓN DE VÍAS URINARIAS, SITIO NO ESPECIFICADO"
+  ],
+  [
+   "Renal",
+   "N183",
+   "ENFERMEDAD RENAL CRÓNICA, ETAPA 3"
+  ],
+  [
+   "Renal",
+   "N184",
+   "ENFERMEDAD RENAL CRÓNICA, ETAPA 4"
+  ],
+  [
+   "Digestivo / Hepático",
+   "K766",
+   "HIPERTENSIÓN PORTAL"
+  ],
+  [
+   "Digestivo / Hepático",
+   "K297",
+   "GASTRITIS, NO ESPECIFICADA"
+  ],
+  [
+   "Digestivo / Hepático",
+   "K599",
+   "TRASTORNO FUNCIONAL INTESTINAL, NO ESPECIFICADO"
+  ],
+  [
+   "Digestivo / Hepático",
+   "K703",
+   "CIRROSIS HEPÁTICA ALCOHÓLICA"
+  ],
+  [
+   "Digestivo / Hepático",
+   "K219",
+   "ENFERMEDAD DEL REFLUJO GASTROESOFÁGICO SIN ESOFAGITIS"
+  ],
+  [
+   "Digestivo / Hepático",
+   "K900",
+   "ENFERMEDAD CELÍACA"
+  ],
+  [
+   "Digestivo / Hepático",
+   "B169",
+   "HEPATITIS AGUDA TIPO B, SIN AGENTE DELTA Y SIN COMA HEPÁTICO"
+  ],
+  [
+   "Hematológico",
+   "D649",
+   "ANEMIA DE TIPO NO ESPECIFICADO"
+  ],
+  [
+   "Hematológico",
+   "D509",
+   "ANEMIA POR DEFICIENCIA DE HIERRO SIN OTRA ESPECIFICACIÓN"
+  ],
+  [
+   "Hematológico",
+   "D688",
+   "OTROS DEFECTOS ESPECIFICADOS DE LA COAGULACIÓN"
+  ],
+  [
+   "Hematológico",
+   "D693",
+   "PÚRPURA TROMBOCITOPÉNICA IDIOPÁTICA"
+  ],
+  [
+   "Hematológico",
+   "D619",
+   "ANEMIA APLÁSTICA, SIN OTRA ESPECIFICACIÓN"
+  ],
+  [
+   "Hematológico",
+   "D630",
+   "ANEMIA EN ENFERMEDAD NEOPLÁSICA"
+  ],
+  [
+   "Hematológico",
+   "D561",
+   "BETA TALASEMIA"
+  ],
+  [
+   "Infeccioso",
+   "B182",
+   "HEPATITIS VIRAL TIPO C CRÓNICA"
+  ],
+  [
+   "Infeccioso",
+   "A419",
+   "SEPSIS, NO ESPECIFICADA"
+  ],
+  [
+   "Infeccioso",
+   "U071",
+   "COVID-19, VIRUS IDENTIFICADO"
+  ],
+  [
+   "Infeccioso",
+   "B159",
+   "HEPATITIS AGUDA TIPO A, SIN COMA HEPÁTICO"
+  ],
+  [
+   "Infeccioso",
+   "B24X",
+   "ENFERMEDAD POR VIRUS DE LA INMUNODEFICIENCIA HUMANA [VIH], SIN OTRA ESPECIFICACIÓN"
+  ],
+  [
+   "Reumatológico",
+   "M069",
+   "ARTRITIS REUMATOIDE, NO ESPECIFICADA"
+  ],
+  [
+   "Reumatológico",
+   "M109",
+   "GOTA, NO ESPECIFICADA"
+  ],
+  [
+   "Reumatológico",
+   "M549",
+   "DORSALGIA, NO ESPECIFICADA"
+  ],
+  [
+   "Reumatológico",
+   "M819",
+   "OSTEOPOROSIS NO ESPECIFICADA, SIN FRACTURA PATOLÓGICA"
+  ],
+  [
+   "Reumatológico",
+   "M329",
+   "LUPUS ERITEMATOSO SISTÉMICO, SIN OTRA ESPECIFICACIÓN"
+  ]
+ ],
+ "Pediatría": [
+  [
+   "Respiratorio",
+   "J069",
+   "INFECCIÓN AGUDA DE LAS VÍAS RESPIRATORIAS SUPERIORES, NO ESPECIFICADA"
+  ],
+  [
+   "Respiratorio",
+   "J189",
+   "NEUMONÍA, NO ESPECIFICADA"
+  ],
+  [
+   "Respiratorio",
+   "J210",
+   "BRONQUIOLITIS AGUDA DEBIDA A VIRUS SINCITIAL RESPIRATORIO"
+  ],
+  [
+   "Respiratorio",
+   "J459",
+   "ASMA, NO ESPECIFICADO"
+  ],
+  [
+   "Respiratorio",
+   "J039",
+   "AMIGDALITIS AGUDA, NO ESPECIFICADA"
+  ],
+  [
+   "Respiratorio",
+   "J209",
+   "BRONQUITIS AGUDA, NO ESPECIFICADA"
+  ],
+  [
+   "Digestivo",
+   "A090",
+   "OTRAS GASTROENTERITIS Y COLITIS DE ORIGEN INFECCIOSO"
+  ],
+  [
+   "Digestivo",
+   "K590",
+   "CONSTIPACIÓN"
+  ],
+  [
+   "Digestivo",
+   "R104",
+   "OTROS DOLORES ABDOMINALES Y LOS NO ESPECIFICADOS"
+  ],
+  [
+   "Digestivo",
+   "P929",
+   "PROBLEMA NO ESPECIFICADO DE LA ALIMENTACIÓN DEL RECIÉN NACIDO"
+  ],
+  [
+   "Digestivo",
+   "T189",
+   "CUERPO EXTRAÑO EN EL TUBO DIGESTIVO, PARTE NO ESPECIFICADA"
+  ],
+  [
+   "Digestivo",
+   "B820",
+   "HELMINTIASIS INTESTINAL, SIN OTRA ESPECIFICACIÓN"
+  ],
+  [
+   "Infeccioso / Febril",
+   "R509",
+   "FIEBRE, NO ESPECIFICADA"
+  ],
+  [
+   "Infeccioso / Febril",
+   "B349",
+   "INFECCIÓN VIRAL, NO ESPECIFICADA"
+  ],
+  [
+   "Infeccioso / Febril",
+   "A080",
+   "ENTERITIS DEBIDA A ROTAVIRUS"
+  ],
+  [
+   "Infeccioso / Febril",
+   "J00X",
+   "RINOFARINGITIS AGUDA [RESFRIADO COMÚN]"
+  ],
+  [
+   "Infeccioso / Febril",
+   "A379",
+   "TOS FERINA, NO ESPECIFICADA"
+  ],
+  [
+   "Infeccioso / Febril",
+   "B059",
+   "SARAMPIÓN SIN COMPLICACIONES"
+  ],
+  [
+   "Infeccioso / Febril",
+   "B069",
+   "RUBÉOLA SIN COMPLICACIONES"
+  ],
+  [
+   "Infeccioso / Febril",
+   "B269",
+   "PAROTIDITIS, SIN COMPLICACIONES"
+  ],
+  [
+   "Dermatológico",
+   "L309",
+   "DERMATITIS, NO ESPECIFICADA"
+  ],
+  [
+   "Dermatológico",
+   "L500",
+   "URTICARIA ALÉRGICA"
+  ],
+  [
+   "Dermatológico",
+   "B019",
+   "VARICELA SIN COMPLICACIONES"
+  ],
+  [
+   "Dermatológico",
+   "L010",
+   "IMPÉTIGO [CUALQUIER SITIO ANATÓMICO] [CUALQUIER ORGANISMO]"
+  ],
+  [
+   "Dermatológico",
+   "B86X",
+   "ESCABIOSIS"
+  ],
+  [
+   "Dermatológico",
+   "B850",
+   "PEDICULOSIS DEBIDA A PEDICULUS HUMANUS CAPITIS"
+  ],
+  [
+   "Nutrición / Hematológico",
+   "E440",
+   "DESNUTRICIÓN PROTEICOCALÓRICA MODERADA"
+  ],
+  [
+   "Nutrición / Hematológico",
+   "E639",
+   "DEFICIENCIA NUTRICIONAL, NO ESPECIFICADA"
+  ],
+  [
+   "Nutrición / Hematológico",
+   "R629",
+   "FALTA DEL DESARROLLO FISIOLÓGICO NORMAL ESPERADO, SIN OTRA ESPECIFICACIÓN"
+  ],
+  [
+   "Nutrición / Hematológico",
+   "D509",
+   "ANEMIA POR DEFICIENCIA DE HIERRO SIN OTRA ESPECIFICACIÓN"
+  ],
+  [
+   "Neonatal",
+   "P599",
+   "ICTERICIA NEONATAL, NO ESPECIFICADA"
+  ],
+  [
+   "Neonatal",
+   "P073",
+   "OTROS RECIÉN NACIDOS PRETÉRMINO"
+  ],
+  [
+   "Neonatal",
+   "P220",
+   "SÍNDROME DE DIFICULTAD RESPIRATORIA DEL RECIÉN NACIDO"
+  ],
+  [
+   "Otros frecuentes / Desarrollo",
+   "H659",
+   "OTITIS MEDIA NO SUPURATIVA, SIN OTRA ESPECIFICACIÓN"
+  ],
+  [
+   "Otros frecuentes / Desarrollo",
+   "N136",
+   "PIONEFROSIS"
+  ],
+  [
+   "Otros frecuentes / Desarrollo",
+   "R51X",
+   "CEFALEA"
+  ],
+  [
+   "Otros frecuentes / Desarrollo",
+   "R560",
+   "CONVULSIONES FEBRILES"
+  ],
+  [
+   "Otros frecuentes / Desarrollo",
+   "F980",
+   "ENURESIS NO ORGÁNICA"
+  ],
+  [
+   "Otros frecuentes / Desarrollo",
+   "F900",
+   "PERTURBACIÓN DE LA ACTIVIDAD Y DE LA ATENCIÓN"
+  ]
+ ],
+ "Gineco-Obstetricia": [
+  [
+   "Embarazo / Control prenatal",
+   "Z349",
+   "SUPERVISIÓN DE EMBARAZO NORMAL NO ESPECIFICADO"
+  ],
+  [
+   "Embarazo / Control prenatal",
+   "Z359",
+   "SUPERVISIÓN DE EMBARAZO DE ALTO RIESGO, SIN OTRA ESPECIFICACIÓN"
+  ],
+  [
+   "Embarazo / Control prenatal",
+   "O210",
+   "HIPEREMESIS GRAVÍDICA LEVE"
+  ],
+  [
+   "Embarazo / Control prenatal",
+   "O990",
+   "ANEMIA QUE COMPLICA EL EMBARAZO, EL PARTO Y EL PUERPERIO"
+  ],
+  [
+   "Embarazo / Control prenatal",
+   "O009",
+   "EMBARAZO ECTÓPICO, NO ESPECIFICADO"
+  ],
+  [
+   "Hipertensión y diabetes gestacional",
+   "O13X",
+   "HIPERTENSIÓN GESTACIONAL [INDUCIDA POR EL EMBARAZO]"
+  ],
+  [
+   "Hipertensión y diabetes gestacional",
+   "O140",
+   "PREECLAMPSIA LEVE A MODERADA"
+  ],
+  [
+   "Hipertensión y diabetes gestacional",
+   "O141",
+   "PREECLAMPSIA SEVERA"
+  ],
+  [
+   "Hipertensión y diabetes gestacional",
+   "O244",
+   "DIABETES MELLITUS QUE SE ORIGINA CON EL EMBARAZO"
+  ],
+  [
+   "Hipertensión y diabetes gestacional",
+   "O142",
+   "SÍNDROME HELLP"
+  ],
+  [
+   "Hipertensión y diabetes gestacional",
+   "O243",
+   "DIABETES MELLITUS PREEXISTENTE, SIN OTRA ESPECIFICACIÓN, EN EL EMBARAZO"
+  ],
+  [
+   "Cesárea",
+   "O820",
+   "PARTO POR CESÁREA ELECTIVA"
+  ],
+  [
+   "Cesárea",
+   "O821",
+   "PARTO POR CESÁREA DE EMERGENCIA"
+  ],
+  [
+   "Cesárea",
+   "O829",
+   "PARTO POR CESÁREA, SIN OTRA ESPECIFICACIÓN"
+  ],
+  [
+   "Cesárea",
+   "O822",
+   "PARTO POR CESÁREA CON HISTERECTOMÍA"
+  ],
+  [
+   "Trabajo de parto / Parto",
+   "O800",
+   "PARTO ÚNICO ESPONTÁNEO, PRESENTACIÓN CEFÁLICA DE VÉRTICE"
+  ],
+  [
+   "Trabajo de parto / Parto",
+   "O639",
+   "TRABAJO DE PARTO PROLONGADO, NO ESPECIFICADO"
+  ],
+  [
+   "Trabajo de parto / Parto",
+   "O369",
+   "ATENCIÓN MATERNA POR PROBLEMAS FETALES NO ESPECIFICADOS"
+  ],
+  [
+   "Trabajo de parto / Parto",
+   "Z370",
+   "NACIDO VIVO, ÚNICO"
+  ],
+  [
+   "Puerperio",
+   "O85X",
+   "SEPSIS PUERPERAL"
+  ],
+  [
+   "Puerperio",
+   "O900",
+   "DEHISCENCIA DE SUTURA DE CESÁREA"
+  ],
+  [
+   "Puerperio",
+   "O909",
+   "COMPLICACIÓN PUERPERAL, NO ESPECIFICADA"
+  ],
+  [
+   "Puerperio",
+   "O901",
+   "DEHISCENCIA DE SUTURA OBSTÉTRICA PERINEAL"
+  ],
+  [
+   "Puerperio",
+   "O903",
+   "CARDIOMIOPATÍA EN EL PUERPERIO"
+  ],
+  [
+   "Complicaciones obstétricas",
+   "O200",
+   "AMENAZA DE ABORTO"
+  ],
+  [
+   "Complicaciones obstétricas",
+   "O470",
+   "FALSO TRABAJO DE PARTO ANTES DE LAS 37 SEMANAS COMPLETAS DE GESTACIÓN"
+  ],
+  [
+   "Complicaciones obstétricas",
+   "O689",
+   "TRABAJO DE PARTO Y PARTO COMPLICADOS POR SUFRIMIENTO FETAL, SIN OTRA ESPECIFICACIÓN"
+  ],
+  [
+   "Complicaciones obstétricas",
+   "O721",
+   "OTRAS HEMORRAGIAS POSTPARTO INMEDIATAS"
+  ],
+  [
+   "Complicaciones obstétricas",
+   "O269",
+   "COMPLICACIÓN RELACIONADA CON EL EMBARAZO, NO ESPECIFICADA"
+  ],
+  [
+   "Ginecología general",
+   "N939",
+   "HEMORRAGIA VAGINAL Y UTERINA ANORMAL, NO ESPECIFICADA"
+  ],
+  [
+   "Ginecología general",
+   "N760",
+   "VAGINITIS AGUDA"
+  ],
+  [
+   "Ginecología general",
+   "N920",
+   "MENSTRUACIÓN EXCESIVA Y FRECUENTE CON CICLO REGULAR"
+  ],
+  [
+   "Ginecología general",
+   "N872",
+   "DISPLASIA CERVICAL SEVERA, NO CLASIFICADA EN OTRA PARTE"
+  ],
+  [
+   "Ginecología general",
+   "N832",
+   "OTROS QUISTES OVÁRICOS Y LOS NO ESPECIFICADOS"
+  ],
+  [
+   "Ginecología general",
+   "N871",
+   "DISPLASIA CERVICAL MODERADA"
+  ],
+  [
+   "Mama",
+   "N63X",
+   "MASA NO ESPECIFICADA EN LA MAMA"
+  ],
+  [
+   "Mama",
+   "D24X",
+   "TUMOR BENIGNO DE LA MAMA"
+  ],
+  [
+   "Planificación / Climaterio",
+   "Z301",
+   "INSERCIÓN DE DISPOSITIVO ANTICONCEPTIVO (INTRAUTERINO)"
+  ],
+  [
+   "Planificación / Climaterio",
+   "N951",
+   "ESTADOS MENOPÁUSICOS Y CLIMATÉRICOS FEMENINOS"
+  ]
+ ],
+ "Cirugía General": [
+  [
+   "Pared abdominal / Hernias",
+   "K409",
+   "HERNIA INGUINAL UNILATERAL O NO ESPECIFICADA, SIN OBSTRUCCIÓN NI GANGRENA"
+  ],
+  [
+   "Pared abdominal / Hernias",
+   "K429",
+   "HERNIA UMBILICAL SIN OBSTRUCCIÓN NI GANGRENA"
+  ],
+  [
+   "Pared abdominal / Hernias",
+   "K469",
+   "HERNIA ABDOMINAL NO ESPECIFICADA, SIN OBSTRUCCIÓN NI GANGRENA"
+  ],
+  [
+   "Pared abdominal / Hernias",
+   "K440",
+   "HERNIA DIAFRAGMÁTICA CON OBSTRUCCIÓN, SIN GANGRENA"
+  ],
+  [
+   "Pared abdominal / Hernias",
+   "K449",
+   "HERNIA DIAFRAGMÁTICA SIN OBSTRUCCIÓN NI GANGRENA"
+  ],
+  [
+   "Vesícula y vías biliares",
+   "K802",
+   "CÁLCULO DE LA VESÍCULA BILIAR SIN COLECISTITIS"
+  ],
+  [
+   "Vesícula y vías biliares",
+   "K800",
+   "CÁLCULO DE LA VESÍCULA BILIAR CON COLECISTITIS AGUDA"
+  ],
+  [
+   "Vesícula y vías biliares",
+   "K811",
+   "COLECISTITIS CRÓNICA"
+  ],
+  [
+   "Vesícula y vías biliares",
+   "K830",
+   "COLANGITIS"
+  ],
+  [
+   "Vesícula y vías biliares",
+   "K805",
+   "CÁLCULO DE CONDUCTO BILIAR SIN COLANGITIS NI COLECISTITIS"
+  ],
+  [
+   "Apéndice",
+   "K359",
+   "APENDICITIS AGUDA, NO ESPECIFICADA"
+  ],
+  [
+   "Apéndice",
+   "K37X",
+   "APENDICITIS, NO ESPECIFICADA"
+  ],
+  [
+   "Cirugía bariátrica",
+   "E662",
+   "OBESIDAD EXTREMA CON HIPOVENTILACIÓN ALVEOLAR"
+  ],
+  [
+   "Cirugía bariátrica",
+   "E668",
+   "OTROS TIPOS DE OBESIDAD"
+  ],
+  [
+   "Cirugía bariátrica",
+   "K911",
+   "SÍNDROMES CONSECUTIVOS A LA CIRUGÍA GÁSTRICA"
+  ],
+  [
+   "Cirugía bariátrica",
+   "K912",
+   "MALABSORCIÓN POSTQUIRÚRGICA, NO CLASIFICADA EN OTRA PARTE"
+  ],
+  [
+   "Cirugía bariátrica",
+   "E660",
+   "OBESIDAD DEBIDA A EXCESO DE CALORÍAS"
+  ],
+  [
+   "Tejidos blandos / Piel",
+   "L029",
+   "ABSCESO CUTÁNEO, FURÚNCULO Y ÁNTRAX DE SITIO NO ESPECIFICADO"
+  ],
+  [
+   "Tejidos blandos / Piel",
+   "L039",
+   "CELULITIS DE SITIO NO ESPECIFICADO"
+  ],
+  [
+   "Tejidos blandos / Piel",
+   "L722",
+   "ESTEATOCISTOMA MÚLTIPLE"
+  ],
+  [
+   "Tejidos blandos / Piel",
+   "L050",
+   "QUISTE PILONIDAL CON ABSCESO"
+  ],
+  [
+   "Tubo digestivo",
+   "K631",
+   "PERFORACIÓN DEL INTESTINO (NO TRAUMÁTICA)"
+  ],
+  [
+   "Tubo digestivo",
+   "K566",
+   "OTRAS OBSTRUCCIONES INTESTINALES Y LAS NO ESPECIFICADAS"
+  ],
+  [
+   "Tubo digestivo",
+   "K625",
+   "HEMORRAGIA DEL ANO Y DEL RECTO"
+  ],
+  [
+   "Tubo digestivo",
+   "K640",
+   "HEMORROIDES DE PRIMER GRADO"
+  ],
+  [
+   "Tubo digestivo",
+   "K600",
+   "FISURA ANAL AGUDA"
+  ],
+  [
+   "Postquirúrgico / Otros",
+   "T814",
+   "INFECCIÓN CONSECUTIVA A PROCEDIMIENTO, NO CLASIFICADA EN OTRA PARTE"
+  ],
+  [
+   "Postquirúrgico / Otros",
+   "T813",
+   "DESGARRO DE HERIDA OPERATORIA, NO CLASIFICADO EN OTRA PARTE"
+  ],
+  [
+   "Postquirúrgico / Otros",
+   "K913",
+   "OBSTRUCCIÓN INTESTINAL POSTOPERATORIA"
+  ],
+  [
+   "Postquirúrgico / Otros",
+   "K915",
+   "SÍNDROME DE POSTCOLECISTECTOMÍA"
+  ],
+  [
+   "Oncología quirúrgica",
+   "C189",
+   "TUMOR MALIGNO DEL COLON, PARTE NO ESPECIFICADA"
+  ],
+  [
+   "Oncología quirúrgica",
+   "C20X",
+   "TUMOR MALIGNO DEL RECTO"
+  ],
+  [
+   "Oncología quirúrgica",
+   "C169",
+   "TUMOR MALIGNO DEL ESTÓMAGO, PARTE NO ESPECIFICADA"
+  ]
+ ],
+ "Traumatología y Ortopedia": [
+  [
+   "Fracturas miembro superior",
+   "S424",
+   "FRACTURA DE LA EPÍFISIS INFERIOR DEL HÚMERO"
+  ],
+  [
+   "Fracturas miembro superior",
+   "S525",
+   "FRACTURA DE LA EPÍFISIS INFERIOR DEL RADIO"
+  ],
+  [
+   "Fracturas miembro superior",
+   "S626",
+   "FRACTURA DE OTRO DEDO DE LA MANO"
+  ],
+  [
+   "Fracturas miembro superior",
+   "S420",
+   "FRACTURA DE LA CLAVÍCULA"
+  ],
+  [
+   "Fracturas miembro superior",
+   "S421",
+   "FRACTURA DEL OMÓPLATO"
+  ],
+  [
+   "Fracturas miembro inferior",
+   "S720",
+   "FRACTURA DEL CUELLO DE FÉMUR"
+  ],
+  [
+   "Fracturas miembro inferior",
+   "S823",
+   "FRACTURA DE LA EPÍFISIS INFERIOR DE LA TIBIA"
+  ],
+  [
+   "Fracturas miembro inferior",
+   "S924",
+   "FRACTURA DE LOS HUESOS DEL DEDO GORDO DEL PIE"
+  ],
+  [
+   "Columna / Pelvis",
+   "S320",
+   "FRACTURA DE VÉRTEBRA LUMBAR"
+  ],
+  [
+   "Columna / Pelvis",
+   "M545",
+   "LUMBAGO NO ESPECIFICADO"
+  ],
+  [
+   "Columna / Pelvis",
+   "S220",
+   "FRACTURA DE VÉRTEBRA TORÁCICA"
+  ],
+  [
+   "Columna / Pelvis",
+   "S222",
+   "FRACTURA DEL ESTERNÓN"
+  ],
+  [
+   "Articular / Ligamentos",
+   "S836",
+   "ESGUINCES Y TORCEDURAS DE OTRAS PARTES Y LAS NO ESPECIFICADAS DE LA RODILLA"
+  ],
+  [
+   "Articular / Ligamentos",
+   "M239",
+   "TRASTORNO INTERNO DE LA RODILLA, NO ESPECIFICADO"
+  ],
+  [
+   "Articular / Ligamentos",
+   "M754",
+   "SÍNDROME DE ABDUCCIÓN DOLOROSA DEL HOMBRO"
+  ],
+  [
+   "Articular / Ligamentos",
+   "S934",
+   "ESGUINCES Y TORCEDURAS DEL TOBILLO"
+  ],
+  [
+   "Articular / Ligamentos",
+   "M700",
+   "SINOVITIS CREPITANTE CRÓNICA DE LA MANO Y DE LA MUÑECA"
+  ],
+  [
+   "Infecciosas / Óseas",
+   "M865",
+   "OTRAS OSTEOMIELITIS HEMATÓGENAS CRÓNICAS"
+  ],
+  [
+   "Infecciosas / Óseas",
+   "M199",
+   "ARTROSIS, NO ESPECIFICADA"
+  ],
+  [
+   "Infecciosas / Óseas",
+   "M819",
+   "OSTEOPOROSIS NO ESPECIFICADA, SIN FRACTURA PATOLÓGICA"
+  ],
+  [
+   "Postquirúrgico",
+   "T845",
+   "INFECCIÓN Y REACCIÓN INFLAMATORIA DEBIDAS A PRÓTESIS ARTICULAR INTERNA"
+  ],
+  [
+   "Postquirúrgico",
+   "Z966",
+   "PRESENCIA DE IMPLANTE ORTOPÉDICO ARTICULAR"
+  ],
+  [
+   "Postquirúrgico",
+   "Z946",
+   "TRASPLANTE DE HUESO"
+  ],
+  [
+   "Deformidades",
+   "M419",
+   "ESCOLIOSIS, NO ESPECIFICADA"
+  ],
+  [
+   "Deformidades",
+   "M201",
+   "HALLUX VALGUS (ADQUIRIDO)"
+  ]
+ ],
+ "Cardiología": [
+  [
+   "Isquémica",
+   "I219",
+   "INFARTO AGUDO DEL MIOCARDIO, SIN OTRA ESPECIFICACIÓN"
+  ],
+  [
+   "Isquémica",
+   "I209",
+   "ANGINA DE PECHO, NO ESPECIFICADA"
+  ],
+  [
+   "Isquémica",
+   "I251",
+   "ENFERMEDAD ATEROSCLERÓTICA DEL CORAZÓN"
+  ],
+  [
+   "Insuficiencia cardiaca",
+   "I500",
+   "INSUFICIENCIA CARDÍACA CONGESTIVA"
+  ],
+  [
+   "Insuficiencia cardiaca",
+   "I110",
+   "ENFERMEDAD CARDÍACA HIPERTENSIVA CON INSUFICIENCIA CARDÍACA (CONGESTIVA)"
+  ],
+  [
+   "Insuficiencia cardiaca",
+   "I270",
+   "HIPERTENSIÓN PULMONAR PRIMARIA"
+  ],
+  [
+   "Arritmias",
+   "I489",
+   "FIBRILACIÓN Y ALETEO AURICULAR, NO ESPECIFICADO"
+  ],
+  [
+   "Arritmias",
+   "I472",
+   "TAQUICARDIA VENTRICULAR"
+  ],
+  [
+   "Arritmias",
+   "I440",
+   "BLOQUEO AURICULOVENTRICULAR DE PRIMER GRADO"
+  ],
+  [
+   "Arritmias",
+   "I490",
+   "FIBRILACIÓN Y ALETEO VENTRICULAR"
+  ],
+  [
+   "Arritmias",
+   "I495",
+   "SÍNDROME DEL SENO ENFERMO"
+  ],
+  [
+   "Arritmias",
+   "I499",
+   "ARRITMIA CARDÍACA, NO ESPECIFICADA"
+  ],
+  [
+   "Hipertensiva",
+   "I10X",
+   "HIPERTENSIÓN ESENCIAL (PRIMARIA)"
+  ],
+  [
+   "Hipertensiva",
+   "I119",
+   "ENFERMEDAD CARDÍACA HIPERTENSIVA SIN INSUFICIENCIA CARDÍACA (CONGESTIVA)"
+  ],
+  [
+   "Valvulopatías",
+   "I051",
+   "INSUFICIENCIA MITRAL REUMÁTICA"
+  ],
+  [
+   "Valvulopatías",
+   "I340",
+   "INSUFICIENCIA (DE LA VÁLVULA) MITRAL"
+  ],
+  [
+   "Miocardio / Pericardio",
+   "I429",
+   "CARDIOMIOPATÍA, NO ESPECIFICADA"
+  ],
+  [
+   "Miocardio / Pericardio",
+   "I309",
+   "PERICARDITIS AGUDA, NO ESPECIFICADA"
+  ],
+  [
+   "Miocardio / Pericardio",
+   "I420",
+   "CARDIOMIOPATÍA DILATADA"
+  ],
+  [
+   "Miocardio / Pericardio",
+   "I421",
+   "CARDIOMIOPATÍA HIPERTRÓFICA OBSTRUCTIVA"
+  ],
+  [
+   "Dispositivos / Postquirúrgico",
+   "Z950",
+   "PRESENCIA DE DISPOSITIVOS CARDÍACOS ELECTRÓNICOS"
+  ],
+  [
+   "Dispositivos / Postquirúrgico",
+   "Z955",
+   "PRESENCIA DE ANGIOPLASTIA, INJERTOS Y PRÓTESIS CORONARIAS"
+  ],
+  [
+   "Dispositivos / Postquirúrgico",
+   "Z951",
+   "PRESENCIA DE DERIVACIÓN AORTOCORONARIA"
+  ],
+  [
+   "Dispositivos / Postquirúrgico",
+   "Z952",
+   "PRESENCIA DE VÁLVULA CARDÍACA PROTÉSICA"
+  ]
+ ],
+ "Angiología": [
+  [
+   "Venas",
+   "I839",
+   "VENAS VARICOSAS DE LOS MIEMBROS INFERIORES SIN ÚLCERA NI INFLAMACIÓN"
+  ],
+  [
+   "Venas",
+   "I832",
+   "VENAS VARICOSAS DE LOS MIEMBROS INFERIORES CON ÚLCERA E INFLAMACIÓN"
+  ],
+  [
+   "Venas",
+   "I872",
+   "INSUFICIENCIA VENOSA (CRÓNICA) (PERIFÉRICA)"
+  ],
+  [
+   "Venas",
+   "I830",
+   "VENAS VARICOSAS DE LOS MIEMBROS INFERIORES CON ÚLCERA"
+  ],
+  [
+   "Venas",
+   "I870",
+   "SÍNDROME POSTROMBÓTICO"
+  ],
+  [
+   "Trombosis / Embolia",
+   "I803",
+   "FLEBITIS Y TROMBOFLEBITIS DE LOS MIEMBROS INFERIORES, NO ESPECIFICADA"
+  ],
+  [
+   "Trombosis / Embolia",
+   "I269",
+   "EMBOLIA PULMONAR SIN MENCIÓN DE CORAZÓN PULMONAR AGUDO"
+  ],
+  [
+   "Trombosis / Embolia",
+   "I743",
+   "EMBOLIA Y TROMBOSIS DE ARTERIAS DE LOS MIEMBROS INFERIORES"
+  ],
+  [
+   "Trombosis / Embolia",
+   "I801",
+   "FLEBITIS Y TROMBOFLEBITIS DE LA VENA FEMORAL"
+  ],
+  [
+   "Trombosis / Embolia",
+   "I260",
+   "EMBOLIA PULMONAR CON MENCIÓN DE CORAZÓN PULMONAR AGUDO"
+  ],
+  [
+   "Arterial",
+   "I702",
+   "ATEROSCLEROSIS DE LAS ARTERIAS DE LOS MIEMBROS"
+  ],
+  [
+   "Arterial",
+   "I719",
+   "ANEURISMA DE LA AORTA, SITIO NO ESPECIFICADO, SIN MENCIÓN DE RUPTURA"
+  ],
+  [
+   "Arterial",
+   "I714",
+   "ANEURISMA DE LA AORTA ABDOMINAL, SIN MENCIÓN DE RUPTURA"
+  ],
+  [
+   "Arterial",
+   "I709",
+   "ATEROSCLEROSIS GENERALIZADA Y LA NO ESPECIFICADA"
+  ],
+  [
+   "Otros",
+   "L97X",
+   "ÚLCERA DE MIEMBRO INFERIOR, NO CLASIFICADA EN OTRA PARTE"
+  ],
+  [
+   "Otros",
+   "I890",
+   "LINFEDEMA, NO CLASIFICADO EN OTRA PARTE"
+  ],
+  [
+   "Otros",
+   "I891",
+   "LINFANGITIS"
+  ]
+ ],
+ "Neumología": [
+  [
+   "Obstructivas",
+   "J449",
+   "ENFERMEDAD PULMONAR OBSTRUCTIVA CRÓNICA, NO ESPECIFICADA"
+  ],
+  [
+   "Obstructivas",
+   "J459",
+   "ASMA, NO ESPECIFICADO"
+  ],
+  [
+   "Obstructivas",
+   "J439",
+   "ENFISEMA, NO ESPECIFICADO"
+  ],
+  [
+   "Infecciosas",
+   "J189",
+   "NEUMONÍA, NO ESPECIFICADA"
+  ],
+  [
+   "Infecciosas",
+   "A150",
+   "TUBERCULOSIS DEL PULMÓN, CONFIRMADA POR HALLAZGO MICROSCÓPICO DEL BACILO TUBERCULOSO EN ESPUTO, CON O SIN CULTIVO"
+  ],
+  [
+   "Infecciosas",
+   "J159",
+   "NEUMONÍA BACTERIANA, NO ESPECIFICADA"
+  ],
+  [
+   "Infecciosas",
+   "J209",
+   "BRONQUITIS AGUDA, NO ESPECIFICADA"
+  ],
+  [
+   "Intersticiales / Otras",
+   "J841",
+   "OTRAS ENFERMEDADES PULMONARES INTERSTICIALES CON FIBROSIS"
+  ],
+  [
+   "Intersticiales / Otras",
+   "J938",
+   "OTROS NEUMOTÓRAX"
+  ],
+  [
+   "Intersticiales / Otras",
+   "J939",
+   "NEUMOTÓRAX, NO ESPECIFICADO"
+  ],
+  [
+   "Neoplasias",
+   "C349",
+   "TUMOR MALIGNO DE LOS BRONQUIOS O DEL PULMÓN, PARTE NO ESPECIFICADA"
+  ],
+  [
+   "Sueño / Otros",
+   "G473",
+   "APNEA DEL SUEÑO"
+  ],
+  [
+   "Sueño / Otros",
+   "J960",
+   "INSUFICIENCIA RESPIRATORIA AGUDA"
+  ],
+  [
+   "Sueño / Otros",
+   "J961",
+   "INSUFICIENCIA RESPIRATORIA CRÓNICA"
+  ],
+  [
+   "Sueño / Otros",
+   "R042",
+   "HEMOPTISIS"
+  ],
+  [
+   "Pleura",
+   "J90X",
+   "DERRAME PLEURAL NO CLASIFICADO EN OTRA PARTE"
+  ],
+  [
+   "Pleura",
+   "J91X",
+   "DERRAME PLEURAL EN AFECCIONES CLASIFICADAS EN OTRA PARTE"
+  ]
+ ],
+ "Gastroenterología": [
+  [
+   "Hígado",
+   "K766",
+   "HIPERTENSIÓN PORTAL"
+  ],
+  [
+   "Hígado",
+   "K703",
+   "CIRROSIS HEPÁTICA ALCOHÓLICA"
+  ],
+  [
+   "Hígado",
+   "B182",
+   "HEPATITIS VIRAL TIPO C CRÓNICA"
+  ],
+  [
+   "Hígado",
+   "B159",
+   "HEPATITIS AGUDA TIPO A, SIN COMA HEPÁTICO"
+  ],
+  [
+   "Hígado",
+   "B169",
+   "HEPATITIS AGUDA TIPO B, SIN AGENTE DELTA Y SIN COMA HEPÁTICO"
+  ],
+  [
+   "Estómago / Duodeno",
+   "K259",
+   "ÚLCERA GÁSTRICA, NO ESPECIFICADA COMO AGUDA NI CRÓNICA, SIN HEMORRAGIA NI PERFORACIÓN"
+  ],
+  [
+   "Estómago / Duodeno",
+   "K297",
+   "GASTRITIS, NO ESPECIFICADA"
+  ],
+  [
+   "Estómago / Duodeno",
+   "K219",
+   "ENFERMEDAD DEL REFLUJO GASTROESOFÁGICO SIN ESOFAGITIS"
+  ],
+  [
+   "Estómago / Duodeno",
+   "C169",
+   "TUMOR MALIGNO DEL ESTÓMAGO, PARTE NO ESPECIFICADA"
+  ],
+  [
+   "Intestino",
+   "K589",
+   "SÍNDROME DEL COLON IRRITABLE SIN DIARREA"
+  ],
+  [
+   "Intestino",
+   "K522",
+   "COLITIS Y GASTROENTERITIS ALÉRGICAS Y DIETÉTICAS"
+  ],
+  [
+   "Intestino",
+   "K519",
+   "COLITIS ULCERATIVA, SIN OTRA ESPECIFICACIÓN"
+  ],
+  [
+   "Intestino",
+   "K900",
+   "ENFERMEDAD CELÍACA"
+  ],
+  [
+   "Vía biliar / Páncreas",
+   "K810",
+   "COLECISTITIS AGUDA"
+  ],
+  [
+   "Vía biliar / Páncreas",
+   "K811",
+   "COLECISTITIS CRÓNICA"
+  ],
+  [
+   "Vía biliar / Páncreas",
+   "K859",
+   "PANCREATITIS AGUDA, NO ESPECIFICADA"
+  ],
+  [
+   "Vía biliar / Páncreas",
+   "K805",
+   "CÁLCULO DE CONDUCTO BILIAR SIN COLANGITIS NI COLECISTITIS"
+  ],
+  [
+   "Otros",
+   "K579",
+   "ENFERMEDAD DIVERTICULAR DEL INTESTINO, PARTE NO ESPECIFICADA, SIN PERFORACIÓN NI ABSCESO"
+  ],
+  [
+   "Otros",
+   "K922",
+   "HEMORRAGIA GASTROINTESTINAL, NO ESPECIFICADA"
+  ],
+  [
+   "Otros",
+   "K649",
+   "HEMORROIDES, SIN OTRA ESPECIFICACIÓN"
+  ],
+  [
+   "Otros",
+   "K603",
+   "FÍSTULA ANAL"
+  ]
+ ],
+ "Neurología": [
+  [
+   "Cerebrovascular",
+   "I639",
+   "INFARTO CEREBRAL, NO ESPECIFICADO"
+  ],
+  [
+   "Cerebrovascular",
+   "I619",
+   "HEMORRAGIA INTRAENCEFÁLICA, NO ESPECIFICADA"
+  ],
+  [
+   "Cerebrovascular",
+   "G459",
+   "ISQUEMIA CEREBRAL TRANSITORIA, SIN OTRA ESPECIFICACIÓN"
+  ],
+  [
+   "Epilepsia / Crisis",
+   "G409",
+   "EPILEPSIA, TIPO NO ESPECIFICADO"
+  ],
+  [
+   "Epilepsia / Crisis",
+   "R568",
+   "OTRAS CONVULSIONES Y LAS NO ESPECIFICADAS"
+  ],
+  [
+   "Epilepsia / Crisis",
+   "R560",
+   "CONVULSIONES FEBRILES"
+  ],
+  [
+   "Cefalea",
+   "G439",
+   "MIGRAÑA, NO ESPECIFICADA"
+  ],
+  [
+   "Cefalea",
+   "G440",
+   "SÍNDROME DE CEFALEA EN RACIMOS"
+  ],
+  [
+   "Degenerativas",
+   "G309",
+   "ENFERMEDAD DE ALZHEIMER, NO ESPECIFICADA"
+  ],
+  [
+   "Degenerativas",
+   "G20X",
+   "ENFERMEDAD DE PARKINSON"
+  ],
+  [
+   "Degenerativas",
+   "G932",
+   "HIPERTENSIÓN INTRACRANEAL BENIGNA"
+  ],
+  [
+   "Neuropatías",
+   "G629",
+   "POLINEUROPATÍA, NO ESPECIFICADA"
+  ],
+  [
+   "Neuropatías",
+   "G562",
+   "LESIÓN DEL NERVIO CUBITAL"
+  ],
+  [
+   "Neuropatías",
+   "G610",
+   "SÍNDROME DE GUILLAIN-BARRÉ"
+  ],
+  [
+   "Neuroinfección / Otros",
+   "G039",
+   "MENINGITIS, NO ESPECIFICADA"
+  ],
+  [
+   "Neuroinfección / Otros",
+   "G049",
+   "ENCEFALITIS, MIELITIS Y ENCEFALOMIELITIS, NO ESPECIFICADAS"
+  ],
+  [
+   "Neuroinfección / Otros",
+   "G934",
+   "ENCEFALOPATÍA NO ESPECIFICADA"
+  ],
+  [
+   "Neuroinfección / Otros",
+   "G042",
+   "MENINGOENCEFALITIS Y MENINGOMIELITIS BACTERIANAS, NO CLASIFICADAS EN OTRA PARTE"
+  ]
+ ],
+ "Nefrología": [
+  [
+   "Enfermedad renal crónica",
+   "N189",
+   "ENFERMEDAD RENAL CRÓNICA, NO ESPECIFICADA"
+  ],
+  [
+   "Enfermedad renal crónica",
+   "N185",
+   "ENFERMEDAD RENAL CRÓNICA, ETAPA 5"
+  ],
+  [
+   "Enfermedad renal crónica",
+   "N180",
+   "INSUFICIENCIA RENAL TERMINAL"
+  ],
+  [
+   "Enfermedad renal crónica",
+   "N183",
+   "ENFERMEDAD RENAL CRÓNICA, ETAPA 3"
+  ],
+  [
+   "Enfermedad renal crónica",
+   "N184",
+   "ENFERMEDAD RENAL CRÓNICA, ETAPA 4"
+  ],
+  [
+   "Agudo",
+   "N179",
+   "INSUFICIENCIA RENAL AGUDA, NO ESPECIFICADA"
+  ],
+  [
+   "Agudo",
+   "N170",
+   "INSUFICIENCIA RENAL AGUDA CON NECROSIS TUBULAR"
+  ],
+  [
+   "Glomerular",
+   "N049",
+   "SÍNDROME NEFRÓTICO, NO ESPECIFICADA"
+  ],
+  [
+   "Glomerular",
+   "N059",
+   "SÍNDROME NEFRÍTICO NO ESPECIFICADA"
+  ],
+  [
+   "Diálisis / Trasplante",
+   "Z992",
+   "DEPENDENCIA DE DIÁLISIS RENAL"
+  ],
+  [
+   "Diálisis / Trasplante",
+   "Z940",
+   "TRASPLANTE DE RIÑÓN"
+  ],
+  [
+   "Hidroelectrolítico / HTA renal",
+   "E875",
+   "HIPERPOTASEMIA"
+  ],
+  [
+   "Hidroelectrolítico / HTA renal",
+   "E872",
+   "ACIDOSIS"
+  ],
+  [
+   "Hidroelectrolítico / HTA renal",
+   "I120",
+   "ENFERMEDAD RENAL HIPERTENSIVA CON INSUFICIENCIA RENAL"
+  ],
+  [
+   "Hidroelectrolítico / HTA renal",
+   "E873",
+   "ALCALOSIS"
+  ],
+  [
+   "Hidroelectrolítico / HTA renal",
+   "E876",
+   "HIPOPOTASMIA"
+  ],
+  [
+   "Hidroelectrolítico / HTA renal",
+   "I129",
+   "ENFERMEDAD RENAL HIPERTENSIVA SIN INSUFICIENCIA RENAL"
+  ]
+ ],
+ "Dermatología": [
+  [
+   "Infecciosas",
+   "L029",
+   "ABSCESO CUTÁNEO, FURÚNCULO Y ÁNTRAX DE SITIO NO ESPECIFICADO"
+  ],
+  [
+   "Infecciosas",
+   "B019",
+   "VARICELA SIN COMPLICACIONES"
+  ],
+  [
+   "Infecciosas",
+   "B350",
+   "TIÑA DE LA BARBA Y DEL CUERO CABELLUDO"
+  ],
+  [
+   "Infecciosas",
+   "B354",
+   "TIÑA DEL CUERPO [TINEA CORPORIS]"
+  ],
+  [
+   "Infecciosas",
+   "B029",
+   "HERPES ZOSTER SIN COMPLICACIONES"
+  ],
+  [
+   "Infecciosas",
+   "B86X",
+   "ESCABIOSIS"
+  ],
+  [
+   "Inflamatorias",
+   "L309",
+   "DERMATITIS, NO ESPECIFICADA"
+  ],
+  [
+   "Inflamatorias",
+   "L400",
+   "PSORIASIS VULGAR"
+  ],
+  [
+   "Inflamatorias",
+   "L500",
+   "URTICARIA ALÉRGICA"
+  ],
+  [
+   "Inflamatorias",
+   "L405",
+   "ARTROPATÍA PSORIÁSICA"
+  ],
+  [
+   "Neoplasias",
+   "C449",
+   "TUMOR MALIGNO DE LA PIEL, SITIO NO ESPECIFICADO"
+  ],
+  [
+   "Neoplasias",
+   "D239",
+   "TUMOR BENIGNO DE LA PIEL, SITIO NO ESPECIFICADO"
+  ],
+  [
+   "Otras",
+   "L708",
+   "OTROS ACNÉS"
+  ],
+  [
+   "Otras",
+   "L219",
+   "DERMATITIS SEBORREICA, NO ESPECIFICADA"
+  ],
+  [
+   "Otras",
+   "L80X",
+   "VITÍLIGO"
+  ],
+  [
+   "Otras",
+   "L659",
+   "PERDIDA NO CICATRICIAL DEL PELO, SIN OTRA ESPECIFICACIÓN"
+  ],
+  [
+   "Otras",
+   "B07X",
+   "VERRUGAS VÍRICAS"
+  ]
+ ],
+ "Urología": [
+  [
+   "Infecciones",
+   "N390",
+   "INFECCIÓN DE VÍAS URINARIAS, SITIO NO ESPECIFICADO"
+  ],
+  [
+   "Infecciones",
+   "N300",
+   "CISTITIS AGUDA"
+  ],
+  [
+   "Infecciones",
+   "N136",
+   "PIONEFROSIS"
+  ],
+  [
+   "Litiasis",
+   "N200",
+   "CÁLCULO DEL RIÑÓN"
+  ],
+  [
+   "Litiasis",
+   "N202",
+   "CÁLCULO DEL RIÑÓN CON CÁLCULO DEL URÉTER"
+  ],
+  [
+   "Próstata",
+   "N40X",
+   "HIPERPLASIA DE LA PRÓSTATA"
+  ],
+  [
+   "Próstata",
+   "C61X",
+   "TUMOR MALIGNO DE LA PRÓSTATA"
+  ],
+  [
+   "Genital masculino",
+   "I861",
+   "VÁRICES ESCROTALES"
+  ],
+  [
+   "Genital masculino",
+   "N459",
+   "ORQUITIS, EPIDIDIMITIS Y ORQUIEPIDIDIMITIS SIN ABSCESO"
+  ],
+  [
+   "Genital masculino",
+   "N433",
+   "HIDROCELE, NO ESPECIFICADO"
+  ],
+  [
+   "Genital masculino",
+   "N450",
+   "ORQUITIS, EPIDIDIMITIS Y ORQUIEPIDIDIMITIS CON ABSCESO"
+  ],
+  [
+   "Genital masculino",
+   "N434",
+   "ESPERMATOCELE"
+  ],
+  [
+   "Oncología urológica",
+   "C679",
+   "TUMOR MALIGNO DE LA VEJIGA URINARIA, PARTE NO ESPECIFICADA"
+  ],
+  [
+   "Oncología urológica",
+   "C64X",
+   "TUMOR MALIGNO DEL RIÑÓN, EXCEPTO DE LA PELVIS RENAL"
+  ],
+  [
+   "Otros",
+   "R31X",
+   "HEMATURIA, NO ESPECIFICADA"
+  ],
+  [
+   "Otros",
+   "R33X",
+   "RETENCIÓN DE ORINA"
+  ],
+  [
+   "Otros",
+   "N393",
+   "INCONTINENCIA URINARIA POR TENSIÓN"
+  ],
+  [
+   "Otros",
+   "N359",
+   "ESTRECHEZ URETRAL, NO ESPECIFICADA"
+  ]
+ ],
+ "Oftalmología": [
+  [
+   "Segmento anterior",
+   "H108",
+   "OTRAS CONJUNTIVITIS"
+  ],
+  [
+   "Segmento anterior",
+   "H269",
+   "CATARATA, NO ESPECIFICADA"
+  ],
+  [
+   "Segmento anterior",
+   "H520",
+   "HIPERMETROPÍA"
+  ],
+  [
+   "Segmento anterior",
+   "H000",
+   "ORZUELO Y OTRAS INFLAMACIONES PROFUNDAS DEL PÁRPADO"
+  ],
+  [
+   "Segmento anterior",
+   "H110",
+   "PTERIGIÓN"
+  ],
+  [
+   "Glaucoma / Retina",
+   "H409",
+   "GLAUCOMA, NO ESPECIFICADO"
+  ],
+  [
+   "Glaucoma / Retina",
+   "H353",
+   "DEGENERACIÓN DE LA MÁCULA Y DEL POLO POSTERIOR DEL OJO"
+  ],
+  [
+   "Glaucoma / Retina",
+   "H330",
+   "DESPRENDIMIENTO DE LA RETINA CON RUPTURA"
+  ],
+  [
+   "Otros",
+   "H579",
+   "TRASTORNO DEL OJO Y SUS ANEXOS, NO ESPECIFICADO"
+  ],
+  [
+   "Otros",
+   "H040",
+   "DACRIOADENITIS"
+  ],
+  [
+   "Otros",
+   "H530",
+   "AMBLIOPÍA EX ANOPSIA"
+  ],
+  [
+   "Otros",
+   "H501",
+   "ESTRABISMO CONCOMITANTE DIVERGENTE"
+  ],
+  [
+   "Otros",
+   "T159",
+   "CUERPO EXTRAÑO EN PARTE EXTERNA DEL OJO, SITIO NO ESPECIFICADO"
+  ]
+ ],
+ "Otorrinolaringología": [
+  [
+   "Oído",
+   "H659",
+   "OTITIS MEDIA NO SUPURATIVA, SIN OTRA ESPECIFICACIÓN"
+  ],
+  [
+   "Oído",
+   "H609",
+   "OTITIS EXTERNA, SIN OTRA ESPECIFICACIÓN"
+  ],
+  [
+   "Oído",
+   "H904",
+   "HIPOACUSIA NEUROSENSORIAL, UNILATERAL CON AUDICIÓN IRRESTRICTA CONTRALATERAL"
+  ],
+  [
+   "Oído",
+   "H810",
+   "ENFERMEDAD DE MENIERE"
+  ],
+  [
+   "Oído",
+   "H811",
+   "VÉRTIGO PAROXÍSTICO BENIGNO"
+  ],
+  [
+   "Nariz / Senos",
+   "J019",
+   "SINUSITIS AGUDA, NO ESPECIFICADA"
+  ],
+  [
+   "Nariz / Senos",
+   "J340",
+   "ABSCESO, FURÚNCULO Y CARBUNCO DE LA NARIZ"
+  ],
+  [
+   "Nariz / Senos",
+   "J342",
+   "DESVIACIÓN DEL TABIQUE NASAL"
+  ],
+  [
+   "Nariz / Senos",
+   "R040",
+   "EPISTAXIS"
+  ],
+  [
+   "Faringe / Laringe",
+   "J039",
+   "AMIGDALITIS AGUDA, NO ESPECIFICADA"
+  ],
+  [
+   "Faringe / Laringe",
+   "J040",
+   "LARINGITIS AGUDA"
+  ],
+  [
+   "Faringe / Laringe",
+   "J350",
+   "AMIGDALITIS CRÓNICA"
+  ],
+  [
+   "Faringe / Laringe",
+   "J351",
+   "HIPERTROFIA DE LAS AMÍGDALAS"
+  ]
+ ],
+ "Endocrinología": [
+  [
+   "Diabetes",
+   "E119",
+   "DIABETES MELLITUS TIPO 2, SIN MENCIÓN DE COMPLICACIÓN"
+  ],
+  [
+   "Diabetes",
+   "E112",
+   "DIABETES MELLITUS TIPO 2, CON COMPLICACIONES RENALES"
+  ],
+  [
+   "Diabetes",
+   "E149",
+   "DIABETES MELLITUS NO ESPECIFICADA, SIN MENCIÓN DE COMPLICACIÓN"
+  ],
+  [
+   "Diabetes",
+   "E118",
+   "DIABETES MELLITUS TIPO 2, CON COMPLICACIONES NO ESPECIFICADAS"
+  ],
+  [
+   "Tiroides",
+   "E039",
+   "HIPOTIROIDISMO, NO ESPECIFICADO"
+  ],
+  [
+   "Tiroides",
+   "E059",
+   "TIROTOXICOSIS, NO ESPECIFICADA"
+  ],
+  [
+   "Tiroides",
+   "E041",
+   "NÓDULO TIROIDEO SOLITARIO NO TÓXICO"
+  ],
+  [
+   "Otros",
+   "E669",
+   "OBESIDAD, NO ESPECIFICADA"
+  ],
+  [
+   "Otros",
+   "E785",
+   "HIPERLIPIDEMIA NO ESPECIFICADA"
+  ],
+  [
+   "Otros",
+   "E271",
+   "INSUFICIENCIA CORTICOSUPRARRENAL PRIMARIA"
+  ],
+  [
+   "Otros",
+   "E210",
+   "HIPERPARATIROIDISMO PRIMARIO"
+  ],
+  [
+   "Otros",
+   "E232",
+   "DIABETES INSÍPIDA"
+  ],
+  [
+   "Otros",
+   "E790",
+   "HIPERURICEMIA SIN SIGNOS DE ARTRITIS INFLAMATORIA Y ENFERMEDAD TOFÁCEA"
+  ]
+ ],
+ "Infectología": [
+  [
+   "Respiratorias",
+   "J189",
+   "NEUMONÍA, NO ESPECIFICADA"
+  ],
+  [
+   "Respiratorias",
+   "A150",
+   "TUBERCULOSIS DEL PULMÓN, CONFIRMADA POR HALLAZGO MICROSCÓPICO DEL BACILO TUBERCULOSO EN ESPUTO, CON O SIN CULTIVO"
+  ],
+  [
+   "Respiratorias",
+   "J118",
+   "INFLUENZA CON OTRAS MANIFESTACIONES, VIRUS NO IDENTIFICADO"
+  ],
+  [
+   "Urinarias / Sistémicas",
+   "N390",
+   "INFECCIÓN DE VÍAS URINARIAS, SITIO NO ESPECIFICADO"
+  ],
+  [
+   "Urinarias / Sistémicas",
+   "A419",
+   "SEPSIS, NO ESPECIFICADA"
+  ],
+  [
+   "Urinarias / Sistémicas",
+   "B182",
+   "HEPATITIS VIRAL TIPO C CRÓNICA"
+  ],
+  [
+   "Otras",
+   "U071",
+   "COVID-19, VIRUS IDENTIFICADO"
+  ],
+  [
+   "Otras",
+   "B349",
+   "INFECCIÓN VIRAL, NO ESPECIFICADA"
+  ],
+  [
+   "Otras",
+   "A90X",
+   "FIEBRE DEL DENGUE [DENGUE CLÁSICO]"
+  ],
+  [
+   "Otras",
+   "B24X",
+   "ENFERMEDAD POR VIRUS DE LA INMUNODEFICIENCIA HUMANA [VIH], SIN OTRA ESPECIFICACIÓN"
+  ],
+  [
+   "Exantemáticas / Prevenibles por vacuna",
+   "B059",
+   "SARAMPIÓN SIN COMPLICACIONES"
+  ],
+  [
+   "Exantemáticas / Prevenibles por vacuna",
+   "B069",
+   "RUBÉOLA SIN COMPLICACIONES"
+  ],
+  [
+   "Exantemáticas / Prevenibles por vacuna",
+   "A379",
+   "TOS FERINA, NO ESPECIFICADA"
+  ]
+ ],
+ "Terapia Intensiva": [
+  [
+   "Choque",
+   "R572",
+   "CHOQUE SÉPTICO"
+  ],
+  [
+   "Choque",
+   "R570",
+   "CHOQUE CARDIOGÉNICO"
+  ],
+  [
+   "Choque",
+   "R571",
+   "CHOQUE HIPOVOLÉMICO"
+  ],
+  [
+   "Choque",
+   "R579",
+   "CHOQUE, NO ESPECIFICADO"
+  ],
+  [
+   "Respiratorio crítico",
+   "J80X",
+   "SÍNDROME DE DIFICULTAD RESPIRATORIA DEL ADULTO"
+  ],
+  [
+   "Respiratorio crítico",
+   "J960",
+   "INSUFICIENCIA RESPIRATORIA AGUDA"
+  ],
+  [
+   "Respiratorio crítico",
+   "Z991",
+   "DEPENDENCIA DE RESPIRADOR"
+  ],
+  [
+   "Respiratorio crítico",
+   "J961",
+   "INSUFICIENCIA RESPIRATORIA CRÓNICA"
+  ],
+  [
+   "Neurológico crítico",
+   "R402",
+   "COMA, NO ESPECIFICADO"
+  ],
+  [
+   "Neurológico crítico",
+   "G931",
+   "LESIÓN CEREBRAL ANÓXICA, NO CLASIFICADA EN OTRA PARTE"
+  ],
+  [
+   "Neurológico crítico",
+   "G936",
+   "EDEMA CEREBRAL"
+  ],
+  [
+   "Neurológico crítico",
+   "G935",
+   "COMPRESIÓN DEL ENCÉFALO"
+  ],
+  [
+   "Neurológico crítico",
+   "R400",
+   "SOMNOLENCIA"
+  ],
+  [
+   "Sepsis / SIRS",
+   "R650",
+   "SÍNDROME DE RESPUESTA INFLAMATORIA SISTÉMICA DE ORIGEN INFECCIOSO, SIN FALLA ORGÁNICA"
+  ],
+  [
+   "Sepsis / SIRS",
+   "R651",
+   "SÍNDROME DE RESPUESTA INFLAMATORIA SISTÉMICA DE ORIGEN INFECCIOSO, CON FALLA ORGÁNICA"
+  ],
+  [
+   "Sepsis / SIRS",
+   "A419",
+   "SEPSIS, NO ESPECIFICADA"
+  ],
+  [
+   "Sepsis / SIRS",
+   "R659",
+   "SÍNDROME DE RESPUESTA INFLAMATORIA SISTÉMICA, NO ESPECIFICADO"
+  ],
+  [
+   "Cardiorrespiratorio",
+   "I460",
+   "PARO CARDÍACO CON RESUCITACIÓN EXITOSA"
+  ],
+  [
+   "Cardiorrespiratorio",
+   "R092",
+   "PARO RESPIRATORIO"
+  ],
+  [
+   "Cardiorrespiratorio",
+   "I461",
+   "MUERTE CARDÍACA SÚBITA, ASÍ DESCRITA"
+  ]
+ ]
+}

@@ -1,0 +1,1185 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>CIE-10 por especialidad</title>
+<style>
+@page { size: 11in 8.5in; margin: 0; }
+* { box-sizing: border-box; }
+html, body { margin:0; padding:0; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  color: #1a1a1a;
+}
+.page {
+  width: 11in;
+  height: 8.5in;
+  position: relative;
+  page-break-after: always;
+  overflow: hidden;
+  padding: 0.35in 0.5in 0.32in 0.5in;
+  display: flex;
+  flex-direction: column;
+}
+.page:last-child { page-break-after: avoid; }
+
+/* ===== Cover ===== */
+.cover { justify-content: center; align-items: flex-start; }
+.cover-kicker {
+  font-size: 13px; letter-spacing: 3px; font-weight: 700; color: #555;
+  text-transform: uppercase; margin-bottom: 10px;
+}
+.cover h1 {
+  font-size: 46px; margin: 0 0 6px 0; color: #16202A; line-height:1.08;
+}
+.cover .sub {
+  font-size: 17px; color: #3a3a3a; margin-bottom: 26px; max-width: 8.6in; line-height:1.45;
+}
+.cover-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px 18px; width: 100%; margin-top: 6px;
+}
+.cover-item {
+  display: flex; align-items: center; gap: 10px;
+  border-left: 7px solid var(--c);
+  background: #F7F7F7;
+  padding: 9px 12px;
+  border-radius: 4px;
+}
+.cover-item .num {
+  font-weight: 800; font-size: 13px; color: #fff; background: var(--c);
+  width: 24px; height: 24px; border-radius: 50%; display:flex; align-items:center; justify-content:center; flex: 0 0 auto;
+}
+.cover-item .name { font-size: 14.5px; font-weight: 700; color: #16202A; }
+.cover-item .cnt { font-size: 11px; color: #666; font-weight: 500; }
+.cover-foot {
+  position: absolute; bottom: 0.3in; left: 0.5in; right: 0.5in;
+  font-size: 10.5px; color: #777; border-top: 1px solid #ddd; padding-top: 8px;
+  display:flex; justify-content: space-between;
+}
+
+/* ===== Specialty page ===== */
+.head {
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 6px solid var(--c);
+  padding-bottom: 10px; margin-bottom: 12px; flex: 0 0 auto;
+}
+.head-left { display:flex; align-items:baseline; gap: 14px; }
+.head h1 { font-size: 28px; margin: 0; color: #16202A; }
+.head .part { font-size: 16px; color: #888; font-weight: 600; margin-left: 8px; }
+.head .kicker { font-size: 11.5px; letter-spacing: 2px; text-transform: uppercase; color: var(--c); font-weight: 800; }
+.head .count-badge {
+  background: var(--c); color:#fff; font-weight:800; font-size: 13px;
+  padding: 7px 14px; border-radius: 20px; white-space:nowrap;
+}
+.body-cols {
+  column-gap: 0.34in; flex: 1 1 auto; overflow: hidden;
+}
+.body-cols.cols-3 { columns: 3; }
+.body-cols.cols-2 { columns: 2; }
+.subcat {
+  break-inside: avoid; -webkit-column-break-inside: avoid;
+  margin-bottom: 11px; display: inline-block; width: 100%;
+}
+.subcat h2 {
+  font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.6px;
+  color: #fff; background: var(--c); display:inline-block;
+  padding: 3px 9px; border-radius: 3px; margin: 0 0 6px 0; font-weight: 700;
+}
+.dx { display:flex; align-items: flex-start; gap: 8px; padding: 3.2px 0; border-bottom: 1px solid #ececec; }
+.dx .code {
+  font-family: 'Consolas','Courier New',monospace; font-weight: 800; font-size: 12px;
+  color: var(--c); background: color-mix(in srgb, var(--c) 12%, white);
+  border: 1.3px solid var(--c); border-radius: 4px; padding: 1px 6px; flex: 0 0 auto; min-width: 44px; text-align:center;
+}
+.dx .nm { font-size: 11.5px; line-height: 1.25; color: #1c1c1c; padding-top: 1px; }
+.notes {
+  flex: 0 0 auto; margin-top: 6px; padding: 8px 14px; border: 1.4px dashed #c9c9c9; border-radius: 5px;
+  display:flex; gap: 16px; background: #FBFBFB;
+}
+.notes .lbl { font-size: 10px; color: #999; font-weight: 700; text-transform: uppercase; letter-spacing: .4px; flex: 0 0 auto; padding-top:2px; }
+.notes .lines { flex: 1 1 auto; display:flex; flex-direction:column; gap: 12px; padding-top: 3px; }
+.notes .lines div { border-bottom: 1px solid #d8d8d8; height: 1px; }
+.foot {
+  flex: 0 0 auto; margin-top: 8px; padding-top: 7px; border-top: 1px solid #ddd;
+  display:flex; justify-content: space-between; font-size: 10px; color: #888;
+}
+</style>
+</head>
+<body>
+
+    <div class="page cover">
+      <div class="cover-kicker">Guía rápida de codificación &middot; Archivo Clínico / Estadística</div>
+      <h1>Diagnósticos CIE-10 por especialidad</h1>
+      <div class="sub">Selección amplia de códigos CIE-10 (edición vigente, actualización abril 2024) organizada por
+      especialidad y agrupada por categoría clínica, incluyendo diagnósticos relacionados además de los más
+      frecuentes, para consulta rápida en el punto de captura. Recorta o separa la hoja de cada especialidad y
+      colócala en el pizarrón frente a la computadora del área correspondiente.</div>
+      <div class="cover-grid">
+        
+        <div class="cover-item" style="--c:#942222">
+          <div class="num">1</div>
+          <div>
+            <div class="name">Urgencias</div>
+            <div class="cnt">68 códigos &middot; 10 categorías</div>
+          </div>
+        </div>
+        <div class="cover-item" style="--c:#944622">
+          <div class="num">2</div>
+          <div>
+            <div class="name">Medicina Interna</div>
+            <div class="cnt">50 códigos &middot; 8 categorías</div>
+          </div>
+        </div>
+        <div class="cover-item" style="--c:#946A22">
+          <div class="num">3</div>
+          <div>
+            <div class="name">Pediatría</div>
+            <div class="cnt">39 códigos &middot; 7 categorías</div>
+          </div>
+        </div>
+        <div class="cover-item" style="--c:#948E22">
+          <div class="num">4</div>
+          <div>
+            <div class="name">Gineco-Obstetricia</div>
+            <div class="cnt">39 códigos &middot; 9 categorías</div>
+          </div>
+        </div>
+        <div class="cover-item" style="--c:#769422">
+          <div class="num">5</div>
+          <div>
+            <div class="name">Cirugía General</div>
+            <div class="cnt">33 códigos &middot; 8 categorías</div>
+          </div>
+        </div>
+        <div class="cover-item" style="--c:#529422">
+          <div class="num">6</div>
+          <div>
+            <div class="name">Traumatología y Ortopedia</div>
+            <div class="cnt">25 códigos &middot; 7 categorías</div>
+          </div>
+        </div>
+        <div class="cover-item" style="--c:#2E9422">
+          <div class="num">7</div>
+          <div>
+            <div class="name">Cardiología</div>
+            <div class="cnt">24 códigos &middot; 7 categorías</div>
+          </div>
+        </div>
+        <div class="cover-item" style="--c:#22943A">
+          <div class="num">8</div>
+          <div>
+            <div class="name">Angiología</div>
+            <div class="cnt">17 códigos &middot; 4 categorías</div>
+          </div>
+        </div>
+        <div class="cover-item" style="--c:#22945E">
+          <div class="num">9</div>
+          <div>
+            <div class="name">Neumología</div>
+            <div class="cnt">17 códigos &middot; 6 categorías</div>
+          </div>
+        </div>
+        <div class="cover-item" style="--c:#229482">
+          <div class="num">10</div>
+          <div>
+            <div class="name">Gastroenterología</div>
+            <div class="cnt">21 códigos &middot; 5 categorías</div>
+          </div>
+        </div>
+        <div class="cover-item" style="--c:#228294">
+          <div class="num">11</div>
+          <div>
+            <div class="name">Neurología</div>
+            <div class="cnt">18 códigos &middot; 6 categorías</div>
+          </div>
+        </div>
+        <div class="cover-item" style="--c:#225E94">
+          <div class="num">12</div>
+          <div>
+            <div class="name">Nefrología</div>
+            <div class="cnt">17 códigos &middot; 5 categorías</div>
+          </div>
+        </div>
+        <div class="cover-item" style="--c:#223A94">
+          <div class="num">13</div>
+          <div>
+            <div class="name">Dermatología</div>
+            <div class="cnt">17 códigos &middot; 4 categorías</div>
+          </div>
+        </div>
+        <div class="cover-item" style="--c:#2E2294">
+          <div class="num">14</div>
+          <div>
+            <div class="name">Urología</div>
+            <div class="cnt">18 códigos &middot; 6 categorías</div>
+          </div>
+        </div>
+        <div class="cover-item" style="--c:#522294">
+          <div class="num">15</div>
+          <div>
+            <div class="name">Oftalmología</div>
+            <div class="cnt">13 códigos &middot; 3 categorías</div>
+          </div>
+        </div>
+        <div class="cover-item" style="--c:#762294">
+          <div class="num">16</div>
+          <div>
+            <div class="name">Otorrinolaringología</div>
+            <div class="cnt">13 códigos &middot; 3 categorías</div>
+          </div>
+        </div>
+        <div class="cover-item" style="--c:#94228E">
+          <div class="num">17</div>
+          <div>
+            <div class="name">Endocrinología</div>
+            <div class="cnt">13 códigos &middot; 3 categorías</div>
+          </div>
+        </div>
+        <div class="cover-item" style="--c:#94226A">
+          <div class="num">18</div>
+          <div>
+            <div class="name">Infectología</div>
+            <div class="cnt">13 códigos &middot; 4 categorías</div>
+          </div>
+        </div>
+        <div class="cover-item" style="--c:#942246">
+          <div class="num">19</div>
+          <div>
+            <div class="name">Terapia Intensiva</div>
+            <div class="cnt">20 códigos &middot; 5 categorías</div>
+          </div>
+        </div>
+      </div>
+      <div class="cover-foot">
+        <span>Fuente: Catálogo CIE-10 institucional (CIE-ABRIL-2024) &middot; 475 códigos incluidos en esta guía</span>
+        <span>Elaborado 10/09/2026 &middot; Ante duda diagnóstica, consultar el catálogo completo con Archivo Clínico</span>
+      </div>
+    </div>
+    
+    <div class="page" style="--c:#942222">
+      <div class="head">
+        <div class="head-left">
+          <div>
+            <div class="kicker">Diagnósticos CIE-10 por especialidad</div>
+            <h1>Urgencias<span class="part">(1/2)</span></h1>
+          </div>
+        </div>
+        <div class="count-badge">28 de 68 códigos</div>
+      </div>
+      <div class="body-cols cols-3">
+        
+        <div class="subcat">
+          <h2>Cardiovascular</h2>
+          <div class="dx"><div class="code">I219</div><div class="nm">Infarto agudo del miocardio, sin otra especificación</div></div><div class="dx"><div class="code">I500</div><div class="nm">Insuficiencia cardíaca congestiva</div></div><div class="dx"><div class="code">I10</div><div class="nm">Hipertensión esencial (primaria)</div></div><div class="dx"><div class="code">I639</div><div class="nm">Infarto cerebral, no especificado</div></div><div class="dx"><div class="code">I469</div><div class="nm">Paro cardíaco, no especificado</div></div><div class="dx"><div class="code">I471</div><div class="nm">Taquicardia supraventricular</div></div><div class="dx"><div class="code">I802</div><div class="nm">Flebitis y tromboflebitis de otros vasos profundos de los miembros inferiores</div></div><div class="dx"><div class="code">I209</div><div class="nm">Angina de pecho, no especificada</div></div><div class="dx"><div class="code">I429</div><div class="nm">Cardiomiopatía, no especificada</div></div><div class="dx"><div class="code">R074</div><div class="nm">Dolor en el pecho, no especificado</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Respiratorio</h2>
+          <div class="dx"><div class="code">J189</div><div class="nm">Neumonía, no especificada</div></div><div class="dx"><div class="code">J449</div><div class="nm">Enfermedad pulmonar obstructiva crónica, no especificada</div></div><div class="dx"><div class="code">J459</div><div class="nm">Asma, no especificado</div></div><div class="dx"><div class="code">J969</div><div class="nm">Insuficiencia respiratoria, no especificada</div></div><div class="dx"><div class="code">J81</div><div class="nm">Edema pulmonar</div></div><div class="dx"><div class="code">J690</div><div class="nm">Neumonitis debida a aspiración de alimento o vómito</div></div><div class="dx"><div class="code">J939</div><div class="nm">Neumotórax, no especificado</div></div><div class="dx"><div class="code">J439</div><div class="nm">Enfisema, no especificado</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Digestivo</h2>
+          <div class="dx"><div class="code">K359</div><div class="nm">Apendicitis aguda, no especificada</div></div><div class="dx"><div class="code">K802</div><div class="nm">Cálculo de la vesícula biliar sin colecistitis</div></div><div class="dx"><div class="code">K922</div><div class="nm">Hemorragia gastrointestinal, no especificada</div></div><div class="dx"><div class="code">R104</div><div class="nm">Otros dolores abdominales y los no especificados</div></div><div class="dx"><div class="code">K566</div><div class="nm">Otras obstrucciones intestinales y las no especificadas</div></div><div class="dx"><div class="code">K659</div><div class="nm">Peritonitis, no especificada</div></div><div class="dx"><div class="code">K921</div><div class="nm">Melena</div></div><div class="dx"><div class="code">K920</div><div class="nm">Hematemesis</div></div><div class="dx"><div class="code">T181</div><div class="nm">Cuerpo extraño en el esófago</div></div><div class="dx"><div class="code">R100</div><div class="nm">Abdomen agudo</div></div>
+        </div>
+      </div>
+      <div class="notes">
+        <div class="lbl">Espacio para&nbsp;anotar<br>otros códigos&nbsp;de tu&nbsp;área</div>
+        <div class="lines"><div></div><div></div></div>
+      </div>
+      <div class="foot">
+        <span>Guía práctica de codificación &middot; Urgencias &middot; pág. 2 de 22</span>
+        <span>Diagnóstico complejo o no listado: consultar catálogo completo CIE-10 con Archivo Clínico / Estadística</span>
+      </div>
+    </div>
+    
+    <div class="page" style="--c:#942222">
+      <div class="head">
+        <div class="head-left">
+          <div>
+            <div class="kicker">Diagnósticos CIE-10 por especialidad</div>
+            <h1>Urgencias<span class="part">(2/2)</span></h1>
+          </div>
+        </div>
+        <div class="count-badge">40 de 68 códigos</div>
+      </div>
+      <div class="body-cols cols-3">
+        
+        <div class="subcat">
+          <h2>Neurológico</h2>
+          <div class="dx"><div class="code">R568</div><div class="nm">Otras convulsiones y las no especificadas</div></div><div class="dx"><div class="code">G459</div><div class="nm">Isquemia cerebral transitoria, sin otra especificación</div></div><div class="dx"><div class="code">S069</div><div class="nm">Traumatismo intracraneal, no especificado</div></div><div class="dx"><div class="code">G039</div><div class="nm">Meningitis, no especificada</div></div><div class="dx"><div class="code">R55</div><div class="nm">Síncope y colapso</div></div><div class="dx"><div class="code">R402</div><div class="nm">Coma, no especificado</div></div><div class="dx"><div class="code">G935</div><div class="nm">Compresión del encéfalo</div></div><div class="dx"><div class="code">G936</div><div class="nm">Edema cerebral</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Trauma / Choque</h2>
+          <div class="dx"><div class="code">S720</div><div class="nm">Fractura del cuello de fémur</div></div><div class="dx"><div class="code">T07</div><div class="nm">Traumatismos múltiples, no especificados</div></div><div class="dx"><div class="code">T782</div><div class="nm">Choque anafiláctico, no especificado</div></div><div class="dx"><div class="code">T780</div><div class="nm">Choque anafiláctico debido a reacción adversa a alimentos</div></div><div class="dx"><div class="code">T814</div><div class="nm">Infección consecutiva a procedimiento, no clasificada en otra parte</div></div><div class="dx"><div class="code">T140</div><div class="nm">Traumatismo superficial de región no especificada del cuerpo</div></div><div class="dx"><div class="code">T202</div><div class="nm">Quemadura de la cabeza y del cuello, de segundo grado</div></div><div class="dx"><div class="code">T783</div><div class="nm">Edema angioneurótico</div></div><div class="dx"><div class="code">T784</div><div class="nm">Alergia no especificada</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Infeccioso / Sepsis</h2>
+          <div class="dx"><div class="code">A419</div><div class="nm">Sepsis, no especificada</div></div><div class="dx"><div class="code">N390</div><div class="nm">Infección de vías urinarias, sitio no especificado</div></div><div class="dx"><div class="code">B349</div><div class="nm">Infección viral, no especificada</div></div><div class="dx"><div class="code">J039</div><div class="nm">Amigdalitis aguda, no especificada</div></div><div class="dx"><div class="code">A099</div><div class="nm">Gastroenteritis y colitis de origen no especificado</div></div><div class="dx"><div class="code">A46</div><div class="nm">Erisipela</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Metabólico</h2>
+          <div class="dx"><div class="code">E149</div><div class="nm">Diabetes mellitus no especificada, sin mención de complicación</div></div><div class="dx"><div class="code">E162</div><div class="nm">Hipoglicemia, no especificada</div></div><div class="dx"><div class="code">E86</div><div class="nm">Depleción del volumen</div></div><div class="dx"><div class="code">E870</div><div class="nm">Hiperosmolaridad e hipernatremia</div></div><div class="dx"><div class="code">E871</div><div class="nm">Hiposmolaridad e hiponatremia</div></div><div class="dx"><div class="code">E876</div><div class="nm">Hipopotasmia</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Intoxicación / Psiquiátrico</h2>
+          <div class="dx"><div class="code">T509</div><div class="nm">Envenenamiento por otras drogas y sustancias biológicas, y las no especificadas</div></div><div class="dx"><div class="code">F419</div><div class="nm">Trastorno de ansiedad, no especificado</div></div><div class="dx"><div class="code">T391</div><div class="nm">Envenenamiento por derivados del paraaminofenol</div></div><div class="dx"><div class="code">X499</div><div class="nm">Envenenamiento accidental por, y exposición a otros productos químicos y sustancias nocivas, y los no especificados, lugar no especificado</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Ginecológico / Urológico agudo</h2>
+          <div class="dx"><div class="code">O009</div><div class="nm">Embarazo ectópico, no especificado</div></div><div class="dx"><div class="code">R102</div><div class="nm">Dolor pélvico y perineal</div></div><div class="dx"><div class="code">R33</div><div class="nm">Retención de orina</div></div><div class="dx"><div class="code">N832</div><div class="nm">Otros quistes ováricos y los no especificados</div></div>
+        </div>
+        <div class="subcat">
+          <h2>ORL / Oftalmológico</h2>
+          <div class="dx"><div class="code">T159</div><div class="nm">Cuerpo extraño en parte externa del ojo, sitio no especificado</div></div><div class="dx"><div class="code">R040</div><div class="nm">Epistaxis</div></div><div class="dx"><div class="code">R049</div><div class="nm">Hemorragia de las vías respiratorias, no especificada</div></div>
+        </div>
+      </div>
+      <div class="notes">
+        <div class="lbl">Espacio para&nbsp;anotar<br>otros códigos&nbsp;de tu&nbsp;área</div>
+        <div class="lines"><div></div><div></div></div>
+      </div>
+      <div class="foot">
+        <span>Guía práctica de codificación &middot; Urgencias &middot; pág. 3 de 22</span>
+        <span>Diagnóstico complejo o no listado: consultar catálogo completo CIE-10 con Archivo Clínico / Estadística</span>
+      </div>
+    </div>
+    
+    <div class="page" style="--c:#944622">
+      <div class="head">
+        <div class="head-left">
+          <div>
+            <div class="kicker">Diagnósticos CIE-10 por especialidad</div>
+            <h1>Medicina Interna<span class="part">(1/2)</span></h1>
+          </div>
+        </div>
+        <div class="count-badge">21 de 50 códigos</div>
+      </div>
+      <div class="body-cols cols-2">
+        
+        <div class="subcat">
+          <h2>Cardiovascular</h2>
+          <div class="dx"><div class="code">I10</div><div class="nm">Hipertensión esencial (primaria)</div></div><div class="dx"><div class="code">I500</div><div class="nm">Insuficiencia cardíaca congestiva</div></div><div class="dx"><div class="code">I259</div><div class="nm">Enfermedad isquémica crónica del corazón, no especificada</div></div><div class="dx"><div class="code">I489</div><div class="nm">Fibrilación y aleteo auricular, no especificado</div></div><div class="dx"><div class="code">I739</div><div class="nm">Enfermedad vascular periférica, no especificada</div></div><div class="dx"><div class="code">I959</div><div class="nm">Hipotensión, no especificada</div></div><div class="dx"><div class="code">I429</div><div class="nm">Cardiomiopatía, no especificada</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Endocrino-metabólico</h2>
+          <div class="dx"><div class="code">E119</div><div class="nm">Diabetes mellitus tipo 2, sin mención de complicación</div></div><div class="dx"><div class="code">E039</div><div class="nm">Hipotiroidismo, no especificado</div></div><div class="dx"><div class="code">E785</div><div class="nm">Hiperlipidemia no especificada</div></div><div class="dx"><div class="code">E669</div><div class="nm">Obesidad, no especificada</div></div><div class="dx"><div class="code">E118</div><div class="nm">Diabetes mellitus tipo 2, con complicaciones no especificadas</div></div><div class="dx"><div class="code">E271</div><div class="nm">Insuficiencia corticosuprarrenal primaria</div></div><div class="dx"><div class="code">E210</div><div class="nm">Hiperparatiroidismo primario</div></div><div class="dx"><div class="code">E232</div><div class="nm">Diabetes insípida</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Respiratorio</h2>
+          <div class="dx"><div class="code">J449</div><div class="nm">Enfermedad pulmonar obstructiva crónica, no especificada</div></div><div class="dx"><div class="code">J459</div><div class="nm">Asma, no especificado</div></div><div class="dx"><div class="code">J189</div><div class="nm">Neumonía, no especificada</div></div><div class="dx"><div class="code">J47</div><div class="nm">Bronquiectasia</div></div><div class="dx"><div class="code">J961</div><div class="nm">Insuficiencia respiratoria crónica</div></div><div class="dx"><div class="code">J90</div><div class="nm">Derrame pleural no clasificado en otra parte</div></div>
+        </div>
+      </div>
+      <div class="notes">
+        <div class="lbl">Espacio para&nbsp;anotar<br>otros códigos&nbsp;de tu&nbsp;área</div>
+        <div class="lines"><div></div><div></div></div>
+      </div>
+      <div class="foot">
+        <span>Guía práctica de codificación &middot; Medicina Interna &middot; pág. 4 de 22</span>
+        <span>Diagnóstico complejo o no listado: consultar catálogo completo CIE-10 con Archivo Clínico / Estadística</span>
+      </div>
+    </div>
+    
+    <div class="page" style="--c:#944622">
+      <div class="head">
+        <div class="head-left">
+          <div>
+            <div class="kicker">Diagnósticos CIE-10 por especialidad</div>
+            <h1>Medicina Interna<span class="part">(2/2)</span></h1>
+          </div>
+        </div>
+        <div class="count-badge">29 de 50 códigos</div>
+      </div>
+      <div class="body-cols cols-3">
+        
+        <div class="subcat">
+          <h2>Renal</h2>
+          <div class="dx"><div class="code">N189</div><div class="nm">Enfermedad renal crónica, no especificada</div></div><div class="dx"><div class="code">N179</div><div class="nm">Insuficiencia renal aguda, no especificada</div></div><div class="dx"><div class="code">N390</div><div class="nm">Infección de vías urinarias, sitio no especificado</div></div><div class="dx"><div class="code">N183</div><div class="nm">Enfermedad renal crónica, etapa 3</div></div><div class="dx"><div class="code">N184</div><div class="nm">Enfermedad renal crónica, etapa 4</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Digestivo / Hepático</h2>
+          <div class="dx"><div class="code">K766</div><div class="nm">Hipertensión portal</div></div><div class="dx"><div class="code">K297</div><div class="nm">Gastritis, no especificada</div></div><div class="dx"><div class="code">K599</div><div class="nm">Trastorno funcional intestinal, no especificado</div></div><div class="dx"><div class="code">K703</div><div class="nm">Cirrosis hepática alcohólica</div></div><div class="dx"><div class="code">K219</div><div class="nm">Enfermedad del reflujo gastroesofágico sin esofagitis</div></div><div class="dx"><div class="code">K900</div><div class="nm">Enfermedad celíaca</div></div><div class="dx"><div class="code">B169</div><div class="nm">Hepatitis aguda tipo b, sin agente delta y sin coma hepático</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Hematológico</h2>
+          <div class="dx"><div class="code">D649</div><div class="nm">Anemia de tipo no especificado</div></div><div class="dx"><div class="code">D509</div><div class="nm">Anemia por deficiencia de hierro sin otra especificación</div></div><div class="dx"><div class="code">D688</div><div class="nm">Otros defectos especificados de la coagulación</div></div><div class="dx"><div class="code">D693</div><div class="nm">Púrpura trombocitopénica idiopática</div></div><div class="dx"><div class="code">D619</div><div class="nm">Anemia aplástica, sin otra especificación</div></div><div class="dx"><div class="code">D630</div><div class="nm">Anemia en enfermedad neoplásica</div></div><div class="dx"><div class="code">D561</div><div class="nm">Beta talasemia</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Infeccioso</h2>
+          <div class="dx"><div class="code">B182</div><div class="nm">Hepatitis viral tipo c crónica</div></div><div class="dx"><div class="code">A419</div><div class="nm">Sepsis, no especificada</div></div><div class="dx"><div class="code">U071</div><div class="nm">COVID-19, virus identificado</div></div><div class="dx"><div class="code">B159</div><div class="nm">Hepatitis aguda tipo a, sin coma hepático</div></div><div class="dx"><div class="code">B24</div><div class="nm">Enfermedad por virus de la inmunodeficiencia humana [VIH], sin otra especificación</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Reumatológico</h2>
+          <div class="dx"><div class="code">M069</div><div class="nm">Artritis reumatoide, no especificada</div></div><div class="dx"><div class="code">M109</div><div class="nm">Gota, no especificada</div></div><div class="dx"><div class="code">M549</div><div class="nm">Dorsalgia, no especificada</div></div><div class="dx"><div class="code">M819</div><div class="nm">Osteoporosis no especificada, sin fractura patológica</div></div><div class="dx"><div class="code">M329</div><div class="nm">Lupus eritematoso sistémico, sin otra especificación</div></div>
+        </div>
+      </div>
+      <div class="notes">
+        <div class="lbl">Espacio para&nbsp;anotar<br>otros códigos&nbsp;de tu&nbsp;área</div>
+        <div class="lines"><div></div><div></div></div>
+      </div>
+      <div class="foot">
+        <span>Guía práctica de codificación &middot; Medicina Interna &middot; pág. 5 de 22</span>
+        <span>Diagnóstico complejo o no listado: consultar catálogo completo CIE-10 con Archivo Clínico / Estadística</span>
+      </div>
+    </div>
+    
+    <div class="page" style="--c:#946A22">
+      <div class="head">
+        <div class="head-left">
+          <div>
+            <div class="kicker">Diagnósticos CIE-10 por especialidad</div>
+            <h1>Pediatría</h1>
+          </div>
+        </div>
+        <div class="count-badge">39 códigos</div>
+      </div>
+      <div class="body-cols cols-3">
+        
+        <div class="subcat">
+          <h2>Respiratorio</h2>
+          <div class="dx"><div class="code">J069</div><div class="nm">Infección aguda de las vías respiratorias superiores, no especificada</div></div><div class="dx"><div class="code">J189</div><div class="nm">Neumonía, no especificada</div></div><div class="dx"><div class="code">J210</div><div class="nm">Bronquiolitis aguda debida a virus sincitial respiratorio</div></div><div class="dx"><div class="code">J459</div><div class="nm">Asma, no especificado</div></div><div class="dx"><div class="code">J039</div><div class="nm">Amigdalitis aguda, no especificada</div></div><div class="dx"><div class="code">J209</div><div class="nm">Bronquitis aguda, no especificada</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Digestivo</h2>
+          <div class="dx"><div class="code">A090</div><div class="nm">Otras gastroenteritis y colitis de origen infeccioso</div></div><div class="dx"><div class="code">K590</div><div class="nm">Constipación</div></div><div class="dx"><div class="code">R104</div><div class="nm">Otros dolores abdominales y los no especificados</div></div><div class="dx"><div class="code">P929</div><div class="nm">Problema no especificado de la alimentación del recién nacido</div></div><div class="dx"><div class="code">T189</div><div class="nm">Cuerpo extraño en el tubo digestivo, parte no especificada</div></div><div class="dx"><div class="code">B820</div><div class="nm">Helmintiasis intestinal, sin otra especificación</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Infeccioso / Febril</h2>
+          <div class="dx"><div class="code">R509</div><div class="nm">Fiebre, no especificada</div></div><div class="dx"><div class="code">B349</div><div class="nm">Infección viral, no especificada</div></div><div class="dx"><div class="code">A080</div><div class="nm">Enteritis debida a rotavirus</div></div><div class="dx"><div class="code">J00</div><div class="nm">Rinofaringitis aguda [resfriado común]</div></div><div class="dx"><div class="code">A379</div><div class="nm">Tos ferina, no especificada</div></div><div class="dx"><div class="code">B059</div><div class="nm">Sarampión sin complicaciones</div></div><div class="dx"><div class="code">B069</div><div class="nm">Rubéola sin complicaciones</div></div><div class="dx"><div class="code">B269</div><div class="nm">Parotiditis, sin complicaciones</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Dermatológico</h2>
+          <div class="dx"><div class="code">L309</div><div class="nm">Dermatitis, no especificada</div></div><div class="dx"><div class="code">L500</div><div class="nm">Urticaria alérgica</div></div><div class="dx"><div class="code">B019</div><div class="nm">Varicela sin complicaciones</div></div><div class="dx"><div class="code">L010</div><div class="nm">Impétigo [cualquier sitio anatómico] [cualquier organismo]</div></div><div class="dx"><div class="code">B86</div><div class="nm">Escabiosis</div></div><div class="dx"><div class="code">B850</div><div class="nm">Pediculosis debida a pediculus humanus capitis</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Nutrición / Hematológico</h2>
+          <div class="dx"><div class="code">E440</div><div class="nm">Desnutrición proteicocalórica moderada</div></div><div class="dx"><div class="code">E639</div><div class="nm">Deficiencia nutricional, no especificada</div></div><div class="dx"><div class="code">R629</div><div class="nm">Falta del desarrollo fisiológico normal esperado, sin otra especificación</div></div><div class="dx"><div class="code">D509</div><div class="nm">Anemia por deficiencia de hierro sin otra especificación</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Neonatal</h2>
+          <div class="dx"><div class="code">P599</div><div class="nm">Ictericia neonatal, no especificada</div></div><div class="dx"><div class="code">P073</div><div class="nm">Otros recién nacidos pretérmino</div></div><div class="dx"><div class="code">P220</div><div class="nm">Síndrome de dificultad respiratoria del recién nacido</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Otros frecuentes / Desarrollo</h2>
+          <div class="dx"><div class="code">H659</div><div class="nm">Otitis media no supurativa, sin otra especificación</div></div><div class="dx"><div class="code">N136</div><div class="nm">Pionefrosis</div></div><div class="dx"><div class="code">R51</div><div class="nm">Cefalea</div></div><div class="dx"><div class="code">R560</div><div class="nm">Convulsiones febriles</div></div><div class="dx"><div class="code">F980</div><div class="nm">Enuresis no orgánica</div></div><div class="dx"><div class="code">F900</div><div class="nm">Perturbación de la actividad y de la atención</div></div>
+        </div>
+      </div>
+      <div class="notes">
+        <div class="lbl">Espacio para&nbsp;anotar<br>otros códigos&nbsp;de tu&nbsp;área</div>
+        <div class="lines"><div></div><div></div></div>
+      </div>
+      <div class="foot">
+        <span>Guía práctica de codificación &middot; Pediatría &middot; pág. 6 de 22</span>
+        <span>Diagnóstico complejo o no listado: consultar catálogo completo CIE-10 con Archivo Clínico / Estadística</span>
+      </div>
+    </div>
+    
+    <div class="page" style="--c:#948E22">
+      <div class="head">
+        <div class="head-left">
+          <div>
+            <div class="kicker">Diagnósticos CIE-10 por especialidad</div>
+            <h1>Gineco-Obstetricia</h1>
+          </div>
+        </div>
+        <div class="count-badge">39 códigos</div>
+      </div>
+      <div class="body-cols cols-3">
+        
+        <div class="subcat">
+          <h2>Embarazo / Control prenatal</h2>
+          <div class="dx"><div class="code">Z349</div><div class="nm">Supervisión de embarazo normal no especificado</div></div><div class="dx"><div class="code">Z359</div><div class="nm">Supervisión de embarazo de alto riesgo, sin otra especificación</div></div><div class="dx"><div class="code">O210</div><div class="nm">Hiperemesis gravídica leve</div></div><div class="dx"><div class="code">O990</div><div class="nm">Anemia que complica el embarazo, el parto y el puerperio</div></div><div class="dx"><div class="code">O009</div><div class="nm">Embarazo ectópico, no especificado</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Hipertensión y diabetes gestacional</h2>
+          <div class="dx"><div class="code">O13</div><div class="nm">Hipertensión gestacional [inducida por el embarazo]</div></div><div class="dx"><div class="code">O140</div><div class="nm">Preeclampsia leve a moderada</div></div><div class="dx"><div class="code">O141</div><div class="nm">Preeclampsia severa</div></div><div class="dx"><div class="code">O244</div><div class="nm">Diabetes mellitus que se origina con el embarazo</div></div><div class="dx"><div class="code">O142</div><div class="nm">Síndrome hellp</div></div><div class="dx"><div class="code">O243</div><div class="nm">Diabetes mellitus preexistente, sin otra especificación, en el embarazo</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Cesárea</h2>
+          <div class="dx"><div class="code">O820</div><div class="nm">Parto por cesárea electiva</div></div><div class="dx"><div class="code">O821</div><div class="nm">Parto por cesárea de emergencia</div></div><div class="dx"><div class="code">O829</div><div class="nm">Parto por cesárea, sin otra especificación</div></div><div class="dx"><div class="code">O822</div><div class="nm">Parto por cesárea con histerectomía</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Trabajo de parto / Parto</h2>
+          <div class="dx"><div class="code">O800</div><div class="nm">Parto único espontáneo, presentación cefálica de vértice</div></div><div class="dx"><div class="code">O639</div><div class="nm">Trabajo de parto prolongado, no especificado</div></div><div class="dx"><div class="code">O369</div><div class="nm">Atención materna por problemas fetales no especificados</div></div><div class="dx"><div class="code">Z370</div><div class="nm">Nacido vivo, único</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Puerperio</h2>
+          <div class="dx"><div class="code">O85</div><div class="nm">Sepsis puerperal</div></div><div class="dx"><div class="code">O900</div><div class="nm">Dehiscencia de sutura de cesárea</div></div><div class="dx"><div class="code">O909</div><div class="nm">Complicación puerperal, no especificada</div></div><div class="dx"><div class="code">O901</div><div class="nm">Dehiscencia de sutura obstétrica perineal</div></div><div class="dx"><div class="code">O903</div><div class="nm">Cardiomiopatía en el puerperio</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Complicaciones obstétricas</h2>
+          <div class="dx"><div class="code">O200</div><div class="nm">Amenaza de aborto</div></div><div class="dx"><div class="code">O470</div><div class="nm">Falso trabajo de parto antes de las 37 semanas completas de gestación</div></div><div class="dx"><div class="code">O689</div><div class="nm">Trabajo de parto y parto complicados por sufrimiento fetal, sin otra especificación</div></div><div class="dx"><div class="code">O721</div><div class="nm">Otras hemorragias postparto inmediatas</div></div><div class="dx"><div class="code">O269</div><div class="nm">Complicación relacionada con el embarazo, no especificada</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Ginecología general</h2>
+          <div class="dx"><div class="code">N939</div><div class="nm">Hemorragia vaginal y uterina anormal, no especificada</div></div><div class="dx"><div class="code">N760</div><div class="nm">Vaginitis aguda</div></div><div class="dx"><div class="code">N920</div><div class="nm">Menstruación excesiva y frecuente con ciclo regular</div></div><div class="dx"><div class="code">N872</div><div class="nm">Displasia cervical severa, no clasificada en otra parte</div></div><div class="dx"><div class="code">N832</div><div class="nm">Otros quistes ováricos y los no especificados</div></div><div class="dx"><div class="code">N871</div><div class="nm">Displasia cervical moderada</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Mama</h2>
+          <div class="dx"><div class="code">N63</div><div class="nm">Masa no especificada en la mama</div></div><div class="dx"><div class="code">D24</div><div class="nm">Tumor benigno de la mama</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Planificación / Climaterio</h2>
+          <div class="dx"><div class="code">Z301</div><div class="nm">Inserción de dispositivo anticonceptivo (intrauterino)</div></div><div class="dx"><div class="code">N951</div><div class="nm">Estados menopáusicos y climatéricos femeninos</div></div>
+        </div>
+      </div>
+      <div class="notes">
+        <div class="lbl">Espacio para&nbsp;anotar<br>otros códigos&nbsp;de tu&nbsp;área</div>
+        <div class="lines"><div></div><div></div></div>
+      </div>
+      <div class="foot">
+        <span>Guía práctica de codificación &middot; Gineco-Obstetricia &middot; pág. 7 de 22</span>
+        <span>Diagnóstico complejo o no listado: consultar catálogo completo CIE-10 con Archivo Clínico / Estadística</span>
+      </div>
+    </div>
+    
+    <div class="page" style="--c:#769422">
+      <div class="head">
+        <div class="head-left">
+          <div>
+            <div class="kicker">Diagnósticos CIE-10 por especialidad</div>
+            <h1>Cirugía General</h1>
+          </div>
+        </div>
+        <div class="count-badge">33 códigos</div>
+      </div>
+      <div class="body-cols cols-3">
+        
+        <div class="subcat">
+          <h2>Pared abdominal / Hernias</h2>
+          <div class="dx"><div class="code">K409</div><div class="nm">Hernia inguinal unilateral o no especificada, sin obstrucción ni gangrena</div></div><div class="dx"><div class="code">K429</div><div class="nm">Hernia umbilical sin obstrucción ni gangrena</div></div><div class="dx"><div class="code">K469</div><div class="nm">Hernia abdominal no especificada, sin obstrucción ni gangrena</div></div><div class="dx"><div class="code">K440</div><div class="nm">Hernia diafragmática con obstrucción, sin gangrena</div></div><div class="dx"><div class="code">K449</div><div class="nm">Hernia diafragmática sin obstrucción ni gangrena</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Vesícula y vías biliares</h2>
+          <div class="dx"><div class="code">K802</div><div class="nm">Cálculo de la vesícula biliar sin colecistitis</div></div><div class="dx"><div class="code">K800</div><div class="nm">Cálculo de la vesícula biliar con colecistitis aguda</div></div><div class="dx"><div class="code">K811</div><div class="nm">Colecistitis crónica</div></div><div class="dx"><div class="code">K830</div><div class="nm">Colangitis</div></div><div class="dx"><div class="code">K805</div><div class="nm">Cálculo de conducto biliar sin colangitis ni colecistitis</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Apéndice</h2>
+          <div class="dx"><div class="code">K359</div><div class="nm">Apendicitis aguda, no especificada</div></div><div class="dx"><div class="code">K37</div><div class="nm">Apendicitis, no especificada</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Cirugía bariátrica</h2>
+          <div class="dx"><div class="code">E662</div><div class="nm">Obesidad extrema con hipoventilación alveolar</div></div><div class="dx"><div class="code">E668</div><div class="nm">Otros tipos de obesidad</div></div><div class="dx"><div class="code">K911</div><div class="nm">Síndromes consecutivos a la cirugía gástrica</div></div><div class="dx"><div class="code">K912</div><div class="nm">Malabsorción postquirúrgica, no clasificada en otra parte</div></div><div class="dx"><div class="code">E660</div><div class="nm">Obesidad debida a exceso de calorías</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Tejidos blandos / Piel</h2>
+          <div class="dx"><div class="code">L029</div><div class="nm">Absceso cutáneo, furúnculo y ántrax de sitio no especificado</div></div><div class="dx"><div class="code">L039</div><div class="nm">Celulitis de sitio no especificado</div></div><div class="dx"><div class="code">L722</div><div class="nm">Esteatocistoma múltiple</div></div><div class="dx"><div class="code">L050</div><div class="nm">Quiste pilonidal con absceso</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Tubo digestivo</h2>
+          <div class="dx"><div class="code">K631</div><div class="nm">Perforación del intestino (no traumática)</div></div><div class="dx"><div class="code">K566</div><div class="nm">Otras obstrucciones intestinales y las no especificadas</div></div><div class="dx"><div class="code">K625</div><div class="nm">Hemorragia del ano y del recto</div></div><div class="dx"><div class="code">K640</div><div class="nm">Hemorroides de primer grado</div></div><div class="dx"><div class="code">K600</div><div class="nm">Fisura anal aguda</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Postquirúrgico / Otros</h2>
+          <div class="dx"><div class="code">T814</div><div class="nm">Infección consecutiva a procedimiento, no clasificada en otra parte</div></div><div class="dx"><div class="code">T813</div><div class="nm">Desgarro de herida operatoria, no clasificado en otra parte</div></div><div class="dx"><div class="code">K913</div><div class="nm">Obstrucción intestinal postoperatoria</div></div><div class="dx"><div class="code">K915</div><div class="nm">Síndrome de postcolecistectomía</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Oncología quirúrgica</h2>
+          <div class="dx"><div class="code">C189</div><div class="nm">Tumor maligno del colon, parte no especificada</div></div><div class="dx"><div class="code">C20</div><div class="nm">Tumor maligno del recto</div></div><div class="dx"><div class="code">C169</div><div class="nm">Tumor maligno del estómago, parte no especificada</div></div>
+        </div>
+      </div>
+      <div class="notes">
+        <div class="lbl">Espacio para&nbsp;anotar<br>otros códigos&nbsp;de tu&nbsp;área</div>
+        <div class="lines"><div></div><div></div></div>
+      </div>
+      <div class="foot">
+        <span>Guía práctica de codificación &middot; Cirugía General &middot; pág. 8 de 22</span>
+        <span>Diagnóstico complejo o no listado: consultar catálogo completo CIE-10 con Archivo Clínico / Estadística</span>
+      </div>
+    </div>
+    
+    <div class="page" style="--c:#529422">
+      <div class="head">
+        <div class="head-left">
+          <div>
+            <div class="kicker">Diagnósticos CIE-10 por especialidad</div>
+            <h1>Traumatología y Ortopedia</h1>
+          </div>
+        </div>
+        <div class="count-badge">25 códigos</div>
+      </div>
+      <div class="body-cols cols-3">
+        
+        <div class="subcat">
+          <h2>Fracturas miembro superior</h2>
+          <div class="dx"><div class="code">S424</div><div class="nm">Fractura de la epífisis inferior del húmero</div></div><div class="dx"><div class="code">S525</div><div class="nm">Fractura de la epífisis inferior del radio</div></div><div class="dx"><div class="code">S626</div><div class="nm">Fractura de otro dedo de la mano</div></div><div class="dx"><div class="code">S420</div><div class="nm">Fractura de la clavícula</div></div><div class="dx"><div class="code">S421</div><div class="nm">Fractura del omóplato</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Fracturas miembro inferior</h2>
+          <div class="dx"><div class="code">S720</div><div class="nm">Fractura del cuello de fémur</div></div><div class="dx"><div class="code">S823</div><div class="nm">Fractura de la epífisis inferior de la tibia</div></div><div class="dx"><div class="code">S924</div><div class="nm">Fractura de los huesos del dedo gordo del pie</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Columna / Pelvis</h2>
+          <div class="dx"><div class="code">S320</div><div class="nm">Fractura de vértebra lumbar</div></div><div class="dx"><div class="code">M545</div><div class="nm">Lumbago no especificado</div></div><div class="dx"><div class="code">S220</div><div class="nm">Fractura de vértebra torácica</div></div><div class="dx"><div class="code">S222</div><div class="nm">Fractura del esternón</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Articular / Ligamentos</h2>
+          <div class="dx"><div class="code">S836</div><div class="nm">Esguinces y torceduras de otras partes y las no especificadas de la rodilla</div></div><div class="dx"><div class="code">M239</div><div class="nm">Trastorno interno de la rodilla, no especificado</div></div><div class="dx"><div class="code">M754</div><div class="nm">Síndrome de abducción dolorosa del hombro</div></div><div class="dx"><div class="code">S934</div><div class="nm">Esguinces y torceduras del tobillo</div></div><div class="dx"><div class="code">M700</div><div class="nm">Sinovitis crepitante crónica de la mano y de la muñeca</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Infecciosas / Óseas</h2>
+          <div class="dx"><div class="code">M865</div><div class="nm">Otras osteomielitis hematógenas crónicas</div></div><div class="dx"><div class="code">M199</div><div class="nm">Artrosis, no especificada</div></div><div class="dx"><div class="code">M819</div><div class="nm">Osteoporosis no especificada, sin fractura patológica</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Postquirúrgico</h2>
+          <div class="dx"><div class="code">T845</div><div class="nm">Infección y reacción inflamatoria debidas a prótesis articular interna</div></div><div class="dx"><div class="code">Z966</div><div class="nm">Presencia de implante ortopédico articular</div></div><div class="dx"><div class="code">Z946</div><div class="nm">Trasplante de hueso</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Deformidades</h2>
+          <div class="dx"><div class="code">M419</div><div class="nm">Escoliosis, no especificada</div></div><div class="dx"><div class="code">M201</div><div class="nm">Hallux valgus (adquirido)</div></div>
+        </div>
+      </div>
+      <div class="notes">
+        <div class="lbl">Espacio para&nbsp;anotar<br>otros códigos&nbsp;de tu&nbsp;área</div>
+        <div class="lines"><div></div><div></div></div>
+      </div>
+      <div class="foot">
+        <span>Guía práctica de codificación &middot; Traumatología y Ortopedia &middot; pág. 9 de 22</span>
+        <span>Diagnóstico complejo o no listado: consultar catálogo completo CIE-10 con Archivo Clínico / Estadística</span>
+      </div>
+    </div>
+    
+    <div class="page" style="--c:#2E9422">
+      <div class="head">
+        <div class="head-left">
+          <div>
+            <div class="kicker">Diagnósticos CIE-10 por especialidad</div>
+            <h1>Cardiología</h1>
+          </div>
+        </div>
+        <div class="count-badge">24 códigos</div>
+      </div>
+      <div class="body-cols cols-3">
+        
+        <div class="subcat">
+          <h2>Isquémica</h2>
+          <div class="dx"><div class="code">I219</div><div class="nm">Infarto agudo del miocardio, sin otra especificación</div></div><div class="dx"><div class="code">I209</div><div class="nm">Angina de pecho, no especificada</div></div><div class="dx"><div class="code">I251</div><div class="nm">Enfermedad aterosclerótica del corazón</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Insuficiencia cardiaca</h2>
+          <div class="dx"><div class="code">I500</div><div class="nm">Insuficiencia cardíaca congestiva</div></div><div class="dx"><div class="code">I110</div><div class="nm">Enfermedad cardíaca hipertensiva con insuficiencia cardíaca (congestiva)</div></div><div class="dx"><div class="code">I270</div><div class="nm">Hipertensión pulmonar primaria</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Arritmias</h2>
+          <div class="dx"><div class="code">I489</div><div class="nm">Fibrilación y aleteo auricular, no especificado</div></div><div class="dx"><div class="code">I472</div><div class="nm">Taquicardia ventricular</div></div><div class="dx"><div class="code">I440</div><div class="nm">Bloqueo auriculoventricular de primer grado</div></div><div class="dx"><div class="code">I490</div><div class="nm">Fibrilación y aleteo ventricular</div></div><div class="dx"><div class="code">I495</div><div class="nm">Síndrome del seno enfermo</div></div><div class="dx"><div class="code">I499</div><div class="nm">Arritmia cardíaca, no especificada</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Hipertensiva</h2>
+          <div class="dx"><div class="code">I10</div><div class="nm">Hipertensión esencial (primaria)</div></div><div class="dx"><div class="code">I119</div><div class="nm">Enfermedad cardíaca hipertensiva sin insuficiencia cardíaca (congestiva)</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Valvulopatías</h2>
+          <div class="dx"><div class="code">I051</div><div class="nm">Insuficiencia mitral reumática</div></div><div class="dx"><div class="code">I340</div><div class="nm">Insuficiencia (de la válvula) mitral</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Miocardio / Pericardio</h2>
+          <div class="dx"><div class="code">I429</div><div class="nm">Cardiomiopatía, no especificada</div></div><div class="dx"><div class="code">I309</div><div class="nm">Pericarditis aguda, no especificada</div></div><div class="dx"><div class="code">I420</div><div class="nm">Cardiomiopatía dilatada</div></div><div class="dx"><div class="code">I421</div><div class="nm">Cardiomiopatía hipertrófica obstructiva</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Dispositivos / Postquirúrgico</h2>
+          <div class="dx"><div class="code">Z950</div><div class="nm">Presencia de dispositivos cardíacos electrónicos</div></div><div class="dx"><div class="code">Z955</div><div class="nm">Presencia de angioplastia, injertos y prótesis coronarias</div></div><div class="dx"><div class="code">Z951</div><div class="nm">Presencia de derivación aortocoronaria</div></div><div class="dx"><div class="code">Z952</div><div class="nm">Presencia de válvula cardíaca protésica</div></div>
+        </div>
+      </div>
+      <div class="notes">
+        <div class="lbl">Espacio para&nbsp;anotar<br>otros códigos&nbsp;de tu&nbsp;área</div>
+        <div class="lines"><div></div><div></div></div>
+      </div>
+      <div class="foot">
+        <span>Guía práctica de codificación &middot; Cardiología &middot; pág. 10 de 22</span>
+        <span>Diagnóstico complejo o no listado: consultar catálogo completo CIE-10 con Archivo Clínico / Estadística</span>
+      </div>
+    </div>
+    
+    <div class="page" style="--c:#22943A">
+      <div class="head">
+        <div class="head-left">
+          <div>
+            <div class="kicker">Diagnósticos CIE-10 por especialidad</div>
+            <h1>Angiología</h1>
+          </div>
+        </div>
+        <div class="count-badge">17 códigos</div>
+      </div>
+      <div class="body-cols cols-2">
+        
+        <div class="subcat">
+          <h2>Venas</h2>
+          <div class="dx"><div class="code">I839</div><div class="nm">Venas varicosas de los miembros inferiores sin úlcera ni inflamación</div></div><div class="dx"><div class="code">I832</div><div class="nm">Venas varicosas de los miembros inferiores con úlcera e inflamación</div></div><div class="dx"><div class="code">I872</div><div class="nm">Insuficiencia venosa (crónica) (periférica)</div></div><div class="dx"><div class="code">I830</div><div class="nm">Venas varicosas de los miembros inferiores con úlcera</div></div><div class="dx"><div class="code">I870</div><div class="nm">Síndrome postrombótico</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Trombosis / Embolia</h2>
+          <div class="dx"><div class="code">I803</div><div class="nm">Flebitis y tromboflebitis de los miembros inferiores, no especificada</div></div><div class="dx"><div class="code">I269</div><div class="nm">Embolia pulmonar sin mención de corazón pulmonar agudo</div></div><div class="dx"><div class="code">I743</div><div class="nm">Embolia y trombosis de arterias de los miembros inferiores</div></div><div class="dx"><div class="code">I801</div><div class="nm">Flebitis y tromboflebitis de la vena femoral</div></div><div class="dx"><div class="code">I260</div><div class="nm">Embolia pulmonar con mención de corazón pulmonar agudo</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Arterial</h2>
+          <div class="dx"><div class="code">I702</div><div class="nm">Aterosclerosis de las arterias de los miembros</div></div><div class="dx"><div class="code">I719</div><div class="nm">Aneurisma de la aorta, sitio no especificado, sin mención de ruptura</div></div><div class="dx"><div class="code">I714</div><div class="nm">Aneurisma de la aorta abdominal, sin mención de ruptura</div></div><div class="dx"><div class="code">I709</div><div class="nm">Aterosclerosis generalizada y la no especificada</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Otros</h2>
+          <div class="dx"><div class="code">L97</div><div class="nm">Úlcera de miembro inferior, no clasificada en otra parte</div></div><div class="dx"><div class="code">I890</div><div class="nm">Linfedema, no clasificado en otra parte</div></div><div class="dx"><div class="code">I891</div><div class="nm">Linfangitis</div></div>
+        </div>
+      </div>
+      <div class="notes">
+        <div class="lbl">Espacio para&nbsp;anotar<br>otros códigos&nbsp;de tu&nbsp;área</div>
+        <div class="lines"><div></div><div></div></div>
+      </div>
+      <div class="foot">
+        <span>Guía práctica de codificación &middot; Angiología &middot; pág. 11 de 22</span>
+        <span>Diagnóstico complejo o no listado: consultar catálogo completo CIE-10 con Archivo Clínico / Estadística</span>
+      </div>
+    </div>
+    
+    <div class="page" style="--c:#22945E">
+      <div class="head">
+        <div class="head-left">
+          <div>
+            <div class="kicker">Diagnósticos CIE-10 por especialidad</div>
+            <h1>Neumología</h1>
+          </div>
+        </div>
+        <div class="count-badge">17 códigos</div>
+      </div>
+      <div class="body-cols cols-2">
+        
+        <div class="subcat">
+          <h2>Obstructivas</h2>
+          <div class="dx"><div class="code">J449</div><div class="nm">Enfermedad pulmonar obstructiva crónica, no especificada</div></div><div class="dx"><div class="code">J459</div><div class="nm">Asma, no especificado</div></div><div class="dx"><div class="code">J439</div><div class="nm">Enfisema, no especificado</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Infecciosas</h2>
+          <div class="dx"><div class="code">J189</div><div class="nm">Neumonía, no especificada</div></div><div class="dx"><div class="code">A150</div><div class="nm">Tuberculosis del pulmón, confirmada por hallazgo microscópico del bacilo tuberculoso en esputo, con o sin cultivo</div></div><div class="dx"><div class="code">J159</div><div class="nm">Neumonía bacteriana, no especificada</div></div><div class="dx"><div class="code">J209</div><div class="nm">Bronquitis aguda, no especificada</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Intersticiales / Otras</h2>
+          <div class="dx"><div class="code">J841</div><div class="nm">Otras enfermedades pulmonares intersticiales con fibrosis</div></div><div class="dx"><div class="code">J938</div><div class="nm">Otros neumotórax</div></div><div class="dx"><div class="code">J939</div><div class="nm">Neumotórax, no especificado</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Neoplasias</h2>
+          <div class="dx"><div class="code">C349</div><div class="nm">Tumor maligno de los bronquios o del pulmón, parte no especificada</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Sueño / Otros</h2>
+          <div class="dx"><div class="code">G473</div><div class="nm">Apnea del sueño</div></div><div class="dx"><div class="code">J960</div><div class="nm">Insuficiencia respiratoria aguda</div></div><div class="dx"><div class="code">J961</div><div class="nm">Insuficiencia respiratoria crónica</div></div><div class="dx"><div class="code">R042</div><div class="nm">Hemoptisis</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Pleura</h2>
+          <div class="dx"><div class="code">J90</div><div class="nm">Derrame pleural no clasificado en otra parte</div></div><div class="dx"><div class="code">J91</div><div class="nm">Derrame pleural en afecciones clasificadas en otra parte</div></div>
+        </div>
+      </div>
+      <div class="notes">
+        <div class="lbl">Espacio para&nbsp;anotar<br>otros códigos&nbsp;de tu&nbsp;área</div>
+        <div class="lines"><div></div><div></div></div>
+      </div>
+      <div class="foot">
+        <span>Guía práctica de codificación &middot; Neumología &middot; pág. 12 de 22</span>
+        <span>Diagnóstico complejo o no listado: consultar catálogo completo CIE-10 con Archivo Clínico / Estadística</span>
+      </div>
+    </div>
+    
+    <div class="page" style="--c:#229482">
+      <div class="head">
+        <div class="head-left">
+          <div>
+            <div class="kicker">Diagnósticos CIE-10 por especialidad</div>
+            <h1>Gastroenterología</h1>
+          </div>
+        </div>
+        <div class="count-badge">21 códigos</div>
+      </div>
+      <div class="body-cols cols-2">
+        
+        <div class="subcat">
+          <h2>Hígado</h2>
+          <div class="dx"><div class="code">K766</div><div class="nm">Hipertensión portal</div></div><div class="dx"><div class="code">K703</div><div class="nm">Cirrosis hepática alcohólica</div></div><div class="dx"><div class="code">B182</div><div class="nm">Hepatitis viral tipo c crónica</div></div><div class="dx"><div class="code">B159</div><div class="nm">Hepatitis aguda tipo a, sin coma hepático</div></div><div class="dx"><div class="code">B169</div><div class="nm">Hepatitis aguda tipo b, sin agente delta y sin coma hepático</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Estómago / Duodeno</h2>
+          <div class="dx"><div class="code">K259</div><div class="nm">Úlcera gástrica, no especificada como aguda ni crónica, sin hemorragia ni perforación</div></div><div class="dx"><div class="code">K297</div><div class="nm">Gastritis, no especificada</div></div><div class="dx"><div class="code">K219</div><div class="nm">Enfermedad del reflujo gastroesofágico sin esofagitis</div></div><div class="dx"><div class="code">C169</div><div class="nm">Tumor maligno del estómago, parte no especificada</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Intestino</h2>
+          <div class="dx"><div class="code">K589</div><div class="nm">Síndrome del colon irritable sin diarrea</div></div><div class="dx"><div class="code">K522</div><div class="nm">Colitis y gastroenteritis alérgicas y dietéticas</div></div><div class="dx"><div class="code">K519</div><div class="nm">Colitis ulcerativa, sin otra especificación</div></div><div class="dx"><div class="code">K900</div><div class="nm">Enfermedad celíaca</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Vía biliar / Páncreas</h2>
+          <div class="dx"><div class="code">K810</div><div class="nm">Colecistitis aguda</div></div><div class="dx"><div class="code">K811</div><div class="nm">Colecistitis crónica</div></div><div class="dx"><div class="code">K859</div><div class="nm">Pancreatitis aguda, no especificada</div></div><div class="dx"><div class="code">K805</div><div class="nm">Cálculo de conducto biliar sin colangitis ni colecistitis</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Otros</h2>
+          <div class="dx"><div class="code">K579</div><div class="nm">Enfermedad diverticular del intestino, parte no especificada, sin perforación ni absceso</div></div><div class="dx"><div class="code">K922</div><div class="nm">Hemorragia gastrointestinal, no especificada</div></div><div class="dx"><div class="code">K649</div><div class="nm">Hemorroides, sin otra especificación</div></div><div class="dx"><div class="code">K603</div><div class="nm">Fístula anal</div></div>
+        </div>
+      </div>
+      <div class="notes">
+        <div class="lbl">Espacio para&nbsp;anotar<br>otros códigos&nbsp;de tu&nbsp;área</div>
+        <div class="lines"><div></div><div></div></div>
+      </div>
+      <div class="foot">
+        <span>Guía práctica de codificación &middot; Gastroenterología &middot; pág. 13 de 22</span>
+        <span>Diagnóstico complejo o no listado: consultar catálogo completo CIE-10 con Archivo Clínico / Estadística</span>
+      </div>
+    </div>
+    
+    <div class="page" style="--c:#228294">
+      <div class="head">
+        <div class="head-left">
+          <div>
+            <div class="kicker">Diagnósticos CIE-10 por especialidad</div>
+            <h1>Neurología</h1>
+          </div>
+        </div>
+        <div class="count-badge">18 códigos</div>
+      </div>
+      <div class="body-cols cols-2">
+        
+        <div class="subcat">
+          <h2>Cerebrovascular</h2>
+          <div class="dx"><div class="code">I639</div><div class="nm">Infarto cerebral, no especificado</div></div><div class="dx"><div class="code">I619</div><div class="nm">Hemorragia intraencefálica, no especificada</div></div><div class="dx"><div class="code">G459</div><div class="nm">Isquemia cerebral transitoria, sin otra especificación</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Epilepsia / Crisis</h2>
+          <div class="dx"><div class="code">G409</div><div class="nm">Epilepsia, tipo no especificado</div></div><div class="dx"><div class="code">R568</div><div class="nm">Otras convulsiones y las no especificadas</div></div><div class="dx"><div class="code">R560</div><div class="nm">Convulsiones febriles</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Cefalea</h2>
+          <div class="dx"><div class="code">G439</div><div class="nm">Migraña, no especificada</div></div><div class="dx"><div class="code">G440</div><div class="nm">Síndrome de cefalea en racimos</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Degenerativas</h2>
+          <div class="dx"><div class="code">G309</div><div class="nm">Enfermedad de alzheimer, no especificada</div></div><div class="dx"><div class="code">G20</div><div class="nm">Enfermedad de parkinson</div></div><div class="dx"><div class="code">G932</div><div class="nm">Hipertensión intracraneal benigna</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Neuropatías</h2>
+          <div class="dx"><div class="code">G629</div><div class="nm">Polineuropatía, no especificada</div></div><div class="dx"><div class="code">G562</div><div class="nm">Lesión del nervio cubital</div></div><div class="dx"><div class="code">G610</div><div class="nm">Síndrome de guillain-barré</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Neuroinfección / Otros</h2>
+          <div class="dx"><div class="code">G039</div><div class="nm">Meningitis, no especificada</div></div><div class="dx"><div class="code">G049</div><div class="nm">Encefalitis, mielitis y encefalomielitis, no especificadas</div></div><div class="dx"><div class="code">G934</div><div class="nm">Encefalopatía no especificada</div></div><div class="dx"><div class="code">G042</div><div class="nm">Meningoencefalitis y meningomielitis bacterianas, no clasificadas en otra parte</div></div>
+        </div>
+      </div>
+      <div class="notes">
+        <div class="lbl">Espacio para&nbsp;anotar<br>otros códigos&nbsp;de tu&nbsp;área</div>
+        <div class="lines"><div></div><div></div></div>
+      </div>
+      <div class="foot">
+        <span>Guía práctica de codificación &middot; Neurología &middot; pág. 14 de 22</span>
+        <span>Diagnóstico complejo o no listado: consultar catálogo completo CIE-10 con Archivo Clínico / Estadística</span>
+      </div>
+    </div>
+    
+    <div class="page" style="--c:#225E94">
+      <div class="head">
+        <div class="head-left">
+          <div>
+            <div class="kicker">Diagnósticos CIE-10 por especialidad</div>
+            <h1>Nefrología</h1>
+          </div>
+        </div>
+        <div class="count-badge">17 códigos</div>
+      </div>
+      <div class="body-cols cols-2">
+        
+        <div class="subcat">
+          <h2>Enfermedad renal crónica</h2>
+          <div class="dx"><div class="code">N189</div><div class="nm">Enfermedad renal crónica, no especificada</div></div><div class="dx"><div class="code">N185</div><div class="nm">Enfermedad renal crónica, etapa 5</div></div><div class="dx"><div class="code">N180</div><div class="nm">Insuficiencia renal terminal</div></div><div class="dx"><div class="code">N183</div><div class="nm">Enfermedad renal crónica, etapa 3</div></div><div class="dx"><div class="code">N184</div><div class="nm">Enfermedad renal crónica, etapa 4</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Agudo</h2>
+          <div class="dx"><div class="code">N179</div><div class="nm">Insuficiencia renal aguda, no especificada</div></div><div class="dx"><div class="code">N170</div><div class="nm">Insuficiencia renal aguda con necrosis tubular</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Glomerular</h2>
+          <div class="dx"><div class="code">N049</div><div class="nm">Síndrome nefrótico, no especificada</div></div><div class="dx"><div class="code">N059</div><div class="nm">Síndrome nefrítico no especificada</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Diálisis / Trasplante</h2>
+          <div class="dx"><div class="code">Z992</div><div class="nm">Dependencia de diálisis renal</div></div><div class="dx"><div class="code">Z940</div><div class="nm">Trasplante de riñón</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Hidroelectrolítico / HTA renal</h2>
+          <div class="dx"><div class="code">E875</div><div class="nm">Hiperpotasemia</div></div><div class="dx"><div class="code">E872</div><div class="nm">Acidosis</div></div><div class="dx"><div class="code">I120</div><div class="nm">Enfermedad renal hipertensiva con insuficiencia renal</div></div><div class="dx"><div class="code">E873</div><div class="nm">Alcalosis</div></div><div class="dx"><div class="code">E876</div><div class="nm">Hipopotasmia</div></div><div class="dx"><div class="code">I129</div><div class="nm">Enfermedad renal hipertensiva sin insuficiencia renal</div></div>
+        </div>
+      </div>
+      <div class="notes">
+        <div class="lbl">Espacio para&nbsp;anotar<br>otros códigos&nbsp;de tu&nbsp;área</div>
+        <div class="lines"><div></div><div></div></div>
+      </div>
+      <div class="foot">
+        <span>Guía práctica de codificación &middot; Nefrología &middot; pág. 15 de 22</span>
+        <span>Diagnóstico complejo o no listado: consultar catálogo completo CIE-10 con Archivo Clínico / Estadística</span>
+      </div>
+    </div>
+    
+    <div class="page" style="--c:#223A94">
+      <div class="head">
+        <div class="head-left">
+          <div>
+            <div class="kicker">Diagnósticos CIE-10 por especialidad</div>
+            <h1>Dermatología</h1>
+          </div>
+        </div>
+        <div class="count-badge">17 códigos</div>
+      </div>
+      <div class="body-cols cols-2">
+        
+        <div class="subcat">
+          <h2>Infecciosas</h2>
+          <div class="dx"><div class="code">L029</div><div class="nm">Absceso cutáneo, furúnculo y ántrax de sitio no especificado</div></div><div class="dx"><div class="code">B019</div><div class="nm">Varicela sin complicaciones</div></div><div class="dx"><div class="code">B350</div><div class="nm">Tiña de la barba y del cuero cabelludo</div></div><div class="dx"><div class="code">B354</div><div class="nm">Tiña del cuerpo [tinea corporis]</div></div><div class="dx"><div class="code">B029</div><div class="nm">Herpes zoster sin complicaciones</div></div><div class="dx"><div class="code">B86</div><div class="nm">Escabiosis</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Inflamatorias</h2>
+          <div class="dx"><div class="code">L309</div><div class="nm">Dermatitis, no especificada</div></div><div class="dx"><div class="code">L400</div><div class="nm">Psoriasis vulgar</div></div><div class="dx"><div class="code">L500</div><div class="nm">Urticaria alérgica</div></div><div class="dx"><div class="code">L405</div><div class="nm">Artropatía psoriásica</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Neoplasias</h2>
+          <div class="dx"><div class="code">C449</div><div class="nm">Tumor maligno de la piel, sitio no especificado</div></div><div class="dx"><div class="code">D239</div><div class="nm">Tumor benigno de la piel, sitio no especificado</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Otras</h2>
+          <div class="dx"><div class="code">L708</div><div class="nm">Otros acnés</div></div><div class="dx"><div class="code">L219</div><div class="nm">Dermatitis seborreica, no especificada</div></div><div class="dx"><div class="code">L80</div><div class="nm">Vitíligo</div></div><div class="dx"><div class="code">L659</div><div class="nm">Perdida no cicatricial del pelo, sin otra especificación</div></div><div class="dx"><div class="code">B07</div><div class="nm">Verrugas víricas</div></div>
+        </div>
+      </div>
+      <div class="notes">
+        <div class="lbl">Espacio para&nbsp;anotar<br>otros códigos&nbsp;de tu&nbsp;área</div>
+        <div class="lines"><div></div><div></div></div>
+      </div>
+      <div class="foot">
+        <span>Guía práctica de codificación &middot; Dermatología &middot; pág. 16 de 22</span>
+        <span>Diagnóstico complejo o no listado: consultar catálogo completo CIE-10 con Archivo Clínico / Estadística</span>
+      </div>
+    </div>
+    
+    <div class="page" style="--c:#2E2294">
+      <div class="head">
+        <div class="head-left">
+          <div>
+            <div class="kicker">Diagnósticos CIE-10 por especialidad</div>
+            <h1>Urología</h1>
+          </div>
+        </div>
+        <div class="count-badge">18 códigos</div>
+      </div>
+      <div class="body-cols cols-2">
+        
+        <div class="subcat">
+          <h2>Infecciones</h2>
+          <div class="dx"><div class="code">N390</div><div class="nm">Infección de vías urinarias, sitio no especificado</div></div><div class="dx"><div class="code">N300</div><div class="nm">Cistitis aguda</div></div><div class="dx"><div class="code">N136</div><div class="nm">Pionefrosis</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Litiasis</h2>
+          <div class="dx"><div class="code">N200</div><div class="nm">Cálculo del riñón</div></div><div class="dx"><div class="code">N202</div><div class="nm">Cálculo del riñón con cálculo del uréter</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Próstata</h2>
+          <div class="dx"><div class="code">N40</div><div class="nm">Hiperplasia de la próstata</div></div><div class="dx"><div class="code">C61</div><div class="nm">Tumor maligno de la próstata</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Genital masculino</h2>
+          <div class="dx"><div class="code">I861</div><div class="nm">Várices escrotales</div></div><div class="dx"><div class="code">N459</div><div class="nm">Orquitis, epididimitis y orquiepididimitis sin absceso</div></div><div class="dx"><div class="code">N433</div><div class="nm">Hidrocele, no especificado</div></div><div class="dx"><div class="code">N450</div><div class="nm">Orquitis, epididimitis y orquiepididimitis con absceso</div></div><div class="dx"><div class="code">N434</div><div class="nm">Espermatocele</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Oncología urológica</h2>
+          <div class="dx"><div class="code">C679</div><div class="nm">Tumor maligno de la vejiga urinaria, parte no especificada</div></div><div class="dx"><div class="code">C64</div><div class="nm">Tumor maligno del riñón, excepto de la pelvis renal</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Otros</h2>
+          <div class="dx"><div class="code">R31</div><div class="nm">Hematuria, no especificada</div></div><div class="dx"><div class="code">R33</div><div class="nm">Retención de orina</div></div><div class="dx"><div class="code">N393</div><div class="nm">Incontinencia urinaria por tensión</div></div><div class="dx"><div class="code">N359</div><div class="nm">Estrechez uretral, no especificada</div></div>
+        </div>
+      </div>
+      <div class="notes">
+        <div class="lbl">Espacio para&nbsp;anotar<br>otros códigos&nbsp;de tu&nbsp;área</div>
+        <div class="lines"><div></div><div></div></div>
+      </div>
+      <div class="foot">
+        <span>Guía práctica de codificación &middot; Urología &middot; pág. 17 de 22</span>
+        <span>Diagnóstico complejo o no listado: consultar catálogo completo CIE-10 con Archivo Clínico / Estadística</span>
+      </div>
+    </div>
+    
+    <div class="page" style="--c:#522294">
+      <div class="head">
+        <div class="head-left">
+          <div>
+            <div class="kicker">Diagnósticos CIE-10 por especialidad</div>
+            <h1>Oftalmología</h1>
+          </div>
+        </div>
+        <div class="count-badge">13 códigos</div>
+      </div>
+      <div class="body-cols cols-2">
+        
+        <div class="subcat">
+          <h2>Segmento anterior</h2>
+          <div class="dx"><div class="code">H108</div><div class="nm">Otras conjuntivitis</div></div><div class="dx"><div class="code">H269</div><div class="nm">Catarata, no especificada</div></div><div class="dx"><div class="code">H520</div><div class="nm">Hipermetropía</div></div><div class="dx"><div class="code">H000</div><div class="nm">Orzuelo y otras inflamaciones profundas del párpado</div></div><div class="dx"><div class="code">H110</div><div class="nm">Pterigión</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Glaucoma / Retina</h2>
+          <div class="dx"><div class="code">H409</div><div class="nm">Glaucoma, no especificado</div></div><div class="dx"><div class="code">H353</div><div class="nm">Degeneración de la mácula y del polo posterior del ojo</div></div><div class="dx"><div class="code">H330</div><div class="nm">Desprendimiento de la retina con ruptura</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Otros</h2>
+          <div class="dx"><div class="code">H579</div><div class="nm">Trastorno del ojo y sus anexos, no especificado</div></div><div class="dx"><div class="code">H040</div><div class="nm">Dacrioadenitis</div></div><div class="dx"><div class="code">H530</div><div class="nm">Ambliopía ex anopsia</div></div><div class="dx"><div class="code">H501</div><div class="nm">Estrabismo concomitante divergente</div></div><div class="dx"><div class="code">T159</div><div class="nm">Cuerpo extraño en parte externa del ojo, sitio no especificado</div></div>
+        </div>
+      </div>
+      <div class="notes">
+        <div class="lbl">Espacio para&nbsp;anotar<br>otros códigos&nbsp;de tu&nbsp;área</div>
+        <div class="lines"><div></div><div></div></div>
+      </div>
+      <div class="foot">
+        <span>Guía práctica de codificación &middot; Oftalmología &middot; pág. 18 de 22</span>
+        <span>Diagnóstico complejo o no listado: consultar catálogo completo CIE-10 con Archivo Clínico / Estadística</span>
+      </div>
+    </div>
+    
+    <div class="page" style="--c:#762294">
+      <div class="head">
+        <div class="head-left">
+          <div>
+            <div class="kicker">Diagnósticos CIE-10 por especialidad</div>
+            <h1>Otorrinolaringología</h1>
+          </div>
+        </div>
+        <div class="count-badge">13 códigos</div>
+      </div>
+      <div class="body-cols cols-2">
+        
+        <div class="subcat">
+          <h2>Oído</h2>
+          <div class="dx"><div class="code">H659</div><div class="nm">Otitis media no supurativa, sin otra especificación</div></div><div class="dx"><div class="code">H609</div><div class="nm">Otitis externa, sin otra especificación</div></div><div class="dx"><div class="code">H904</div><div class="nm">Hipoacusia neurosensorial, unilateral con audición irrestricta contralateral</div></div><div class="dx"><div class="code">H810</div><div class="nm">Enfermedad de meniere</div></div><div class="dx"><div class="code">H811</div><div class="nm">Vértigo paroxístico benigno</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Nariz / Senos</h2>
+          <div class="dx"><div class="code">J019</div><div class="nm">Sinusitis aguda, no especificada</div></div><div class="dx"><div class="code">J340</div><div class="nm">Absceso, furúnculo y carbunco de la nariz</div></div><div class="dx"><div class="code">J342</div><div class="nm">Desviación del tabique nasal</div></div><div class="dx"><div class="code">R040</div><div class="nm">Epistaxis</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Faringe / Laringe</h2>
+          <div class="dx"><div class="code">J039</div><div class="nm">Amigdalitis aguda, no especificada</div></div><div class="dx"><div class="code">J040</div><div class="nm">Laringitis aguda</div></div><div class="dx"><div class="code">J350</div><div class="nm">Amigdalitis crónica</div></div><div class="dx"><div class="code">J351</div><div class="nm">Hipertrofia de las amígdalas</div></div>
+        </div>
+      </div>
+      <div class="notes">
+        <div class="lbl">Espacio para&nbsp;anotar<br>otros códigos&nbsp;de tu&nbsp;área</div>
+        <div class="lines"><div></div><div></div></div>
+      </div>
+      <div class="foot">
+        <span>Guía práctica de codificación &middot; Otorrinolaringología &middot; pág. 19 de 22</span>
+        <span>Diagnóstico complejo o no listado: consultar catálogo completo CIE-10 con Archivo Clínico / Estadística</span>
+      </div>
+    </div>
+    
+    <div class="page" style="--c:#94228E">
+      <div class="head">
+        <div class="head-left">
+          <div>
+            <div class="kicker">Diagnósticos CIE-10 por especialidad</div>
+            <h1>Endocrinología</h1>
+          </div>
+        </div>
+        <div class="count-badge">13 códigos</div>
+      </div>
+      <div class="body-cols cols-2">
+        
+        <div class="subcat">
+          <h2>Diabetes</h2>
+          <div class="dx"><div class="code">E119</div><div class="nm">Diabetes mellitus tipo 2, sin mención de complicación</div></div><div class="dx"><div class="code">E112</div><div class="nm">Diabetes mellitus tipo 2, con complicaciones renales</div></div><div class="dx"><div class="code">E149</div><div class="nm">Diabetes mellitus no especificada, sin mención de complicación</div></div><div class="dx"><div class="code">E118</div><div class="nm">Diabetes mellitus tipo 2, con complicaciones no especificadas</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Tiroides</h2>
+          <div class="dx"><div class="code">E039</div><div class="nm">Hipotiroidismo, no especificado</div></div><div class="dx"><div class="code">E059</div><div class="nm">Tirotoxicosis, no especificada</div></div><div class="dx"><div class="code">E041</div><div class="nm">Nódulo tiroideo solitario no tóxico</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Otros</h2>
+          <div class="dx"><div class="code">E669</div><div class="nm">Obesidad, no especificada</div></div><div class="dx"><div class="code">E785</div><div class="nm">Hiperlipidemia no especificada</div></div><div class="dx"><div class="code">E271</div><div class="nm">Insuficiencia corticosuprarrenal primaria</div></div><div class="dx"><div class="code">E210</div><div class="nm">Hiperparatiroidismo primario</div></div><div class="dx"><div class="code">E232</div><div class="nm">Diabetes insípida</div></div><div class="dx"><div class="code">E790</div><div class="nm">Hiperuricemia sin signos de artritis inflamatoria y enfermedad tofácea</div></div>
+        </div>
+      </div>
+      <div class="notes">
+        <div class="lbl">Espacio para&nbsp;anotar<br>otros códigos&nbsp;de tu&nbsp;área</div>
+        <div class="lines"><div></div><div></div></div>
+      </div>
+      <div class="foot">
+        <span>Guía práctica de codificación &middot; Endocrinología &middot; pág. 20 de 22</span>
+        <span>Diagnóstico complejo o no listado: consultar catálogo completo CIE-10 con Archivo Clínico / Estadística</span>
+      </div>
+    </div>
+    
+    <div class="page" style="--c:#94226A">
+      <div class="head">
+        <div class="head-left">
+          <div>
+            <div class="kicker">Diagnósticos CIE-10 por especialidad</div>
+            <h1>Infectología</h1>
+          </div>
+        </div>
+        <div class="count-badge">13 códigos</div>
+      </div>
+      <div class="body-cols cols-2">
+        
+        <div class="subcat">
+          <h2>Respiratorias</h2>
+          <div class="dx"><div class="code">J189</div><div class="nm">Neumonía, no especificada</div></div><div class="dx"><div class="code">A150</div><div class="nm">Tuberculosis del pulmón, confirmada por hallazgo microscópico del bacilo tuberculoso en esputo, con o sin cultivo</div></div><div class="dx"><div class="code">J118</div><div class="nm">Influenza con otras manifestaciones, virus no identificado</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Urinarias / Sistémicas</h2>
+          <div class="dx"><div class="code">N390</div><div class="nm">Infección de vías urinarias, sitio no especificado</div></div><div class="dx"><div class="code">A419</div><div class="nm">Sepsis, no especificada</div></div><div class="dx"><div class="code">B182</div><div class="nm">Hepatitis viral tipo c crónica</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Otras</h2>
+          <div class="dx"><div class="code">U071</div><div class="nm">COVID-19, virus identificado</div></div><div class="dx"><div class="code">B349</div><div class="nm">Infección viral, no especificada</div></div><div class="dx"><div class="code">A90</div><div class="nm">Fiebre del dengue [dengue clásico]</div></div><div class="dx"><div class="code">B24</div><div class="nm">Enfermedad por virus de la inmunodeficiencia humana [VIH], sin otra especificación</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Exantemáticas / Prevenibles por vacuna</h2>
+          <div class="dx"><div class="code">B059</div><div class="nm">Sarampión sin complicaciones</div></div><div class="dx"><div class="code">B069</div><div class="nm">Rubéola sin complicaciones</div></div><div class="dx"><div class="code">A379</div><div class="nm">Tos ferina, no especificada</div></div>
+        </div>
+      </div>
+      <div class="notes">
+        <div class="lbl">Espacio para&nbsp;anotar<br>otros códigos&nbsp;de tu&nbsp;área</div>
+        <div class="lines"><div></div><div></div></div>
+      </div>
+      <div class="foot">
+        <span>Guía práctica de codificación &middot; Infectología &middot; pág. 21 de 22</span>
+        <span>Diagnóstico complejo o no listado: consultar catálogo completo CIE-10 con Archivo Clínico / Estadística</span>
+      </div>
+    </div>
+    
+    <div class="page" style="--c:#942246">
+      <div class="head">
+        <div class="head-left">
+          <div>
+            <div class="kicker">Diagnósticos CIE-10 por especialidad</div>
+            <h1>Terapia Intensiva</h1>
+          </div>
+        </div>
+        <div class="count-badge">20 códigos</div>
+      </div>
+      <div class="body-cols cols-2">
+        
+        <div class="subcat">
+          <h2>Choque</h2>
+          <div class="dx"><div class="code">R572</div><div class="nm">Choque séptico</div></div><div class="dx"><div class="code">R570</div><div class="nm">Choque cardiogénico</div></div><div class="dx"><div class="code">R571</div><div class="nm">Choque hipovolémico</div></div><div class="dx"><div class="code">R579</div><div class="nm">Choque, no especificado</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Respiratorio crítico</h2>
+          <div class="dx"><div class="code">J80</div><div class="nm">Síndrome de dificultad respiratoria del adulto</div></div><div class="dx"><div class="code">J960</div><div class="nm">Insuficiencia respiratoria aguda</div></div><div class="dx"><div class="code">Z991</div><div class="nm">Dependencia de respirador</div></div><div class="dx"><div class="code">J961</div><div class="nm">Insuficiencia respiratoria crónica</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Neurológico crítico</h2>
+          <div class="dx"><div class="code">R402</div><div class="nm">Coma, no especificado</div></div><div class="dx"><div class="code">G931</div><div class="nm">Lesión cerebral anóxica, no clasificada en otra parte</div></div><div class="dx"><div class="code">G936</div><div class="nm">Edema cerebral</div></div><div class="dx"><div class="code">G935</div><div class="nm">Compresión del encéfalo</div></div><div class="dx"><div class="code">R400</div><div class="nm">Somnolencia</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Sepsis / SIRS</h2>
+          <div class="dx"><div class="code">R650</div><div class="nm">Síndrome de respuesta inflamatoria sistémica de origen infeccioso, sin falla orgánica</div></div><div class="dx"><div class="code">R651</div><div class="nm">Síndrome de respuesta inflamatoria sistémica de origen infeccioso, con falla orgánica</div></div><div class="dx"><div class="code">A419</div><div class="nm">Sepsis, no especificada</div></div><div class="dx"><div class="code">R659</div><div class="nm">Síndrome de respuesta inflamatoria sistémica, no especificado</div></div>
+        </div>
+        <div class="subcat">
+          <h2>Cardiorrespiratorio</h2>
+          <div class="dx"><div class="code">I460</div><div class="nm">Paro cardíaco con resucitación exitosa</div></div><div class="dx"><div class="code">R092</div><div class="nm">Paro respiratorio</div></div><div class="dx"><div class="code">I461</div><div class="nm">Muerte cardíaca súbita, así descrita</div></div>
+        </div>
+      </div>
+      <div class="notes">
+        <div class="lbl">Espacio para&nbsp;anotar<br>otros códigos&nbsp;de tu&nbsp;área</div>
+        <div class="lines"><div></div><div></div></div>
+      </div>
+      <div class="foot">
+        <span>Guía práctica de codificación &middot; Terapia Intensiva &middot; pág. 22 de 22</span>
+        <span>Diagnóstico complejo o no listado: consultar catálogo completo CIE-10 con Archivo Clínico / Estadística</span>
+      </div>
+    </div>
+    
+</body>
+</html>
