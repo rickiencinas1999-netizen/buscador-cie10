@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>Buscador CIE-10</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
 <meta name="theme-color" content="#008375">
 <meta name="description" content="Buscador de diagnósticos CIE-10 por código, nombre o palabra clave, organizado por especialidad médica.">
 <link rel="manifest" href="manifest.json">
@@ -86,7 +86,8 @@ code, .mono{
 header.top{
   position:sticky; top:0; z-index:20;
   background:var(--paper);
-  padding-top:14px; padding-bottom:14px;
+  padding-top:calc(14px + env(safe-area-inset-top));
+  padding-bottom:14px;
   border-bottom:1px solid var(--line);
 }
 .brand{
@@ -191,7 +192,7 @@ header.top{
 .chip:active{opacity:.75;}
 
 /* ---------- Main ---------- */
-main{padding:14px 0 44px;}
+main{padding:14px 0 calc(44px + env(safe-area-inset-bottom));}
 
 .status-row{
   display:flex; align-items:baseline; justify-content:space-between; gap:12px;
