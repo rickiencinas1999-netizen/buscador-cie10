@@ -384,6 +384,83 @@ SYNONYMS = {
     "vomito con sangre": ["K920"],
     "melena": ["K921"],
     "heces negras": ["K921"],
+
+    # --- Neurológico / psiquiátrico (ampliación) ---
+    "paralisis facial": ["G510"],
+    "paralisis de bell": ["G510"],
+    "se le torcio la cara": ["G510"],
+    "esclerosis multiple": ["G35X"],
+    "alzheimer": ["G309"],
+    "demencia": ["G309"],
+    "demencia senil": ["G309"],
+    "esquizofrenia": ["F209"],
+    "brote psicotico": ["F209"],
+    "depresion": ["F329"],
+    "delirio": ["F059"],
+    "estado confusional": ["F059"],
+    "trastorno de panico": ["F410"],
+    "crisis de panico": ["F410"],
+    "estres postraumatico": ["F431"],
+    "insomnio": ["F510"],
+    "no puede dormir": ["F510"],
+
+    # --- Respiratorio (ampliación) ---
+    "neumotorax": ["J930"],
+    "pulmon colapsado": ["J930"],
+    "hemotorax": ["J942"],
+    "rinitis alergica": ["J304"],
+    "alergia nasal": ["J304"],
+    "apnea del sueno": ["G473"],
+    "ronca mucho": ["G473"],
+
+    # --- Musculoesquelético (ampliación) ---
+    "fibromialgia": ["M797"],
+    "osteoporosis": ["M819"],
+    "huesos debiles": ["M819"],
+    "escoliosis": ["M419"],
+    "columna torcida": ["M419"],
+    "artritis reumatoide": ["M069"],
+    "lupus": ["M329"],
+    "gota": ["M109"],
+
+    # --- Dermatológico (ampliación) ---
+    "psoriasis": ["L409"],
+    "acne": ["L708"],
+    "espinillas": ["L708"],
+    "barros": ["L708"],
+    "vitiligo": ["L80X"],
+
+    # --- Cardiovascular (ampliación) ---
+    "soplo cardiaco": ["R011"],
+    "soplo en el corazon": ["R011"],
+    "extrasistole": ["I491"],
+    "arritmia": ["I499"],
+    "sincope": ["R55X"],
+    "flebitis": ["I802"],
+    "hipotension": ["I959"],
+    "presion baja": ["I959"],
+    "aneurisma de aorta": ["I719"],
+    "aneurisma aortico": ["I719"],
+    "hiperpotasemia": ["E875"],
+    "hipercalemia": ["E875"],
+    "hipopotasemia": ["E876"],
+    "hipocalemia": ["E876"],
+
+    # --- Digestivo (ampliación) ---
+    "colon irritable": ["K589"],
+    "sindrome de intestino irritable": ["K589"],
+    "hernia hiatal": ["K449"],
+    "hernia de hiato": ["K449"],
+    "empacho": ["K30X"],
+    "indigestion": ["K30X"],
+    "fisura anal": ["K602"],
+    "reflujo": ["K219"],
+    "agruras": ["K219"],
+
+    # --- Infeccioso / pediátrico (ampliación) ---
+    "cistitis": ["N390"],
+    "paperas": ["B269"],
+    "bronquiolitis": ["J210"],
 }
 
 

@@ -511,6 +511,25 @@ CIE9 = {
     "Z966": ("V43.60", "Presencia de implante articular protésico"),
     "Z991": ("V46.11", "Dependencia de respirador"),
     "Z992": ("V45.11", "Dependencia de diálisis renal"),
+
+    # --- Nuevos diagnósticos curados con sinónimos coloquiales ---
+    "G510": ("351.0", "Parálisis de Bell"),
+    "G35X": ("340", "Esclerosis múltiple"),
+    "J930": ("512.81", "Neumotórax espontáneo primario"),
+    "J942": ("511.89", "Hemotórax"),
+    "J304": ("477.9", "Rinitis alérgica, no especificada"),
+    "M797": ("729.1", "Fibromialgia"),
+    "L409": ("696.1", "Psoriasis, no especificada"),
+    "R011": ("785.2", "Soplo cardíaco no diagnosticado"),
+    "I491": ("427.61", "Extrasístole supraventricular"),
+    "K30X": ("536.8", "Dispepsia funcional"),
+    "K602": ("565.0", "Fisura anal"),
+    "F209": ("295.90", "Esquizofrenia, no especificada"),
+    "F329": ("311", "Episodio depresivo, no especificado"),
+    "F059": ("293.0", "Delirio, no especificado"),
+    "F410": ("300.01", "Trastorno de pánico"),
+    "F431": ("309.81", "Trastorno de estrés postraumático"),
+    "F510": ("307.42", "Insomnio no orgánico"),
 }
 
 

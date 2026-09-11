@@ -676,6 +676,36 @@
    "Reumatológico",
    "M329",
    "LUPUS ERITEMATOSO SISTÉMICO, SIN OTRA ESPECIFICACIÓN"
+  ],
+  [
+   "Salud mental",
+   "F209",
+   "ESQUIZOFRENIA, NO ESPECIFICADA"
+  ],
+  [
+   "Salud mental",
+   "F329",
+   "EPISODIO DEPRESIVO, NO ESPECIFICADO"
+  ],
+  [
+   "Salud mental",
+   "F059",
+   "DELIRIO, NO ESPECIFICADO"
+  ],
+  [
+   "Salud mental",
+   "F410",
+   "TRASTORNO DE PÁNICO [ANSIEDAD PAROXÍSTICA EPISÓDICA]"
+  ],
+  [
+   "Salud mental",
+   "F431",
+   "TRASTORNO DE ESTRÉS POSTRAUMÁTICO"
+  ],
+  [
+   "Salud mental",
+   "F510",
+   "INSOMNIO NO ORGÁNICO"
   ]
  ],
  "Pediatría": [
@@ -1394,6 +1424,11 @@
    "Dolor de columna y articular no traumático",
    "M705",
    "OTRAS BURSITIS DE LA RODILLA"
+  ],
+  [
+   "Dolor de columna y articular no traumático",
+   "M797",
+   "FIBROMIALGIA"
   ]
  ],
  "Cardiología": [
@@ -1458,6 +1493,11 @@
    "ARRITMIA CARDÍACA, NO ESPECIFICADA"
   ],
   [
+   "Arritmias",
+   "I491",
+   "DESPOLARIZACIÓN AURICULAR PREMATURA"
+  ],
+  [
    "Hipertensiva",
    "I10X",
    "HIPERTENSIÓN ESENCIAL (PRIMARIA)"
@@ -1481,6 +1521,11 @@
    "Valvulopatías",
    "I340",
    "INSUFICIENCIA (DE LA VÁLVULA) MITRAL"
+  ],
+  [
+   "Valvulopatías",
+   "R011",
+   "SOPLO CARDÍACO, NO ESPECIFICADO"
   ],
   [
    "Miocardio / Pericardio",
@@ -1695,6 +1740,16 @@
    "Pleura",
    "J91X",
    "DERRAME PLEURAL EN AFECCIONES CLASIFICADAS EN OTRA PARTE"
+  ],
+  [
+   "Pleura",
+   "J930",
+   "NEUMÓTORAX ESPONTÁNEO A PRESIÓN"
+  ],
+  [
+   "Pleura",
+   "J942",
+   "HEMOTÓRAX"
   ]
  ],
  "Gastroenterología": [
@@ -1742,6 +1797,11 @@
    "Estómago / Duodeno",
    "C169",
    "TUMOR MALIGNO DEL ESTÓMAGO, PARTE NO ESPECIFICADA"
+  ],
+  [
+   "Estómago / Duodeno",
+   "K30X",
+   "DISPEPSIA FUNCIONAL"
   ],
   [
    "Intestino",
@@ -1802,6 +1862,11 @@
    "Otros",
    "K603",
    "FÍSTULA ANAL"
+  ],
+  [
+   "Otros",
+   "K602",
+   "FISURA ANAL, NO ESPECIFICADA"
   ]
  ],
  "Neurología": [
@@ -1871,6 +1936,11 @@
    "HIPERTENSIÓN INTRACRANEAL BENIGNA"
   ],
   [
+   "Degenerativas",
+   "G35X",
+   "ESCLEROSIS MÚLTIPLE"
+  ],
+  [
    "Neuropatías",
    "G629",
    "POLINEUROPATÍA, NO ESPECIFICADA"
@@ -1884,6 +1954,11 @@
    "Neuropatías",
    "G610",
    "SÍNDROME DE GUILLAIN-BARRÉ"
+  ],
+  [
+   "Neuropatías",
+   "G510",
+   "PARÁLISIS DE BELL"
   ],
   [
    "Neuroinfección / Otros",
@@ -2053,6 +2128,11 @@
    "Inflamatorias",
    "L405",
    "ARTROPATÍA PSORIÁSICA"
+  ],
+  [
+   "Inflamatorias",
+   "L409",
+   "PSORIASIS, NO ESPECIFICADA"
   ],
   [
    "Neoplasias",
@@ -2324,6 +2404,11 @@
    "Nariz / Senos",
    "S022",
    "FRACTURA DE LOS HUESOS DE LA NARIZ"
+  ],
+  [
+   "Nariz / Senos",
+   "J304",
+   "RINITIS ALÉRGICA, NO ESPECIFICADA"
   ],
   [
    "Faringe / Laringe",
