@@ -95,7 +95,7 @@ SPECIALTIES = {
  ("Isquémica", ["I219","I209","I251"]),
  ("Insuficiencia cardiaca", ["I500","I110","I270"]),
  ("Arritmias", ["I489","I472","I440","I490","I495","I499"]),
- ("Hipertensiva", ["I10X","I119"]),
+ ("Hipertensiva", ["I10X","I119","I674"]),
  ("Valvulopatías", ["I051","I340"]),
  ("Miocardio / Pericardio", ["I429","I309","I420","I421"]),
  ("Dispositivos / Postquirúrgico", ["Z950","Z955","Z951","Z952"]),
@@ -153,7 +153,7 @@ SPECIALTIES = {
 "Oftalmología": [
  ("Segmento anterior", ["H108","H269","H520","H000","H110"]),
  ("Glaucoma / Retina", ["H409","H353","H330"]),
- ("Otros", ["H579","H040","H530","H501","T159"]),
+ ("Otros", ["H579","H040","H530","H501","T159","S050","H160"]),
 ],
 "Otorrinolaringología": [
  ("Oído", ["H659","H609","H904","H810","H811"]),

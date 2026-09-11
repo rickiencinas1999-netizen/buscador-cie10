@@ -155,7 +155,7 @@ header.top{
   white-space:nowrap;
 }
 .chip .n{opacity:.7; font-weight:500;}
-.chip.active{background:var(--chip-c, var(--accent)); color:#fff; border-color:var(--chip-c, var(--accent));}
+.chip.active{background:var(--chip-c, var(--accent)); color:var(--chip-c-ink, #fff); border-color:var(--chip-c, var(--accent));}
 .chip:focus-visible{outline:2px solid var(--focus); outline-offset:2px;}
 .chip-clear{
   font-size:12px; font-weight:600; color:var(--ink-soft); background:none; border:1.5px dashed var(--line);
@@ -362,7 +362,7 @@ const DATA = __DATA_JSON__;
     let html = '';
     specs.forEach((s,i)=>{
       const n = Object.values(tags).filter(arr=>arr.some(t=>t[0]===i)).length;
-      html += `<button class="chip${selected.has(i)?' active':''}" style="--chip-c:${s.color}" data-i="${i}">${s.name} <span class="n">${n}</span></button>`;
+      html += `<button class="chip${selected.has(i)?' active':''}" style="--chip-c:${s.color};--chip-c-ink:${s.ink}" data-i="${i}">${s.name} <span class="n">${n}</span></button>`;
     });
     chipsEl.innerHTML = html;
     if(selected.size){
@@ -401,7 +401,7 @@ const DATA = __DATA_JSON__;
     if(!t) return '';
     return t.filter(([si])=> si!==excludeSpec).map(([si])=>{
       const s = specs[si];
-      return `<span class="pill" style="background:${s.color}">${s.name}</span>`;
+      return `<span class="pill" style="background:${s.color};color:${s.ink}">${s.name}</span>`;
     }).join('');
   }
 
@@ -456,7 +456,7 @@ const DATA = __DATA_JSON__;
       parts.push(`<div class="group">
         <div class="group-head"><span class="dot" style="background:${s.color}"></span><h3>${s.name}</h3><span class="sub">${bySpec[si].length} códigos</span></div>`);
       groups.forEach((codeList, cat)=>{
-        parts.push(`<div class="cat-block"><span class="cat-label" style="background:${s.color}">${cat}</span><div class="rows">`);
+        parts.push(`<div class="cat-block"><span class="cat-label" style="background:${s.color};color:${s.ink}">${cat}</span><div class="rows">`);
         codeList.forEach(code=>{ parts.push(dxRow(code, s.color, si)); });
         parts.push(`</div></div>`);
       });

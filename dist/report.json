@@ -1463,6 +1463,11 @@
    "ENFERMEDAD CARDÍACA HIPERTENSIVA SIN INSUFICIENCIA CARDÍACA (CONGESTIVA)"
   ],
   [
+   "Hipertensiva",
+   "I674",
+   "ENCEFALOPATÍA HIPERTENSIVA"
+  ],
+  [
    "Valvulopatías",
    "I051",
    "INSUFICIENCIA MITRAL REUMÁTICA"
@@ -2247,6 +2252,16 @@
    "Otros",
    "T159",
    "CUERPO EXTRAÑO EN PARTE EXTERNA DEL OJO, SITIO NO ESPECIFICADO"
+  ],
+  [
+   "Otros",
+   "S050",
+   "TRAUMATISMO DE LA CONJUNTIVA Y ABRASIÓN CORNEAL SIN MENCIÓN DE CUERPO EXTRAÑO"
+  ],
+  [
+   "Otros",
+   "H160",
+   "ÚLCERA DE LA CÓRNEA"
   ]
  ],
  "Otorrinolaringología": [

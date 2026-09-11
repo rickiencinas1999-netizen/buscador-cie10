@@ -8,7 +8,6 @@ Uso:
     python3 generar_datos_app.py
 """
 import json
-import colorsys
 import importlib.util
 from pathlib import Path
 
@@ -30,13 +29,12 @@ sy = importlib.util.module_from_spec(spec2)
 spec2.loader.exec_module(sy)
 SYNONYMS = sy.SYNONYMS
 
+spec3 = importlib.util.spec_from_file_location("paleta_especialidades", HERE / "paleta_especialidades.py")
+pal = importlib.util.module_from_spec(spec3)
+spec3.loader.exec_module(pal)
+
 ORDER = list(SPECIALTIES.keys())
-N = len(ORDER)
-COLORS = {}
-for i, s in enumerate(ORDER):
-    h = i / N
-    r, g, b = colorsys.hls_to_rgb(h, 0.36, 0.62)
-    COLORS[s] = '#%02X%02X%02X' % (int(r * 255), int(g * 255), int(b * 255))
+CSS_COLORS = pal.css_colors_for(ORDER)
 
 
 def titlecase_dx(name):
@@ -71,7 +69,7 @@ for spec_idx, spec_name in enumerate(ORDER):
         for code in codes:
             tags.setdefault(code, []).append([spec_idx, subcat])
 
-specialties_meta = [{"name": s, "color": COLORS[s]} for s in ORDER]
+specialties_meta = [{"name": s, "color": CSS_COLORS[s]["color"], "ink": CSS_COLORS[s]["ink"]} for s in ORDER]
 
 # valida que cada código de un sinónimo exista en el catálogo completo
 valid_codes = set(codes_sorted)

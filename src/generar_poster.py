@@ -10,7 +10,7 @@ imprimir o convertir.
 Uso:
     python3 generar_poster.py
 """
-import json, html, colorsys, datetime, math
+import json, html, datetime, math
 import importlib.util
 from pathlib import Path
 
@@ -27,13 +27,13 @@ bd = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(bd)
 SPECIALTIES = bd.SPECIALTIES
 
+spec3 = importlib.util.spec_from_file_location("paleta_especialidades", HERE / "paleta_especialidades.py")
+pal = importlib.util.module_from_spec(spec3)
+spec3.loader.exec_module(pal)
+
 ORDER = list(SPECIALTIES.keys())
-N = len(ORDER)
-COLORS = {}
-for i, s in enumerate(ORDER):
-    h = i / N
-    r, g, b = colorsys.hls_to_rgb(h, 0.36, 0.62)
-    COLORS[s] = '#%02X%02X%02X' % (int(r*255), int(g*255), int(b*255))
+# el póster es siempre a color sobre papel blanco: solo usa el tono de modo claro
+COLORS = {name: swatch[0] for name, swatch in pal.swatches_for(ORDER).items()}
 
 def esc(t):
     return html.escape(t)

@@ -338,6 +338,17 @@ SYNONYMS = {
     "cianosis": ["R230"],
     "ictericia": ["R17X"],
     "hidrocefalia": ["G919"],
+
+    # --- Ajustes por investigación de catálogos hospitalarios reales ---
+    # (crisis hipertensiva grave con daño de órgano blanco; el catálogo
+    # institucional no incluye la categoría I16 de la CIE-10-CM, así que se
+    # usa el código más cercano disponible en este catálogo)
+    "encefalopatia hipertensiva": ["I674"],
+    "hiperglucemia": ["E149"],
+    "abrasion corneal": ["S050"],
+    "rasguno en el ojo": ["S050"],
+    "ulcera corneal": ["H160"],
+    "ulcera en la cornea": ["H160"],
 }
 
 
