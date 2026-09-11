@@ -25,6 +25,14 @@ El proyecto tiene dos salidas, generadas a partir de la misma fuente de datos:
 data/
   catalogo.json          Catálogo maestro CIE-10 completo (código -> datos),
                           extraído del Excel institucional oficial.
+  oms_cie11_source/       Tabla oficial de la OMS "10To11MapToOneCategory"
+                          (CIE-10 -> CIE-11), descargada desde el navegador
+                          de la CIE-11 (icd.who.int/browse, pestaña "Info" ->
+                          "ICD-10 / ICD-11 mapping Tables"). Fuente de
+                          generar_cie11.py — no se edita a mano.
+  cie10_a_cie11.json      Generado por generar_cie11.py: código CIE-10 del
+                          catálogo -> {code, title} en CIE-11. No editar a
+                          mano, se regenera desde oms_cie11_source/.
 src/
   especialidades.py      Fuente de verdad clínica: códigos CIE-10 curados
                           por especialidad y categoría. Valida cada código
@@ -33,9 +41,20 @@ src/
                           síntomas y abreviaturas -> códigos CIE-10 (p. ej.
                           "dolor de pecho" o "IAM" -> infarto). También se
                           valida contra data/catalogo.json.
+  paleta_especialidades.py Colores por especialidad (modo claro/oscuro +
+                          tinta de texto), validados para que se distingan
+                          entre sí. Ver comentarios del archivo para el
+                          método de generación.
+  generar_cie11.py        Genera data/cie10_a_cie11.json a partir de la
+                          tabla oficial de la OMS en data/oms_cie11_source/.
+  cie9_correlacion.py     Correlación aproximada CIE-10 -> CIE-9, curada a
+                          mano (no existe tabla oficial gratuita para la
+                          edición CIE-10 de este catálogo — ver el
+                          comentario del archivo). Cubre los diagnósticos
+                          más frecuentes, no el catálogo completo.
   generar_datos_app.py   Genera dist/app_data.json (catálogo completo +
-                          etiquetas de especialidad + sinónimos) para la
-                          app web.
+                          etiquetas de especialidad + sinónimos + paleta +
+                          correlación CIE-11/CIE-9) para la app web.
   plantilla_app.html     Plantilla HTML/CSS/JS de la app de búsqueda.
   construir_app.py       Combina la plantilla + dist/app_data.json en
                           webapp/index.html (archivo único autocontenido).
@@ -91,6 +110,36 @@ agregar más, solo agrega una línea nueva y vuelve a correr el pipeline —
 igual que con `especialidades.py`, los códigos se validan automáticamente
 contra `data/catalogo.json` al importar el archivo.
 
+## Correlación con CIE-9 y CIE-11
+
+Al abrir un diagnóstico en pantalla completa (tocando cualquier resultado),
+además del código CIE-10 la app muestra, si existen:
+
+- **CIE-11**: el código y título oficiales de la OMS, tomados de la tabla
+  de mapeo `10To11MapToOneCategory` (descargable gratis desde
+  `icd.who.int/browse` → pestaña "Info" → "ICD-10 / ICD-11 mapping
+  Tables", sin necesidad de registrarse ni de usar la API con
+  credenciales). Cubre ~84% del catálogo completo y el 100% de los
+  códigos curados en `especialidades.py` (los 5 casos donde la tabla de
+  la OMS no calzaba directo con la edición mexicana de la CIE-10 —
+  diabetes, dengue, enfermedad renal crónica, apendicitis, envenenamiento
+  por lugar no especificado — se resolvieron a mano en
+  `MANUAL_OVERRIDES` dentro de `generar_cie11.py`, documentando el porqué
+  de cada uno). El título viene en inglés porque el archivo de la OMS no
+  incluye la traducción al español.
+- **CIE-9**: una correlación aproximada y curada a mano en
+  `cie9_correlacion.py`, solo para los diagnósticos más frecuentes/clásicos.
+  No existe una tabla oficial y gratuita de la OMS/OPS para la edición
+  CIE-10 de este catálogo (la única gratuita, los "GEMs" de EE. UU., es
+  para la CIE-9-MC/CIE-10-CM, una edición distinta cuyos códigos no
+  calzan uno a uno con los de aquí) — por eso se marca explícitamente en
+  la app como "correlación aproximada, no oficial".
+
+Para actualizar la tabla de la OMS en el futuro (nuevas versiones de la
+CIE-11), descarga el `.zip` de mapeo desde la misma página, reemplaza
+`data/oms_cie11_source/10To11MapToOneCategory.txt` y corre
+`python3 src/generar_cie11.py`.
+
 ## Cómo regenerar todo
 
 Requiere Python 3 (sin dependencias externas) y, solo para el PDF, Node.js
@@ -99,20 +148,27 @@ con Playwright.
 ```bash
 cd buscador-cie10
 
-# 1. Datos para la app web (a partir de especialidades.py + catalogo.json)
+# 1. (Solo si cambió data/oms_cie11_source/) correlación CIE-10 -> CIE-11
+python3 src/generar_cie11.py
+
+# 2. Datos para la app web (especialidades.py + catalogo.json + CIE-11/CIE-9)
 python3 src/generar_datos_app.py
 
-# 2. App web autocontenida (webapp/index.html)
+# 3. App web autocontenida (webapp/index.html)
 python3 src/construir_app.py
 
-# 3. Póster en HTML (dist/poster.html)
+# 4. Póster en HTML (dist/poster.html)
 python3 src/generar_poster.py
 
-# 4. Póster en PDF (dist/poster.pdf) — opcional, requiere Node + Playwright
+# 5. Póster en PDF (dist/poster.pdf) — opcional, requiere Node + Playwright
 npm install
 npx playwright install chromium
 npm run pdf
 ```
+
+El paso 1 solo hace falta correrlo si actualizas la tabla fuente de la OMS
+(`data/oms_cie11_source/`) — `data/cie10_a_cie11.json` ya viene generado en
+el repositorio, así que normalmente el pipeline empieza directo en el paso 2.
 
 Cada script es independiente y se puede correr por separado siempre que
 los archivos de los que depende ya existan (ver diagrama de dependencias

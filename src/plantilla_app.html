@@ -275,6 +275,21 @@ main{padding:14px 0 44px;}
 }
 .code-modal .dx-name{font-size:17px; font-weight:600; line-height:1.4; margin-bottom:16px;}
 .code-modal .dx-pills{display:flex; gap:6px; flex-wrap:wrap; justify-content:center;}
+.code-modal .dx-correlation{
+  margin-top:16px; padding-top:14px; border-top:1px solid var(--line);
+  display:flex; flex-direction:column; gap:6px; text-align:left;
+}
+.code-modal .corr-row{display:flex; align-items:baseline; gap:8px; font-size:12.5px; flex-wrap:wrap;}
+.code-modal .corr-row .corr-label{
+  flex:0 0 auto; font-weight:700; color:var(--ink-soft); min-width:50px; font-size:11px;
+  text-transform:uppercase; letter-spacing:.3px;
+}
+.code-modal .corr-row .corr-code{
+  font-family:'JetBrains Mono','IBM Plex Mono',monospace; font-variant-numeric: slashed-zero;
+  font-weight:700; color:var(--accent); flex:0 0 auto;
+}
+.code-modal .corr-row .corr-title{color:var(--ink); font-size:12px;}
+.code-modal .corr-note{font-size:10px; color:var(--ink-soft); font-style:italic; margin-top:2px;}
 
 footer{
   border-top:1px solid var(--line); padding:18px 0 30px; margin-top:10px;
@@ -331,6 +346,7 @@ footer{
       <div class="big-code" id="modalCode"></div>
       <div class="dx-name" id="modalName"></div>
       <div class="dx-pills" id="modalPills"></div>
+      <div class="dx-correlation" id="modalCorrelation" hidden></div>
     </div>
   </div>
 
@@ -348,6 +364,8 @@ const DATA = __DATA_JSON__;
   "use strict";
   const codes = DATA.codes, names = DATA.names, tags = DATA.tags, specs = DATA.specialties;
   const synonyms = DATA.synonyms || {};
+  const cie11 = DATA.cie11 || {};
+  const cie9 = DATA.cie9 || {};
   const codeIndex = new Map();
   codes.forEach((c,i)=>codeIndex.set(c,i));
 
@@ -469,6 +487,7 @@ const DATA = __DATA_JSON__;
       parts.push(`<div class="intro">
         <p><b>Cómo usarlo:</b> no hace falta que sepas el nombre oficial del CIE-10. Escribe el diagnóstico como lo dirías en el pase de guardia (p. ej. &ldquo;derrame cerebral&rdquo;, &ldquo;dolor de pecho&rdquo;, &ldquo;IAM&rdquo;, &ldquo;IVU&rdquo;), un código o parte de un nombre, y presiona Enter: el buscador lo decodifica al código CIE-10 exacto entre las __TOTAL_CODES__ claves del catálogo. También puedes elegir una especialidad para ver su lista curada de diagnósticos frecuentes, agrupada por categoría clínica.</p>
         <p>Los diagnósticos marcados con una etiqueta de color ya están revisados y clasificados por especialidad; el resto del catálogo también es buscable por código, nombre o palabra clave. Catálogo institucional CIE-ABRIL-2024.</p>
+        <p>Al abrir un diagnóstico en pantalla completa, si existe, también se muestra su código equivalente en la <b>CIE-11</b> (tabla oficial de la OMS) y, para los diagnósticos más frecuentes, una referencia aproximada en <b>CIE-9</b>.</p>
       </div>`);
     }
     parts.push(`<div class="status-row"><h2>Especialidades</h2><span class="count">${specs.length} áreas &middot; toca una para ver su lista</span></div>`);
@@ -681,6 +700,7 @@ const DATA = __DATA_JSON__;
   const modalCodeEl = document.getElementById('modalCode');
   const modalNameEl = document.getElementById('modalName');
   const modalPillsEl = document.getElementById('modalPills');
+  const modalCorrelationEl = document.getElementById('modalCorrelation');
   const modalCloseBtn = document.getElementById('modalClose');
   let modalOpener = null;
 
@@ -693,6 +713,20 @@ const DATA = __DATA_JSON__;
     modalCodeEl.style.setProperty('--mc', sc || 'var(--accent)');
     modalNameEl.textContent = idx!=null ? names[idx] : code;
     modalPillsEl.innerHTML = pillsFor(code, null);
+
+    const c11 = cie11[code], c9 = cie9[code];
+    if(c11 || c9){
+      let html = '';
+      if(c11) html += `<div class="corr-row"><span class="corr-label">CIE-11</span><span class="corr-code">${c11.code}</span><span class="corr-title">${c11.title}</span></div>`;
+      if(c9) html += `<div class="corr-row"><span class="corr-label">CIE-9</span><span class="corr-code">${c9[0]}</span><span class="corr-title">${c9[1]}</span></div>`;
+      html += `<div class="corr-note">CIE-11: tabla oficial de la OMS (t&iacute;tulo en ingl&eacute;s). ${c9?'CIE-9: correlaci&oacute;n aproximada, no oficial.':''}</div>`;
+      modalCorrelationEl.innerHTML = html;
+      modalCorrelationEl.hidden = false;
+    } else {
+      modalCorrelationEl.innerHTML = '';
+      modalCorrelationEl.hidden = true;
+    }
+
     modalEl.classList.add('show');
     modalEl.setAttribute('aria-hidden', 'false');
     modalCloseBtn.focus();

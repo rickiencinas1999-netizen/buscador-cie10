@@ -33,6 +33,22 @@ spec3 = importlib.util.spec_from_file_location("paleta_especialidades", HERE / "
 pal = importlib.util.module_from_spec(spec3)
 spec3.loader.exec_module(pal)
 
+spec4 = importlib.util.spec_from_file_location("cie9_correlacion", HERE / "cie9_correlacion.py")
+c9 = importlib.util.module_from_spec(spec4)
+spec4.loader.exec_module(c9)
+CIE9 = c9.CIE9
+
+CIE11_PATH = ROOT / "data" / "cie10_a_cie11.json"
+if CIE11_PATH.exists():
+    with open(CIE11_PATH, encoding="utf-8") as f:
+        CIE11 = json.load(f)
+else:
+    # generar_cie11.py no se ha corrido todavía (o el archivo fuente de la
+    # OMS no está presente) — la app sigue funcionando, solo sin el dato de
+    # CIE-11.
+    print("AVISO: no se encontró data/cie10_a_cie11.json — corre generar_cie11.py primero. Sigo sin datos de CIE-11.")
+    CIE11 = {}
+
 ORDER = list(SPECIALTIES.keys())
 CSS_COLORS = pal.css_colors_for(ORDER)
 
@@ -79,12 +95,22 @@ for term, codes in SYNONYMS.items():
     if good:
         synonyms_out[term] = good
 
+# correlación CIE-11 (tabla oficial de la OMS): se filtra a los códigos que
+# realmente están en el catálogo completo, por si el archivo generado quedó
+# desactualizado respecto a catalogo.json
+cie11_out = {c: v for c, v in CIE11.items() if c in valid_codes}
+
+# correlación CIE-9 (curada a mano, ver cie9_correlacion.py): {codigo: [cie9_codigo, cie9_nombre]}
+cie9_out = {c: [v[0], v[1]] for c, v in CIE9.items() if c in valid_codes}
+
 out = {
     "codes": codes_sorted,
     "names": names_sorted,
     "tags": tags,
     "specialties": specialties_meta,
     "synonyms": synonyms_out,
+    "cie11": cie11_out,
+    "cie9": cie9_out,
 }
 
 s = json.dumps(out, ensure_ascii=False, separators=(',', ':'))
@@ -94,4 +120,5 @@ with open(OUT_PATH, 'w', encoding='utf-8') as f:
 
 print("bytes:", len(s.encode('utf-8')))
 print("codes:", len(codes_sorted), "tagged:", len(tags), "sinonimos:", len(synonyms_out))
+print("cie11:", len(cie11_out), "cie9:", len(cie9_out))
 print("escrito en:", OUT_PATH)
