@@ -141,6 +141,31 @@
    "ABDOMEN AGUDO"
   ],
   [
+   "Digestivo",
+   "K81",
+   "COLECISTITIS"
+  ],
+  [
+   "Digestivo",
+   "K85",
+   "PANCREATITIS AGUDA"
+  ],
+  [
+   "Digestivo",
+   "K65",
+   "PERITONITIS"
+  ],
+  [
+   "Digestivo",
+   "K56",
+   "ILEO PARALÍTICO Y OBSTRUCCIÓN INTESTINAL SIN HERNIA"
+  ],
+  [
+   "Digestivo",
+   "K573",
+   "ENFERMEDAD DIVERTICULAR DEL INTESTINO GRUESO SIN PERFORACIÓN NI ABSCESO"
+  ],
+  [
    "Neurológico",
    "R568",
    "OTRAS CONVULSIONES Y LAS NO ESPECIFICADAS"
@@ -336,6 +361,11 @@
    "OTROS QUISTES OVÁRICOS Y LOS NO ESPECIFICADOS"
   ],
   [
+   "Ginecológico / Urológico agudo",
+   "N44X",
+   "TORSIÓN DEL TESTÍCULO"
+  ],
+  [
    "ORL / Oftalmológico",
    "T159",
    "CUERPO EXTRAÑO EN PARTE EXTERNA DEL OJO, SITIO NO ESPECIFICADO"
@@ -384,6 +414,11 @@
    "Ambiental / Toxicológico",
    "T68X",
    "HIPOTERMIA"
+  ],
+  [
+   "Ambiental / Toxicológico",
+   "W54",
+   "MORDEDURA O ATAQUE DE PERRO"
   ]
  ],
  "Medicina Interna": [
@@ -1284,6 +1319,11 @@
    "Articular / Ligamentos",
    "M700",
    "SINOVITIS CREPITANTE CRÓNICA DE LA MANO Y DE LA MUÑECA"
+  ],
+  [
+   "Articular / Ligamentos",
+   "S430",
+   "LUXACIÓN DE LA ARTICULACIÓN DEL HOMBRO"
   ],
   [
    "Infecciosas / Óseas",

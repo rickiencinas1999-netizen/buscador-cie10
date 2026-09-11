@@ -240,6 +240,104 @@ SYNONYMS = {
     "se rompio la muneca": ["S525"],
     "fractura de mano": ["S62"],
     "fractura de tobillo": ["S823"],
+
+    # --- Emergencias graves / choque ---
+    "choque septico": ["R572"],
+    "paro cardiaco": ["I469"],
+    "paro cardiorespiratorio": ["I469"],
+    "paro respiratorio": ["R092"],
+    "choque anafilactico": ["T782"],
+    "anafilaxia": ["T782"],
+    "reaccion alergica severa": ["T782"],
+    "alergia": ["T784"],
+
+    # --- Abdomen agudo ---
+    "colecistitis": ["K81"],
+    "vesicula inflamada": ["K81"],
+    "pancreatitis": ["K85"],
+    "peritonitis": ["K65"],
+    "obstruccion intestinal": ["K56"],
+    "diverticulitis": ["K573"],
+
+    # --- Signos vitales / cardiovascular ---
+    "angina de pecho": ["I209"],
+    "taquicardia": ["R000"],
+    "bradicardia": ["R001"],
+    "crisis hipertensiva": ["I119"],
+
+    # --- Neurológico / psiquiátrico ---
+    "meningitis": ["G039"],
+    "encefalitis": ["A86X"],
+    "delirio": ["F059"],
+    "estado confusional": ["F059"],
+    "ansiedad": ["F419"],
+    "crisis de ansiedad": ["F410"],
+    "ataque de panico": ["F410"],
+    "depresion": ["F329"],
+    "intoxicacion alcoholica": ["Y910"],
+
+    # --- Piel ---
+    "forunculo": ["L029"],
+    "absceso en la piel": ["L029"],
+    "impetigo": ["L010"],
+    "herpes zoster": ["B02"],
+    "culebrilla": ["B02"],
+    "herpes labial": ["B00"],
+    "escabiosis": ["B86X"],
+    "sarna": ["B86X"],
+    "piojos": ["B852"],
+    "pediculosis": ["B852"],
+    "tina": ["B359"],
+    "hongos en la piel": ["B359"],
+    "dermatitis atopica": ["L20"],
+    "eczema": ["L20"],
+    "una encarnada": ["L600"],
+
+    # --- ORL / ojo ---
+    "cuerpo extrano en el ojo": ["T150"],
+    "otitis media": ["H650"],
+    "otitis externa": ["H609"],
+
+    # --- Endocrino ---
+    "hipoglucemia": ["E162"],
+    "cetoacidosis diabetica": ["E141"],
+    "hipotiroidismo": ["E03"],
+    "hipertiroidismo": ["E05"],
+    "bocio": ["E04"],
+
+    # --- Urológico / ginecológico ---
+    "torsion testicular": ["N44X"],
+    "orquiepididimitis": ["N459"],
+    "vulvovaginitis": ["N771"],
+
+    # --- Trauma ---
+    "luxacion de hombro": ["S430"],
+    "mordedura de perro": ["W54"],
+    "ataque de perro": ["W54"],
+    "politraumatismo": ["T07X"],
+    "tetanos": ["A35X"],
+    "rabia": ["A82"],
+
+    # --- Infecciosas ---
+    "vih": ["B24X"],
+    "sida": ["B24X"],
+    "hepatitis": ["B159"],
+    "covid": ["U071"],
+    "influenza": ["J10"],
+    "gripe": ["J10"],
+
+    # --- Oncología ---
+    "leucemia": ["C910"],
+    "cancer de mama": ["C509"],
+    "cancer de prostata": ["C61X"],
+    "cancer de colon": ["C189"],
+    "cancer de pulmon": ["C349"],
+
+    # --- Otros signos ---
+    "asfixia": ["R090"],
+    "cianosis": ["R230"],
+    "ictericia": ["R17X"],
+    "hidrocefalia": ["G919"],
 }
 
 

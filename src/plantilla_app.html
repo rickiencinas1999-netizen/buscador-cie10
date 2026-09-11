@@ -6,7 +6,7 @@
 <link rel="apple-touch-icon" href="icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#22303A;
@@ -68,7 +68,10 @@ body{
 }
 .wrap{max-width:1040px;margin:0 auto;}
 
-code, .mono{font-family:'IBM Plex Mono','SFMono-Regular',Consolas,monospace;}
+code, .mono{
+  font-family:'JetBrains Mono','IBM Plex Mono','SFMono-Regular',Consolas,monospace;
+  font-variant-numeric: slashed-zero;
+}
 
 /* ---------- Header ---------- */
 header.top{
@@ -109,15 +112,20 @@ header.top{
 
 .searchbar{
   display:flex; align-items:center; gap:12px;
-  background:var(--surface); border:2px solid var(--line); border-radius:15px;
-  padding:15px 18px; box-shadow:var(--shadow);
-  transition:border-color .12s;
+  background:var(--surface); border:2.5px solid var(--accent); border-radius:15px;
+  padding:16px 20px;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 14%, transparent), var(--shadow);
+  transition:border-color .12s, box-shadow .12s;
 }
-.searchbar:focus-within{border-color:var(--accent);}
-.searchbar svg{flex:0 0 auto; color:var(--ink-soft); width:22px; height:22px;}
+.searchbar:focus-within{
+  border-color:var(--accent);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 22%, transparent), var(--shadow);
+}
+.searchbar svg{flex:0 0 auto; color:var(--accent); width:23px; height:23px;}
 .searchbar input{
   flex:1 1 auto; border:0; outline:0; background:transparent; color:var(--ink);
-  font-family:'IBM Plex Sans'; font-size:17px; font-weight:500; min-width:0;
+  font-family:'JetBrains Mono','IBM Plex Mono',monospace; font-variant-numeric: slashed-zero;
+  font-size:16.5px; font-weight:600; min-width:0; letter-spacing:.1px;
 }
 .searchbar input::placeholder{color:var(--ink-soft); font-weight:400;}
 .searchbar .clear{
@@ -126,6 +134,10 @@ header.top{
   display:none; align-items:center; justify-content:center;
 }
 .searchbar .clear.show{display:flex;}
+.search-hint{
+  font-size:11.5px; color:var(--ink-soft); margin:6px 2px 0; text-align:center;
+}
+.search-hint b{color:var(--accent);}
 
 .chips-section{padding:10px 0 2px;}
 .chips-section .lbl{
@@ -209,7 +221,8 @@ main{padding:14px 0 44px;}
 }
 .dx-row .code{
   flex:0 0 auto; min-width:48px; text-align:center;
-  font-family:'IBM Plex Mono'; font-weight:700; font-size:12px;
+  font-family:'JetBrains Mono','IBM Plex Mono',monospace; font-variant-numeric: slashed-zero;
+  font-weight:700; font-size:12px; letter-spacing:.3px;
   color:var(--sc, var(--accent)); background:color-mix(in srgb, var(--sc, var(--accent)) 12%, var(--surface));
   border:1.2px solid var(--sc, var(--accent)); border-radius:5px; padding:2px 6px;
 }
@@ -262,9 +275,10 @@ footer{
     </div>
     <div class="searchbar">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      <input id="q" type="text" autocomplete="off" spellcheck="false" placeholder="Busca por código, nombre o palabra clave (p. ej. &ldquo;dolor de pecho&rdquo;, &ldquo;IAM&rdquo;, &ldquo;IVU&rdquo;)&hellip;">
+      <input id="q" type="text" inputmode="search" enterkeyhint="search" autocomplete="off" spellcheck="false" placeholder="Escribe el diagnóstico como lo dices a diario: &ldquo;derrame cerebral&rdquo;, &ldquo;IAM&rdquo;, &ldquo;dolor de pecho&rdquo;&hellip;">
       <button class="clear" id="clearBtn" aria-label="Limpiar búsqueda">&times;</button>
     </div>
+    <p class="search-hint"><b>Decodificador CIE-10:</b> escribe el diagnóstico o síntoma en lenguaje común y presiona Enter para ver su código exacto.</p>
   </header>
 
   <div class="chips-section">
@@ -407,7 +421,7 @@ const DATA = __DATA_JSON__;
     const parts = [`<button type="button" class="intro-toggle" id="introToggle">${introOpen?'&#9662;':'&#9656;'} Cómo usar el buscador</button>`];
     if(introOpen){
       parts.push(`<div class="intro">
-        <p><b>Cómo usarlo:</b> escribe un código, un nombre de diagnóstico o una palabra clave (síntoma o abreviatura, p. ej. &ldquo;dolor de pecho&rdquo;, &ldquo;IAM&rdquo;, &ldquo;IVU&rdquo;) para buscar en las __TOTAL_CODES__ claves del catálogo CIE-10, o elige una especialidad para ver su lista curada de diagnósticos frecuentes y relacionados, agrupada por categoría clínica.</p>
+        <p><b>Cómo usarlo:</b> no hace falta que sepas el nombre oficial del CIE-10. Escribe el diagnóstico como lo dirías en el pase de guardia (p. ej. &ldquo;derrame cerebral&rdquo;, &ldquo;dolor de pecho&rdquo;, &ldquo;IAM&rdquo;, &ldquo;IVU&rdquo;), un código o parte de un nombre, y presiona Enter: el buscador lo decodifica al código CIE-10 exacto entre las __TOTAL_CODES__ claves del catálogo. También puedes elegir una especialidad para ver su lista curada de diagnósticos frecuentes, agrupada por categoría clínica.</p>
         <p>Los diagnósticos marcados con una etiqueta de color ya están revisados y clasificados por especialidad; el resto del catálogo también es buscable por código, nombre o palabra clave. Catálogo institucional CIE-ABRIL-2024.</p>
       </div>`);
     }
@@ -556,6 +570,17 @@ const DATA = __DATA_JSON__;
     clearTimeout(debTimer);
     clearBtn.classList.toggle('show', qEl.value.length>0);
     debTimer = setTimeout(()=>{ query = qEl.value; render(); }, 90);
+  });
+  // al presionar Enter: muestra los resultados de inmediato (sin esperar el
+  // debounce) y quita el foco del campo para que el teclado del teléfono se
+  // esconda y no tape la lista de opciones.
+  qEl.addEventListener('keydown', (e)=>{
+    if(e.key !== 'Enter') return;
+    e.preventDefault();
+    clearTimeout(debTimer);
+    query = qEl.value;
+    render();
+    qEl.blur();
   });
   clearBtn.addEventListener('click', ()=>{
     qEl.value=''; query=''; clearBtn.classList.remove('show'); render(); qEl.focus();
