@@ -1,3 +1,7 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
 <title>Buscador CIE-10</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 <meta name="theme-color" content="#008375">
@@ -59,6 +63,10 @@
 }
 
 *{box-sizing:border-box;}
+html{
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
 body{
   background:var(--paper);
   color:var(--ink);
@@ -368,6 +376,8 @@ footer{
   .code-modal-card{padding:46px 34px 36px; max-width:520px;}
 }
 </style>
+</head>
+<body>
 
 <div class="wrap">
   <header class="top">
@@ -867,3 +877,5 @@ if('serviceWorker' in navigator && location.protocol.startsWith('http')){
   });
 }
 </script>
+</body>
+</html>
