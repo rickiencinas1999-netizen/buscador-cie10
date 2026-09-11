@@ -874,7 +874,16 @@ const DATA = __DATA_JSON__;
 // archivo con doble clic (file://) esto simplemente no hace nada.
 if('serviceWorker' in navigator && location.protocol.startsWith('http')){
   window.addEventListener('load', ()=>{
-    navigator.serviceWorker.register('sw.js').catch(()=>{});
+    navigator.serviceWorker.register('sw.js').then((reg)=>{
+      // Fuerza a revisar de inmediato si hay una versión nueva de sw.js,
+      // en vez de esperar a que el navegador lo haga por su cuenta (puede
+      // tardar horas) — importante para el ícono de pantalla de inicio,
+      // que se abre como app y no como pestaña normal de Safari/Chrome.
+      // (El HTML en sí siempre se pide primero a la red — ver sw.js — así
+      // que esto no hace falta para ver contenido fresco; solo mantiene al
+      // propio service worker al día.)
+      reg.update();
+    }).catch(()=>{});
   });
 }
 </script>
