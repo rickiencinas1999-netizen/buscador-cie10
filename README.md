@@ -148,7 +148,7 @@ está generada en `webapp/`.
    documento si no sabes cómo).
 2. En el repo, entra a **Settings -> Pages** y en **"Source"** elige
    **"Deploy from a branch"**. Justo abajo aparecen dos menús: en el
-   primero elige la rama **`main`**, y en el segundo (que por default dice
+   primero elige la rama **`master`**, y en el segundo (que por default dice
    `/ (root)`) elige **`/docs`**. Guarda con **Save**.
 3. Espera 1-2 minutos. La URL final aparece arriba en esa misma página de
    **Settings -> Pages** (con este formato:
@@ -204,8 +204,8 @@ Solo falta conectarlo a un repositorio remoto en GitHub:
 
 ```bash
 git remote add origin https://github.com/TU_USUARIO/buscador-cie10.git
-git branch -M main
-git push -u origin main
+git branch -M master
+git push -u origin master
 ```
 
 A partir de ahí, cualquier cambio (por ejemplo editar

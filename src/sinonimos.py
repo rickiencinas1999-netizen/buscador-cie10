@@ -179,6 +179,67 @@ SYNONYMS = {
     "bajo peso": ["E440"],
     "convulsion febril": ["R560"],
     "convulsiones febriles": ["R560"],
+
+    # --- Picaduras, mordeduras y emergencias ambientales ---
+    "picadura de alacran": ["T632"],
+    "piquete de alacran": ["T632"],
+    "picadura de escorpion": ["T632"],
+    "mordedura de arana": ["T633"],
+    "picadura de arana": ["T633"],
+    "mordedura de vibora": ["T630"],
+    "mordedura de serpiente": ["T630"],
+    "mordedura de culebra": ["T630"],
+    "golpe de calor": ["T670"],
+    "insolacion": ["T670"],
+    "agotamiento por calor": ["T673"],
+    "casi ahogamiento": ["T751"],
+    "cuasi ahogamiento": ["T751"],
+    "ahogamiento": ["T751"],
+    "hipotermia": ["T68X"],
+    "frio extremo": ["T68X"],
+
+    # --- Dolor osteomuscular no traumático ---
+    "ciatica": ["M543"],
+    "dolor de nervio ciatico": ["M543"],
+    "dolor de cuello": ["M542"],
+    "dolor de hombro": ["M750"],
+    "hombro congelado": ["M750"],
+    "dolor de rodilla": ["M17"],
+    "rodilla inflamada": ["M705"],
+
+    # --- ORL frecuentes ---
+    "sinusitis": ["J010"],
+    "dolor de senos paranasales": ["J010"],
+    "amigdalitis": ["J030"],
+    "faringitis": ["J029"],
+    "garganta irritada": ["J029"],
+    "crup": ["J050"],
+    "tos perruna": ["J050"],
+    "laringitis obstructiva": ["J050"],
+
+    # --- Piel, urología pediátrica, neurología e infecciosas ---
+    "celulitis infecciosa": ["L039"],
+    "piel infectada": ["L039"],
+    "infeccion de los dedos": ["L030"],
+    "hidrocele": ["N432"],
+    "hinchazon en el testiculo": ["N432"],
+    "fimosis": ["N47X"],
+    "prepucio apretado": ["N47X"],
+    "migrana": ["G430"],
+    "migrana con aura": ["G431"],
+    "dengue": ["A970", "A971"],
+    "dengue con signos de alarma": ["A971"],
+    "fiebre por dengue": ["A970"],
+
+    # --- Fracturas frecuentes ---
+    "fractura de cadera": ["S720"],
+    "fractura de pierna": ["S82"],
+    "se rompio la pierna": ["S82"],
+    "fractura de brazo": ["S42"],
+    "fractura de muneca": ["S525"],
+    "se rompio la muneca": ["S525"],
+    "fractura de mano": ["S62"],
+    "fractura de tobillo": ["S823"],
 }
 
 

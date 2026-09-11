@@ -34,11 +34,12 @@ SPECIALTIES = {
  ("Digestivo", ["K359","K802","K922","R104","K566","K659","K921","K920","T181","R100"]),
  ("Neurológico", ["R568","G459","S069","G039","R55X","R402","G935","G936"]),
  ("Trauma / Choque", ["S720","T07X","T782","T780","T814","T140","T202","T783","T784"]),
- ("Infeccioso / Sepsis", ["A419","N390","B349","J039","A099","A46X"]),
+ ("Infeccioso / Sepsis", ["A419","N390","B349","J039","A099","A46X","A970","A971"]),
  ("Metabólico", ["E149","E162","E86X","E870","E871","E876"]),
  ("Intoxicación / Psiquiátrico", ["T509","F419","T391","X499"]),
  ("Ginecológico / Urológico agudo", ["O009","R102","R33X","N832"]),
  ("ORL / Oftalmológico", ["T159","R040","R049"]),
+ ("Ambiental / Toxicológico", ["T632","T633","T630","T670","T673","T751","T68X"]),
 ],
 "Medicina Interna": [
  ("Cardiovascular", ["I10X","I500","I259","I489","I739","I959","I429"]),
@@ -88,6 +89,7 @@ SPECIALTIES = {
  ("Infecciosas / Óseas", ["M865","M199","M819"]),
  ("Postquirúrgico", ["T845","Z966","Z946"]),
  ("Deformidades", ["M419","M201"]),
+ ("Dolor de columna y articular no traumático", ["M543","M542","M750","M17","M705"]),
 ],
 "Cardiología": [
  ("Isquémica", ["I219","I209","I251"]),
@@ -122,7 +124,7 @@ SPECIALTIES = {
 "Neurología": [
  ("Cerebrovascular", ["I639","I619","G459"]),
  ("Epilepsia / Crisis", ["G409","R568","R560"]),
- ("Cefalea", ["G439","G440"]),
+ ("Cefalea", ["G439","G440","G430","G431"]),
  ("Degenerativas", ["G309","G20X","G932"]),
  ("Neuropatías", ["G629","G562","G610"]),
  ("Neuroinfección / Otros", ["G039","G049","G934","G042"]),
@@ -135,7 +137,7 @@ SPECIALTIES = {
  ("Hidroelectrolítico / HTA renal", ["E875","E872","I120","E873","E876","I129"]),
 ],
 "Dermatología": [
- ("Infecciosas", ["L029","B019","B350","B354","B029","B86X"]),
+ ("Infecciosas", ["L029","B019","B350","B354","B029","B86X","L039","L030"]),
  ("Inflamatorias", ["L309","L400","L500","L405"]),
  ("Neoplasias", ["C449","D239"]),
  ("Otras", ["L708","L219","L80X","L659","B07X"]),
@@ -144,7 +146,7 @@ SPECIALTIES = {
  ("Infecciones", ["N390","N300","N136"]),
  ("Litiasis", ["N200","N202"]),
  ("Próstata", ["N40X","C61X"]),
- ("Genital masculino", ["I861","N459","N433","N450","N434"]),
+ ("Genital masculino", ["I861","N459","N433","N450","N434","N432","N47X"]),
  ("Oncología urológica", ["C679","C64X"]),
  ("Otros", ["R31X","R33X","N393","N359"]),
 ],
@@ -155,8 +157,8 @@ SPECIALTIES = {
 ],
 "Otorrinolaringología": [
  ("Oído", ["H659","H609","H904","H810","H811"]),
- ("Nariz / Senos", ["J019","J340","J342","R040"]),
- ("Faringe / Laringe", ["J039","J040","J350","J351"]),
+ ("Nariz / Senos", ["J019","J340","J342","R040","J010"]),
+ ("Faringe / Laringe", ["J039","J040","J350","J351","J030","J029","J050"]),
 ],
 "Endocrinología": [
  ("Diabetes", ["E119","E112","E149","E118"]),

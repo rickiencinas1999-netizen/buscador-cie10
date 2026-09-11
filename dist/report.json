@@ -256,6 +256,16 @@
    "ERISIPELA"
   ],
   [
+   "Infeccioso / Sepsis",
+   "A970",
+   "DENGUE SIN SIGNOS DE ALARMA"
+  ],
+  [
+   "Infeccioso / Sepsis",
+   "A971",
+   "DENGUE CON SIGNOS DE ALARMA"
+  ],
+  [
    "Metabólico",
    "E149",
    "DIABETES MELLITUS NO ESPECIFICADA, SIN MENCIÓN DE COMPLICACIÓN"
@@ -339,6 +349,41 @@
    "ORL / Oftalmológico",
    "R049",
    "HEMORRAGIA DE LAS VÍAS RESPIRATORIAS, NO ESPECIFICADA"
+  ],
+  [
+   "Ambiental / Toxicológico",
+   "T632",
+   "EFECTO TÓXICO DEL VENENO DE ESCORPIÓN"
+  ],
+  [
+   "Ambiental / Toxicológico",
+   "T633",
+   "EFECTO TÓXICO DEL VENENO DE ARAÑAS"
+  ],
+  [
+   "Ambiental / Toxicológico",
+   "T630",
+   "EFECTO TÓXICO DEL VENENO DE SERPIENTE"
+  ],
+  [
+   "Ambiental / Toxicológico",
+   "T670",
+   "GOLPE DE CALOR E INSOLACIÓN"
+  ],
+  [
+   "Ambiental / Toxicológico",
+   "T673",
+   "AGOTAMIENTO POR CALOR, ANHIDRÓTICO"
+  ],
+  [
+   "Ambiental / Toxicológico",
+   "T751",
+   "AHOGAMIENTO Y SUMERSIÓN NO MORTAL"
+  ],
+  [
+   "Ambiental / Toxicológico",
+   "T68X",
+   "HIPOTERMIA"
   ]
  ],
  "Medicina Interna": [
@@ -1279,6 +1324,31 @@
    "Deformidades",
    "M201",
    "HALLUX VALGUS (ADQUIRIDO)"
+  ],
+  [
+   "Dolor de columna y articular no traumático",
+   "M543",
+   "CIÁTICA"
+  ],
+  [
+   "Dolor de columna y articular no traumático",
+   "M542",
+   "CERVICALGIA"
+  ],
+  [
+   "Dolor de columna y articular no traumático",
+   "M750",
+   "CAPSULITIS ADHESIVA DEL HOMBRO"
+  ],
+  [
+   "Dolor de columna y articular no traumático",
+   "M17",
+   "GONARTROSIS [ARTROSIS DE LA RODILLA]"
+  ],
+  [
+   "Dolor de columna y articular no traumático",
+   "M705",
+   "OTRAS BURSITIS DE LA RODILLA"
   ]
  ],
  "Cardiología": [
@@ -1726,6 +1796,16 @@
    "SÍNDROME DE CEFALEA EN RACIMOS"
   ],
   [
+   "Cefalea",
+   "G430",
+   "MIGRAÑA SIN AURA [MIGRAÑA COMÚN]"
+  ],
+  [
+   "Cefalea",
+   "G431",
+   "MIGRAÑA CON AURA [MIGRAÑA CLÁSICA]"
+  ],
+  [
    "Degenerativas",
    "G309",
    "ENFERMEDAD DE ALZHEIMER, NO ESPECIFICADA"
@@ -1895,6 +1975,16 @@
    "ESCABIOSIS"
   ],
   [
+   "Infecciosas",
+   "L039",
+   "CELULITIS DE SITIO NO ESPECIFICADO"
+  ],
+  [
+   "Infecciosas",
+   "L030",
+   "CELULITIS DE LOS DEDOS DE LA MANO Y DEL PIE"
+  ],
+  [
    "Inflamatorias",
    "L309",
    "DERMATITIS, NO ESPECIFICADA"
@@ -2010,6 +2100,16 @@
    "Genital masculino",
    "N434",
    "ESPERMATOCELE"
+  ],
+  [
+   "Genital masculino",
+   "N432",
+   "OTROS HIDROCELES"
+  ],
+  [
+   "Genital masculino",
+   "N47X",
+   "PREPUCIO REDUNDANTE, FIMOSIS Y PARAFIMOSIS"
   ],
   [
    "Oncología urológica",
@@ -2156,6 +2256,11 @@
    "EPISTAXIS"
   ],
   [
+   "Nariz / Senos",
+   "J010",
+   "SINUSITIS MAXILAR AGUDA"
+  ],
+  [
    "Faringe / Laringe",
    "J039",
    "AMIGDALITIS AGUDA, NO ESPECIFICADA"
@@ -2174,6 +2279,21 @@
    "Faringe / Laringe",
    "J351",
    "HIPERTROFIA DE LAS AMÍGDALAS"
+  ],
+  [
+   "Faringe / Laringe",
+   "J030",
+   "AMIGDALITIS ESTREPTOCÓCICA"
+  ],
+  [
+   "Faringe / Laringe",
+   "J029",
+   "FARINGITIS AGUDA, NO ESPECIFICADA"
+  ],
+  [
+   "Faringe / Laringe",
+   "J050",
+   "LARINGITIS OBSTRUCTIVA, AGUDA [CRUP]"
   ]
  ],
  "Endocrinología": [
