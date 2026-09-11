@@ -349,6 +349,35 @@ SYNONYMS = {
     "rasguno en el ojo": ["S050"],
     "ulcera corneal": ["H160"],
     "ulcera en la cornea": ["H160"],
+
+    # --- Términos clásicos / de otras clasificaciones (CIE-9 y lenguaje
+    # médico clásico) que siguen usándose de palabra pero ya no son el
+    # nombre oficial del diagnóstico en la CIE-10 ---
+    "anasarca": ["R601"],
+    "edema generalizado": ["R601"],
+    "corea": ["G255"],
+    "flatulencia": ["R14X"],
+    "meteorismo": ["R14X"],
+    "anuria": ["R34X"],
+    "oliguria": ["R34X"],
+    "disuria": ["R300"],
+    "tenesmo vesical": ["R301"],
+    "epistaxis": ["R040"],
+    "sangrado de nariz": ["R040"],
+    "sangrado nasal": ["R040"],
+    "hemoptisis": ["R042"],
+    "toser sangre": ["R042"],
+    "astenia": ["R53X"],
+    "adinamia": ["R53X"],
+    "fatiga": ["R53X"],
+    "hipo": ["R066"],
+    "singulto": ["R066"],
+    "tisis": ["A169"],
+    "tuberculosis pulmonar": ["A169"],
+    "hematemesis": ["K920"],
+    "vomito con sangre": ["K920"],
+    "melena": ["K921"],
+    "heces negras": ["K921"],
 }
 
 

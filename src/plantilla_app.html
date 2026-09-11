@@ -244,6 +244,38 @@ main{padding:14px 0 44px;}
 .empty .big{font-size:34px; margin-bottom:8px;}
 .empty p{font-size:13.5px; margin:4px 0;}
 
+.dx-row{cursor:pointer; border-radius:6px; position:relative;}
+.dx-row:hover, .dx-row:focus-visible{background:var(--surface-2);}
+.dx-row:focus-visible{outline:2px solid var(--focus); outline-offset:-2px;}
+.dx-row:active{background:color-mix(in srgb, var(--accent) 14%, var(--surface-2));}
+
+/* ---------- Pantalla grande del código (al tocar un diagnóstico) ---------- */
+.code-modal{
+  position:fixed; inset:0; z-index:100; display:none;
+  align-items:center; justify-content:center; padding:22px;
+  background:rgba(4,10,10,.6);
+}
+.code-modal.show{display:flex;}
+.code-modal-card{
+  background:var(--surface); border:1px solid var(--line); border-radius:22px;
+  box-shadow:var(--shadow); padding:38px 26px 30px; max-width:480px; width:100%;
+  text-align:center; position:relative;
+}
+.code-modal-close{
+  position:absolute; top:8px; right:8px; width:46px; height:46px; border-radius:50%;
+  border:0; background:var(--surface-2); color:var(--ink); font-size:26px; line-height:1;
+  cursor:pointer; display:flex; align-items:center; justify-content:center;
+}
+.code-modal-close:hover{background:var(--line);}
+.code-modal-close:focus-visible{outline:2px solid var(--focus); outline-offset:2px;}
+.code-modal .big-code{
+  font-family:'JetBrains Mono','IBM Plex Mono',monospace; font-variant-numeric: slashed-zero;
+  font-size:clamp(46px,15vw,80px); font-weight:700; line-height:1; letter-spacing:.01em;
+  color:var(--mc, var(--accent)); margin:10px 0 16px; word-break:break-all;
+}
+.code-modal .dx-name{font-size:17px; font-weight:600; line-height:1.4; margin-bottom:16px;}
+.code-modal .dx-pills{display:flex; gap:6px; flex-wrap:wrap; justify-content:center;}
+
 footer{
   border-top:1px solid var(--line); padding:18px 0 30px; margin-top:10px;
   font-size:11.5px; color:var(--ink-soft); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
@@ -253,6 +285,11 @@ footer{
   .brand{flex-wrap:wrap;}
   .brand .tag{margin-left:0; text-align:left;}
   .dx-row .pills{display:none;}
+  .dx-row{padding-right:20px;}
+  .dx-row::after{
+    content:'⤢'; position:absolute; right:2px; top:50%; transform:translateY(-50%);
+    font-size:12px; color:var(--ink-soft); opacity:.55;
+  }
   .overview-grid{grid-template-columns:1fr 1fr;}
 }
 @media (max-width:420px){
@@ -287,6 +324,15 @@ footer{
   </div>
 
   <main id="main"></main>
+
+  <div class="code-modal" id="codeModal" role="dialog" aria-modal="true" aria-labelledby="modalCode" aria-hidden="true">
+    <div class="code-modal-card">
+      <button type="button" class="code-modal-close" id="modalClose" aria-label="Cerrar">&times;</button>
+      <div class="big-code" id="modalCode"></div>
+      <div class="dx-name" id="modalName"></div>
+      <div class="dx-pills" id="modalPills"></div>
+    </div>
+  </div>
 
   <footer>
     <span>Guía interna de codificación &middot; no sustituye el catálogo oficial completo</span>
@@ -410,7 +456,7 @@ const DATA = __DATA_JSON__;
     const nm = idx!=null ? names[idx] : code;
     const pills = pillsFor(code, excludeSpec);
     const kwHit = kwTerm ? `<span class="kw-hit">&#128273; coincide con &ldquo;${kwTerm}&rdquo;</span>` : '';
-    return `<div class="dx-row">
+    return `<div class="dx-row" data-code="${code}" data-sc="${sc||''}" tabindex="0" role="button" aria-label="Ver ${code} en pantalla completa">
       <div class="code" style="--sc:${sc||'var(--accent)'}">${code}</div>
       <div class="nm">${nm}${kwHit}</div>
       <div class="pills">${pills}</div>
@@ -485,6 +531,56 @@ const DATA = __DATA_JSON__;
     return -1;
   }
 
+  // distancia de edición (Levenshtein) acotada: si ya se pasó de `max`
+  // corta temprano — barata de correr sobre miles de nombres porque casi
+  // siempre se descarta en pocas filas.
+  function levBounded(a, b, max){
+    if(Math.abs(a.length-b.length) > max) return max+1;
+    const la=a.length, lb=b.length;
+    let prev = new Array(lb+1);
+    for(let j=0;j<=lb;j++) prev[j]=j;
+    for(let i=1;i<=la;i++){
+      const cur = new Array(lb+1).fill(max+1);
+      cur[0]=i;
+      let rowMin = cur[0];
+      const lo = Math.max(1, i-max), hi = Math.min(lb, i+max);
+      for(let j=lo;j<=hi;j++){
+        const cost = a[i-1]===b[j-1] ? 0 : 1;
+        cur[j] = Math.min(prev[j]+1, cur[j-1]+1, prev[j-1]+cost);
+        if(cur[j]<rowMin) rowMin=cur[j];
+      }
+      if(rowMin>max) return max+1;
+      prev = cur;
+    }
+    return prev[lb];
+  }
+
+  // búsqueda aproximada: solo se usa cuando la búsqueda normal (código,
+  // nombre, sinónimo exacto/parcial) no encontró nada — así toleramos
+  // errores de tipeo ("nuemonia", "hipertension") sin penalizar el caso
+  // normal ni volver la búsqueda más lenta.
+  function fuzzyFallback(nq, poolSet){
+    if(nq.length < 4) return [];
+    const maxDist = nq.length <= 6 ? 1 : 2;
+    const hits = [];
+    for(const {term, key, codes: synCodes} of synIndex){
+      if(Math.abs(key.length-nq.length) > maxDist+2) continue;
+      const d = levBounded(nq, key, maxDist);
+      if(d<=maxDist){ for(const code of synCodes) hits.push({code, term, dist:d}); }
+    }
+    for(let i=0;i<codes.length;i++){
+      const code = codes[i];
+      if(poolSet && !poolSet.has(code)) continue;
+      const words = nameNorm[i].split(' ');
+      for(const w of words){
+        if(w.length<4 || Math.abs(w.length-nq.length)>maxDist) continue;
+        const d = levBounded(nq, w, maxDist);
+        if(d<=maxDist){ hits.push({code, term:null, dist:d}); break; }
+      }
+    }
+    return hits;
+  }
+
   function searchResults(){
     const nq = norm(query);
     let poolSet = null;
@@ -529,18 +625,32 @@ const DATA = __DATA_JSON__;
       for(const code of synCodes){ offer(code, score, term); }
     }
 
-    const scored = Array.from(best.entries()).map(([code, v])=>[v.score, code, v.term]);
+    let scored = Array.from(best.entries()).map(([code, v])=>[v.score, code, v.term]);
+    let fuzzy = false;
+    if(!scored.length && nq.length>=4){
+      const fbest = new Map();
+      for(const {code, term, dist} of fuzzyFallback(nq, poolSet)){
+        const score = 5 + dist;
+        const cur = fbest.get(code);
+        if(!cur || score<cur.score) fbest.set(code, {score, term});
+      }
+      scored = Array.from(fbest.entries()).map(([code, v])=>[v.score, code, v.term]);
+      fuzzy = scored.length > 0;
+    }
     scored.sort((a,b)=> a[0]-b[0] || a[1].localeCompare(b[1]));
-    return scored.map(([,code,term])=>({code, term}));
+    return {results: scored.map(([,code,term])=>({code, term})), fuzzy};
   }
 
   function renderSearch(){
-    const results = searchResults();
+    const {results, fuzzy} = searchResults();
     const scopeLabel = selected.size ? Array.from(selected).map(i=>specs[i].name).join(' + ') : 'todo el catálogo';
     const parts = [`<div class="status-row"><h2>Resultados</h2><span class="count">${results.length} en ${scopeLabel}</span></div>`];
     if(!results.length){
       parts.push(emptyHtml(`Sin coincidencias para &ldquo;${query}&rdquo;. Prueba con menos letras, solo el código, o un síntoma (p. ej. &ldquo;dolor de pecho&rdquo;).`));
     } else {
+      if(fuzzy){
+        parts.push(`<p class="search-hint" style="text-align:left;margin:0 0 8px;">No hubo coincidencia exacta para &ldquo;${query}&rdquo; &mdash; mostrando resultados aproximados (revisa la ortografía).</p>`);
+      }
       parts.push('<div class="rows">');
       results.slice(0, MAX_RESULTS).forEach(({code, term})=>{
         const t = tags[code];
@@ -564,6 +674,50 @@ const DATA = __DATA_JSON__;
       renderOverview();
     }
   }
+
+  // ---------- Pantalla grande del código: tocar/seleccionar un diagnóstico
+  // muestra su código CIE-10 en grande, con botón de cerrar (X) ----------
+  const modalEl = document.getElementById('codeModal');
+  const modalCodeEl = document.getElementById('modalCode');
+  const modalNameEl = document.getElementById('modalName');
+  const modalPillsEl = document.getElementById('modalPills');
+  const modalCloseBtn = document.getElementById('modalClose');
+  let modalOpener = null;
+
+  function openCodeModal(row){
+    const code = row.dataset.code;
+    const sc = row.dataset.sc;
+    const idx = codeIndex.get(code);
+    modalOpener = row;
+    modalCodeEl.textContent = code;
+    modalCodeEl.style.setProperty('--mc', sc || 'var(--accent)');
+    modalNameEl.textContent = idx!=null ? names[idx] : code;
+    modalPillsEl.innerHTML = pillsFor(code, null);
+    modalEl.classList.add('show');
+    modalEl.setAttribute('aria-hidden', 'false');
+    modalCloseBtn.focus();
+  }
+  function closeCodeModal(){
+    modalEl.classList.remove('show');
+    modalEl.setAttribute('aria-hidden', 'true');
+    if(modalOpener) modalOpener.focus();
+  }
+  modalCloseBtn.addEventListener('click', closeCodeModal);
+  modalEl.addEventListener('click', (e)=>{ if(e.target === modalEl) closeCodeModal(); });
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'Escape' && modalEl.classList.contains('show')) closeCodeModal();
+  });
+  mainEl.addEventListener('click', (e)=>{
+    const row = e.target.closest('.dx-row');
+    if(row) openCodeModal(row);
+  });
+  mainEl.addEventListener('keydown', (e)=>{
+    if(e.key !== 'Enter' && e.key !== ' ') return;
+    const row = e.target.closest('.dx-row');
+    if(!row) return;
+    e.preventDefault();
+    openCodeModal(row);
+  });
 
   let debTimer;
   qEl.addEventListener('input', ()=>{
