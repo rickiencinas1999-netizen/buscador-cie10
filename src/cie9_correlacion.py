@@ -389,6 +389,7 @@ CIE9 = {
     "S320": ("805.4", "Fractura de vértebra lumbar"),
     "S420": ("810.00", "Fractura de la clavícula"),
     "S421": ("811.00", "Fractura del omóplato"),
+    "S022": ("802.0", "Fractura cerrada de huesos nasales"),
     "S424": ("812.40", "Fractura de la epífisis inferior del húmero"),
     "S430": ("831.00", "Luxación de la articulación del hombro"),
     "S525": ("813.42", "Fractura de la epífisis inferior del radio"),

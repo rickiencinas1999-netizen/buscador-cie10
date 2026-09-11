@@ -381,6 +381,11 @@
    "HEMORRAGIA DE LAS VÍAS RESPIRATORIAS, NO ESPECIFICADA"
   ],
   [
+   "ORL / Oftalmológico",
+   "S022",
+   "FRACTURA DE LOS HUESOS DE LA NARIZ"
+  ],
+  [
    "Ambiental / Toxicológico",
    "T632",
    "EFECTO TÓXICO DEL VENENO DE ESCORPIÓN"
@@ -2314,6 +2319,11 @@
    "Nariz / Senos",
    "J010",
    "SINUSITIS MAXILAR AGUDA"
+  ],
+  [
+   "Nariz / Senos",
+   "S022",
+   "FRACTURA DE LOS HUESOS DE LA NARIZ"
   ],
   [
    "Faringe / Laringe",

@@ -38,7 +38,7 @@ SPECIALTIES = {
  ("Metabólico", ["E149","E162","E86X","E870","E871","E876"]),
  ("Intoxicación / Psiquiátrico", ["T509","F419","T391","X499"]),
  ("Ginecológico / Urológico agudo", ["O009","R102","R33X","N832","N44X"]),
- ("ORL / Oftalmológico", ["T159","R040","R049"]),
+ ("ORL / Oftalmológico", ["T159","R040","R049","S022"]),
  ("Ambiental / Toxicológico", ["T632","T633","T630","T670","T673","T751","T68X","W54"]),
 ],
 "Medicina Interna": [
@@ -157,7 +157,7 @@ SPECIALTIES = {
 ],
 "Otorrinolaringología": [
  ("Oído", ["H659","H609","H904","H810","H811"]),
- ("Nariz / Senos", ["J019","J340","J342","R040","J010"]),
+ ("Nariz / Senos", ["J019","J340","J342","R040","J010","S022"]),
  ("Faringe / Laringe", ["J039","J040","J350","J351","J030","J029","J050"]),
 ],
 "Endocrinología": [

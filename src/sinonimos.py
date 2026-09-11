@@ -240,6 +240,12 @@ SYNONYMS = {
     "se rompio la muneca": ["S525"],
     "fractura de mano": ["S62"],
     "fractura de tobillo": ["S823"],
+    "fractura nasal": ["S022"],
+    "fractura de nariz": ["S022"],
+    "fractura del hueso nasal": ["S022"],
+    "fractura de huesos nasales": ["S022"],
+    "nariz rota": ["S022"],
+    "se rompio la nariz": ["S022"],
 
     # --- Emergencias graves / choque ---
     "choque septico": ["R572"],
