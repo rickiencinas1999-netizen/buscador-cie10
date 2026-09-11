@@ -26,6 +26,15 @@ Esta paleta se generó y validó con el método de la skill de dataviz:
     "ALL CHECKS PASS" tanto en modo claro (fondo #EFF4F3) como oscuro
     (fondo #0A1717) para los 18 pares consecutivos.
 
+Ajuste posterior (croma más bajo): la primera versión usaba croma alto
+(~0.115-0.135) para maximizar la separación — quedaba muy distinguible pero
+se veía como "muchos colores vivos que no combinan entre sí". Se bajó el
+croma objetivo a ~0.115-0.12 (el mínimo que sigue pasando los mismos
+checks — se probó cada escalón contra el validador real hasta encontrarlo)
+para que los 19 tonos se vean como una familia coordinada de colores
+apagados/tipo "joya" en vez de un arcoíris de colores saturados, sin dejar
+de distinguirse entre sí.
+
 Nota: el color siempre acompaña texto (nombre de la especialidad, código,
 etc.) en la app — nunca es la única forma de distinguir una especialidad —
 así que estos 19 tonos priorizan visión normal y daltonismo parcial, no
@@ -44,25 +53,25 @@ Cada entrada es (hex_claro, hex_oscuro, tinta_oscura):
 """
 
 PALETTE = [
-    ("#474795", "#6C6FC8", "#fff"),
-    ("#954E00", "#CB772E", "#062120"),
-    ("#554D9D", "#7D77D2", "#062120"),
-    ("#9F5011", "#AE6716", "#fff"),
-    ("#187EAA", "#22A2D3", "#062120"),
-    ("#853B73", "#BE6094", "#062120"),
-    ("#477826", "#788216", "#fff"),
-    ("#2565A8", "#4D92DF", "#062120"),
-    ("#913754", "#C76541", "#062120"),
-    ("#607211", "#22A992", "#062120"),
-    ("#744E9C", "#A378D1", "#062120"),
-    ("#A15F13", "#A87D19", "#062120"),
-    ("#136EAB", "#2E9BDC", "#062120"),
-    ("#994063", "#CF698F", "#062120"),
-    ("#396914", "#5F963D", "#062120"),
-    ("#3D4A96", "#6072C9", "#fff"),
-    ("#636A00", "#CF743B", "#062120"),
-    ("#1679AF", "#21A981", "#062120"),
-    ("#743678", "#A25BA6", "#fff"),
+    ("#8A3346", "#B65E6D", "#fff"),
+    ("#2C783B", "#5DA467", "#062120"),
+    ("#58519E", "#7F7BC8", "#062120"),
+    ("#9A5A12", "#AD6C29", "#fff"),
+    ("#188468", "#21A696", "#062120"),
+    ("#873F75", "#9C71B9", "#062120"),
+    ("#6A7312", "#7B8529", "#062120"),
+    ("#2C68A8", "#5A94D5", "#062120"),
+    ("#8F3C62", "#BD6F43", "#062120"),
+    ("#806A12", "#1B917D", "#062120"),
+    ("#76529D", "#A17EC9", "#062120"),
+    ("#946D14", "#A87F23", "#062120"),
+    ("#1573A7", "#1A89B2", "#062120"),
+    ("#9A4566", "#CB7184", "#062120"),
+    ("#3D6C1D", "#67954C", "#062120"),
+    ("#404E97", "#6677C1", "#fff"),
+    ("#9B4E1A", "#C87A4D", "#062120"),
+    ("#198868", "#219C7B", "#062120"),
+    ("#763A79", "#866DB8", "#fff"),
 ]
 
 
