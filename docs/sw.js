@@ -6,7 +6,7 @@
 //
 // Sube CACHE_VERSION cada vez que se publique una nueva versión del
 // catálogo/app para forzar a los navegadores a descargar la versión nueva.
-const CACHE_VERSION = 'cie10-v1';
+const CACHE_VERSION = 'cie10-v2';
 const SHELL = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', (event) => {
