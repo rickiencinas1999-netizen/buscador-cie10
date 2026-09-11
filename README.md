@@ -33,6 +33,16 @@ data/
   cie10_a_cie11.json      Generado por generar_cie11.py: código CIE-10 del
                           catálogo -> {code, title} en CIE-11. No editar a
                           mano, se regenera desde oms_cie11_source/.
+  cdc_icd9cm_source/      "Appendix E" del manual oficial de la CIE-9-MC de
+                          EE. UU. (CDC/NCHS, FY2012): lista completa de
+                          categorías de 3 dígitos, código -> nombre en
+                          inglés (Appndx12_source.zip conserva el original
+                          de la CDC; DC_3D12.RTF es el archivo que usa
+                          generar_icd9_ref.py). Se usa para VALIDAR que los
+                          códigos en cie9_correlacion.py existan de verdad
+                          — no es una tabla de equivalencia CIE-9<->CIE-10.
+  icd9_3digit_ref.json    Generado por generar_icd9_ref.py a partir de
+                          cdc_icd9cm_source/. No editar a mano.
 src/
   especialidades.py      Fuente de verdad clínica: códigos CIE-10 curados
                           por especialidad y categoría. Valida cada código
@@ -47,11 +57,15 @@ src/
                           método de generación.
   generar_cie11.py        Genera data/cie10_a_cie11.json a partir de la
                           tabla oficial de la OMS en data/oms_cie11_source/.
+  generar_icd9_ref.py     Genera data/icd9_3digit_ref.json a partir de
+                          data/cdc_icd9cm_source/ (ver arriba).
   cie9_correlacion.py     Correlación aproximada CIE-10 -> CIE-9, curada a
-                          mano (no existe tabla oficial gratuita para la
-                          edición CIE-10 de este catálogo — ver el
-                          comentario del archivo). Cubre los diagnósticos
-                          más frecuentes, no el catálogo completo.
+                          mano (no existe tabla oficial gratuita de
+                          equivalencia para la edición CIE-10 de este
+                          catálogo — ver el comentario del archivo). Cada
+                          código CIE-9 se valida a nivel de 3 dígitos contra
+                          data/icd9_3digit_ref.json. Cubre 324 de los 413
+                          diagnósticos curados, no el catálogo completo.
   generar_datos_app.py   Genera dist/app_data.json (catálogo completo +
                           etiquetas de especialidad + sinónimos + paleta +
                           correlación CIE-11/CIE-9) para la app web.
@@ -128,12 +142,19 @@ además del código CIE-10 la app muestra, si existen:
   de cada uno). El título viene en inglés porque el archivo de la OMS no
   incluye la traducción al español.
 - **CIE-9**: una correlación aproximada y curada a mano en
-  `cie9_correlacion.py`, solo para los diagnósticos más frecuentes/clásicos.
-  No existe una tabla oficial y gratuita de la OMS/OPS para la edición
-  CIE-10 de este catálogo (la única gratuita, los "GEMs" de EE. UU., es
-  para la CIE-9-MC/CIE-10-CM, una edición distinta cuyos códigos no
-  calzan uno a uno con los de aquí) — por eso se marca explícitamente en
-  la app como "correlación aproximada, no oficial".
+  `cie9_correlacion.py`, para 324 de los 413 diagnósticos curados (79%).
+  No existe una tabla oficial y gratuita de equivalencia CIE-9<->CIE-10
+  de la OMS/OPS para la edición CIE-10 de este catálogo (la única
+  gratuita, los "GEMs" de EE. UU., es para la CIE-9-MC/CIE-10-CM, una
+  edición distinta cuyos códigos no calzan uno a uno con los de aquí) —
+  por eso se marca explícitamente en la app como "correlación
+  aproximada, no oficial". Sí existe, en cambio, el catálogo OFICIAL
+  completo de códigos de la CIE-9-MC (`data/cdc_icd9cm_source/` +
+  `data/icd9_3digit_ref.json`, ver arriba), que se usa para verificar que
+  cada código de 3 dígitos que aparece en la correlación exista de
+  verdad — reduce, pero no elimina, el riesgo de error en el 4to/5to
+  dígito de cada código, que sigue siendo criterio clínico sin tabla
+  pública para verificarse automáticamente.
 
 Para actualizar la tabla de la OMS en el futuro (nuevas versiones de la
 CIE-11), descarga el `.zip` de mapeo desde la misma página, reemplaza
@@ -150,6 +171,9 @@ cd buscador-cie10
 
 # 1. (Solo si cambió data/oms_cie11_source/) correlación CIE-10 -> CIE-11
 python3 src/generar_cie11.py
+
+# 1b. (Solo si cambió data/cdc_icd9cm_source/) referencia oficial CIE-9-MC
+python3 src/generar_icd9_ref.py
 
 # 2. Datos para la app web (especialidades.py + catalogo.json + CIE-11/CIE-9)
 python3 src/generar_datos_app.py
