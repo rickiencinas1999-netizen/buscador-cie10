@@ -530,6 +530,14 @@ CIE9 = {
     "F410": ("300.01", "Trastorno de pánico"),
     "F431": ("309.81", "Trastorno de estrés postraumático"),
     "F510": ("307.42", "Insomnio no orgánico"),
+
+    # --- Intoxicaciones e fracturas adicionales por región del cuerpo ---
+    "F100": ("305.00", "Intoxicación alcohólica aguda"),
+    "T58X": ("986", "Efecto tóxico del monóxido de carbono"),
+    "J680": ("506.0", "Bronquitis y neumonitis por inhalación de humo/gases"),
+    "S029": ("803.00", "Fractura de cráneo y huesos de la cara, no especificada"),
+    "S223": ("807.00", "Fractura cerrada de costilla"),
+    "S929": ("825.9", "Fractura del pie, no especificada"),
 }
 
 

@@ -341,6 +341,11 @@
    "ENVENENAMIENTO ACCIDENTAL POR, Y EXPOSICIÓN A OTROS PRODUCTOS QUÍMICOS Y SUSTANCIAS NOCIVAS, Y LOS NO ESPECIFICADOS, LUGAR NO ESPECIFICADO"
   ],
   [
+   "Intoxicación / Psiquiátrico",
+   "F100",
+   "TRASTORNOS MENTALES Y DEL COMPORTAMIENTO DEBIDOS AL USO DE ALCOHOL, INTOXICACIÓN AGUDA"
+  ],
+  [
    "Ginecológico / Urológico agudo",
    "O009",
    "EMBARAZO ECTÓPICO, NO ESPECIFICADO"
@@ -424,6 +429,16 @@
    "Ambiental / Toxicológico",
    "W54",
    "MORDEDURA O ATAQUE DE PERRO"
+  ],
+  [
+   "Ambiental / Toxicológico",
+   "J680",
+   "BRONQUITIS Y NEUMONITIS DEBIDAS A INHALACIÓN DE GASES, HUMOS, VAPORES Y SUSTANCIAS QUÍMICAS"
+  ],
+  [
+   "Ambiental / Toxicológico",
+   "T58X",
+   "EFECTO TÓXICO DEL MONÓXIDO DE CARBONO"
   ]
  ],
  "Medicina Interna": [
@@ -1311,6 +1326,11 @@
    "FRACTURA DE LOS HUESOS DEL DEDO GORDO DEL PIE"
   ],
   [
+   "Fracturas miembro inferior",
+   "S929",
+   "FRACTURA DEL PIE, NO ESPECIFICADA"
+  ],
+  [
    "Columna / Pelvis",
    "S320",
    "FRACTURA DE VÉRTEBRA LUMBAR"
@@ -1329,6 +1349,16 @@
    "Columna / Pelvis",
    "S222",
    "FRACTURA DEL ESTERNÓN"
+  ],
+  [
+   "Columna / Pelvis",
+   "S223",
+   "FRACTURA DE COSTILLA"
+  ],
+  [
+   "Fracturas de cráneo y cara",
+   "S029",
+   "FRACTURA DEL CRÁNEO Y DE LOS HUESOS DE LA CARA, PARTE NO ESPECIFICADA"
   ],
   [
    "Articular / Ligamentos",
